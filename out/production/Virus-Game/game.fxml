@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<Pane fx:id="road" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#test" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5a5d5f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerMain">
+<Pane fx:id="road" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5a5d5f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerMain">
    <children>
       <Line endX="64.29290771484375" endY="-56.5" layoutX="199.0" layoutY="154.0" startX="-199.0" startY="246.0" stroke="YELLOW" />
       <Line endX="325.0" endY="249.0" layoutX="275.0" layoutY="151.0" startX="65.89288330078125" startY="-53.5" stroke="YELLOW" />
-      <ImageView fitHeight="130.0" fitWidth="144.0" layoutX="218.0" layoutY="256.0">
+      <ImageView fx:id="player" fitHeight="176.0" fitWidth="183.0" layoutX="218.0" layoutY="210.0">
          <image>
-            <Image url="@charlotte_large.png" />
+            <Image url="@Images/player.png" />
          </image>
       </ImageView>
    </children>

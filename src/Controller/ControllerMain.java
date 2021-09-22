@@ -13,12 +13,10 @@ public class ControllerMain {
     @FXML
     Pane road;
 
-    @FXML
-    StackPane stackpane;
 
 
-    @FXML protected void test(KeyEvent k){
-        System.out.println("here");
+    @FXML protected void play(KeyEvent k){
+
     }
 
 

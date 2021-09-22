@@ -14,49 +14,22 @@ import java.io.IOException;
 
 public class ControllerAcceuil  {
 
-    @FXML Button button;
+    @FXML Pane pane;
 
-
-
-    @FXML
-    public void here(KeyEvent keyEvent) throws IOException {
-        //System.out.println(keyEvent.getCode() );
-        Stage primaryStage = (Stage) button.getScene().getWindow();
-        if(keyEvent.getCode().equals(KeyCode.SPACE)){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../game.fxml"));
-            Pane myPane = loader.load();
-            ControllerMain c = loader.getController();
-           // System.out.println(c.player.getImage().getHeight());
-            Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-            primaryStage.setScene(myScene);
-            primaryStage.show();
-        }
-        else if(keyEvent.getCode().equals(KeyCode.Q)){
-            primaryStage.close();
-        }
-    }
-
-    @FXML public void test(KeyEvent k) {
-        System.out.println(k.getCode() );
-       /* Stage primaryStage = (Stage) button.getScene().getWindow();
+    @FXML public void start(KeyEvent k) throws IOException {
+        Stage primaryStage = (Stage) pane.getScene().getWindow();
         if(k.getCode().equals(KeyCode.Q)){
             primaryStage.close();
-        }*/
-        /*else if(k.getCharacter().equals(" ")){
-            System.out.println("here");
-        }*/
-        /*Stage primaryStage = (Stage) button.getScene().getWindow();
-        if(k.getCode().equals(KeyCode.SPACE)){
+        }
+        else if (k.getCode().equals(KeyCode.SPACE)){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../game.fxml"));
             Pane myPane = loader.load();
             ControllerMain c = loader.getController();
-            // System.out.println(c.player.getImage().getHeight());
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+            myScene.getRoot().requestFocus();
             primaryStage.setScene(myScene);
             primaryStage.show();
         }
-        else if(k.getCode().equals(KeyCode.Q)){
-            primaryStage.close();
-        }*/
+
     }
 }

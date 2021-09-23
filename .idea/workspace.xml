@@ -31,6 +31,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\minic\OneDrive\Documents\M1\Advanced Programming of Interactive Systems\Projet\Virus-Game\src\Images" />
+      <recent name="C:\Users\minic\OneDrive\Documents\M1\Advanced Programming of Interactive Systems\Projet\Virus-Game\src\Controller" />
       <recent name="C:\Users\minic\OneDrive\Documents\M1\Advanced Programming of Interactive Systems\Projet\Virus-Game\src" />
     </key>
   </component>
@@ -85,22 +87,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1632298588858" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1632319976632">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1632395604725">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1632319976632" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1632319976632">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1632395604725" />
+    <state width="746" height="210" key="GridCell.Tab.0.bottom" timestamp="1632398952017">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1632319976632" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1632319976632">
+    <state width="746" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1632398952017" />
+    <state width="746" height="210" key="GridCell.Tab.0.center" timestamp="1632398952017">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1632319976631" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1632319976632">
+    <state width="746" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1632398952017" />
+    <state width="746" height="210" key="GridCell.Tab.0.left" timestamp="1632398952017">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1632319976632" />
+    <state width="746" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1632398952017" />
+    <state width="746" height="210" key="GridCell.Tab.0.right" timestamp="1632398952017">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="746" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1632398952017" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1631700583903">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

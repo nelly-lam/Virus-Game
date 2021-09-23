@@ -32,6 +32,9 @@ public class ControllerMain {
                 player.setLayoutX(player.getLayoutX() + 20);
                 player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerD.png"));
             }
+            else if(k.getCode().equals(KeyCode.SPACE)){
+                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerShooting.png"));
+            }
         }
         else {
             if (k.getCode().equals(KeyCode.LEFT)) {
@@ -41,6 +44,9 @@ public class ControllerMain {
             else if (k.getCode().equals(KeyCode.RIGHT)) {
                 player.setLayoutX(player.getLayoutX() + 20);
                 player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/player.png"));
+            }
+            else if(k.getCode().equals(KeyCode.SPACE)){
+                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerShooting.png"));
             }
         }
 

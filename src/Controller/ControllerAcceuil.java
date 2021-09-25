@@ -1,10 +1,12 @@
 package Controller;
 
 
+import Model.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -27,6 +29,7 @@ public class ControllerAcceuil  {
             ControllerMain c = loader.getController();
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
+            c.p  = new Player(c.player);
             primaryStage.setScene(myScene);
             primaryStage.show();
         }

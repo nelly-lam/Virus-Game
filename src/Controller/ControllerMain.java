@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Player;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -7,6 +8,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -18,37 +20,34 @@ public class ControllerMain {
     @FXML
     Pane road;
 
-
+    Player p;
 
 
     @FXML protected void play(KeyEvent k){
-        if(player.getImage().getUrl().equals("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/player.png")){
-            if(k.getCode().equals(KeyCode.LEFT)){
-                player.setLayoutX(player.getLayoutX() - 20);
-                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerD.png"));
-
-            }
-            else if(k.getCode().equals(KeyCode.RIGHT)){
-                player.setLayoutX(player.getLayoutX() + 20);
-                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerD.png"));
-            }
-            else if(k.getCode().equals(KeyCode.SPACE)){
-                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerShooting.png"));
-            }
+        if(k.getCode().equals(KeyCode.SPACE)){
+            p.setImagePlayer(p.getImageShoot());
         }
         else {
-            if (k.getCode().equals(KeyCode.LEFT)) {
-                player.setLayoutX(player.getLayoutX() - 20);
-                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/player.png"));
+            if(p.getImagePlayer().equals(p.getImageG())) {
+                if (k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0) {
+                    p.setImagePlayer(p.getImageD());
+                    p.setPosX(p.getPosX() - 10);
+                }
+                else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514) {
+                    p.setImagePlayer(p.getImageD());
+                    p.setPosX(p.getPosX() + 10);
+                }
             }
-            else if (k.getCode().equals(KeyCode.RIGHT)) {
-                player.setLayoutX(player.getLayoutX() + 20);
-                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/player.png"));
-            }
-            else if(k.getCode().equals(KeyCode.SPACE)){
-                player.setImage(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerShooting.png"));
+            else {
+                if(k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0){
+                    p.setImagePlayer(p.getImageG());
+                    p.setPosX(p.getPosX() - 10);
+                }
+                else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514){
+                    p.setImagePlayer(p.getImageG());
+                    p.setPosX(p.getPosX() + 10);
+                }
             }
         }
-
     }
 }

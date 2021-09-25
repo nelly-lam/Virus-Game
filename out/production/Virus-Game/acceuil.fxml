@@ -16,7 +16,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="YELLOW" layoutX="281.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press q to exit">
+      <Text fill="YELLOW" layoutX="281.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press q to Quit">
          <font>
             <Font size="16.0" />
          </font>

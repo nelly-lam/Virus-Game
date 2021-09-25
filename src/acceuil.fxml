@@ -4,19 +4,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#start" prefHeight="508.0" prefWidth="662.0" style="-fx-background-color: #5a5d5f;" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerAcceuil">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#start" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerAcceuil">
    <children>
       <Text fill="YELLOW" layoutX="174.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virus Game">
          <font>
             <Font size="62.0" />
          </font>
       </Text>
-      <Text fill="YELLOW" layoutX="262.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press space to Start">
+      <Text fill="YELLOW" layoutX="247.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press space to Start">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="YELLOW" layoutX="281.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press q to Quit">
+      <Text fill="YELLOW" layoutX="263.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press q to Quit">
          <font>
             <Font size="16.0" />
          </font>

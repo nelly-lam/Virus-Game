@@ -7,16 +7,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Line;
-import javafx.stage.Stage;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class ControllerMain {
     @FXML
     ImageView player;
+
     @FXML
     Pane road;
 
@@ -26,6 +21,11 @@ public class ControllerMain {
     @FXML protected void play(KeyEvent k){
         if(k.getCode().equals(KeyCode.SPACE)){
             p.setImagePlayer(p.getImageShoot());
+            ImageView i = new ImageView(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/jet.png"));
+            i.setLayoutX(p.getPosX()+36);
+            i.setLayoutY(p.getPosY()-36);
+            p.addShoot(i);
+            road.getChildren().add(i);
         }
         else {
             if(p.getImagePlayer().equals(p.getImageG())) {

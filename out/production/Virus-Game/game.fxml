@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="road" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerMain">
+<Pane fx:id="road" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerGame">
    <children>
       <Line endX="48.985870361328125" endY="-31.49999237060547" layoutX="200.0" layoutY="114.0" startX="-199.70709228515625" startY="353.2928771972656" stroke="YELLOW" />
       <Line endX="388.99993896484375" endY="356.2928771972656" layoutX="243.0" layoutY="111.0" startX="138.78585815429688" startY="-28.49999237060547" stroke="YELLOW" />
@@ -52,6 +52,71 @@
       <ImageView fx:id="virus7" fitHeight="43.0" fitWidth="46.0" layoutX="488.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition1" layoutX="609.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition2" layoutX="594.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition3" layoutX="578.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition4" layoutX="563.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition5" layoutX="548.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition6" layoutX="533.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition7" layoutX="518.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition8" layoutX="503.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition9" layoutX="488.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="munition10" layoutX="473.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/jet.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="life1" fitHeight="36.0" fitWidth="15.0" layoutX="20.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/vie_vertical.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="life2" fitHeight="36.0" fitWidth="15.0" layoutX="40.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/vie_vertical.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="life3" fitHeight="36.0" fitWidth="15.0" layoutX="60.0" layoutY="486.0">
+         <image>
+            <Image url="@Images/vie_vertical.png" />
          </image>
       </ImageView>
    </children>

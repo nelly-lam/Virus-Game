@@ -46,6 +46,7 @@ public class Virus {
 	}
 
 	public void setPosX(Double posX) {
+		imageVirus.setLayoutX(posX);
 		this.posX = posX;
 	}
 
@@ -54,6 +55,7 @@ public class Virus {
 	}
 
 	public void setPosY(Double posY) {
+		imageVirus.setLayoutY(posY);
 		this.posY = posY;
 	}
 

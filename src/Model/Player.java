@@ -12,8 +12,15 @@ public class Player {
     Image imageD;
     Image imageShoot;
     ImageView i;
+    
     Double posX;
     Double posY;
+    
+    private ListJet listJet;
+    
+    /* number of jet the player has */
+    private int availableJet;
+    
     ArrayList<ImageView> shoots = new ArrayList<>();
 
 
@@ -23,6 +30,9 @@ public class Player {
         this.posX = i.getLayoutX();
         this.imageG = i.getImage();
         this.posY = i.getLayoutY();
+        
+        this.listJet = new ListJet();
+        this.availableJet = 10;
         
         URL imageDurl = getClass().getResource("../Images/playerD.png");
         this.imageD = new Image(imageDurl.toExternalForm());
@@ -71,4 +81,24 @@ public class Player {
         this.i.setLayoutX(posX);
         this.posX = posX;
     }
+
+
+	public int getAvailableJet() {
+		return availableJet;
+	}
+
+
+	public void setAvailableJet(int jetOnHand) {
+		this.availableJet = jetOnHand;
+	}
+
+
+	public ListJet getListJet() {
+		return listJet;
+	}
+
+
+	public void setListJet(ListJet listJet) {
+		this.listJet = listJet;
+	}
 }

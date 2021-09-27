@@ -18,5 +18,7 @@ public class VirusCloud {
 	public int getSize() {
 		return virusCloud.size();
 	}
+	
+	public Virus getVirus(int i) { return virusCloud.get(i); }
 
 }

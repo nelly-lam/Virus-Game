@@ -2,17 +2,21 @@ package Controller;
 
 
 import Model.Player;
+import Model.Virus;
+import Model.VirusCloud;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ControllerAcceuil  {
 
@@ -30,6 +34,26 @@ public class ControllerAcceuil  {
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
             c.p  = new Player(c.player);
+            
+            /*Instanciate viruses*/
+            c.virusCloud = new VirusCloud();
+            
+        	Virus virus = new Virus(c.virus1);
+            c.virusCloud.addVirus(virus);
+            virus = new Virus(c.virus2);
+            c.virusCloud.addVirus(virus);
+            virus = new Virus(c.virus3);
+            c.virusCloud.addVirus(virus);
+            virus = new Virus(c.virus4);
+            c.virusCloud.addVirus(virus);
+            virus = new Virus(c.virus5);
+            c.virusCloud.addVirus(virus);
+            virus = new Virus(c.virus6);
+            c.virusCloud.addVirus(virus);
+            virus = new Virus(c.virus7);
+            c.virusCloud.addVirus(virus);
+            
+            
             primaryStage.setScene(myScene);
             primaryStage.show();
         }

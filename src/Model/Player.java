@@ -3,6 +3,7 @@ package Model;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Player {
@@ -22,8 +23,12 @@ public class Player {
         this.posX = i.getLayoutX();
         this.imageG = i.getImage();
         this.posY = i.getLayoutY();
-        this.imageD = new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerD.png");
-        this.imageShoot = new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/playerShooting.png");
+        
+        URL imageDurl = getClass().getResource("../Images/playerD.png");
+        this.imageD = new Image(imageDurl.toExternalForm());
+        
+        URL imageShooturl = getClass().getResource("../Images/playerShooting.png");
+        this.imageShoot = new Image(imageShooturl.toExternalForm());
     }
 
 

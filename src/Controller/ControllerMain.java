@@ -1,6 +1,9 @@
 package Controller;
 
+import java.net.URL;
+
 import Model.Player;
+import Model.VirusCloud;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,16 +19,31 @@ public class ControllerMain {
     Pane road;
 
     Player p;
+    
+    VirusCloud virusCloud;
+    
+	@FXML ImageView virus1;
+    @FXML ImageView virus2;
+    @FXML ImageView virus3;
+    @FXML ImageView virus4;
+    @FXML ImageView virus5;
+    @FXML ImageView virus6;
+    @FXML ImageView virus7;
 
 
     @FXML protected void play(KeyEvent k){
         if(k.getCode().equals(KeyCode.SPACE)){
             p.setImagePlayer(p.getImageShoot());
-            ImageView i = new ImageView(new Image("file:/C:/Users/minic/OneDrive/Documents/M1/Advanced%20Programming%20of%20Interactive%20Systems/Projet/Virus-Game/out/production/Virus-Game/Images/jet.png"));
+            
+            URL imageJeturl = getClass().getResource("../Images/jet.png");
+            ImageView i = new ImageView(new Image(imageJeturl.toExternalForm()));
+            
             i.setLayoutX(p.getPosX()+36);
             i.setLayoutY(p.getPosY()-36);
             p.addShoot(i);
             road.getChildren().add(i);
+            
+            System.out.println(virusCloud.getSize());
         }
         else {
             if(p.getImagePlayer().equals(p.getImageG())) {
@@ -50,4 +68,11 @@ public class ControllerMain {
             }
         }
     }
+    
+    
+    protected void setVirus() {
+    	
+    }
+    
+    
 }

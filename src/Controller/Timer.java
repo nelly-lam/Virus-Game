@@ -6,4 +6,6 @@ package Controller;
  */
 public class Timer {
     long delay;
+    
+    
 }

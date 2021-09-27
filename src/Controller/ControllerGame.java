@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 
 public class ControllerGame {
@@ -46,6 +47,9 @@ public class ControllerGame {
     @FXML ImageView munition8;
     @FXML ImageView munition9;
     @FXML ImageView munition10;
+
+    @FXML
+    Text score;
     
     private ArrayList<ImageView> listRemainingMunition = new ArrayList<ImageView>();
     
@@ -90,7 +94,7 @@ public class ControllerGame {
 	            
 	            /* delete a munition from the bottom part */
 	            listRemainingMunition.get(p.getAvailableJet()).setVisible(false);
-	            
+
         	}  
         }else {
             if(p.getImagePlayer().equals(p.getImageG())) {
@@ -116,13 +120,18 @@ public class ControllerGame {
             }
         }
     }
-    
+
    
 	public void removeVirus(Virus virus, int i) {
 		virusCloud.removeVirus(i);
-		road.getChildren().remove(virus.getImageVirus());
+		virus.getImageVirus().setVisible(false);
+		//road.getChildren().remove(virus.getImageVirus());
     }
     
-    
+
+    public void setScore(){
+        int t = Integer.parseInt(score.getText()) + 20;
+        score.setText(String.valueOf(t));
+    }
     
 }

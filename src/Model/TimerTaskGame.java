@@ -47,24 +47,23 @@ public class TimerTaskGame extends TimerTask{
 			}
 		}
 	}
-	
-	
+
 	/**
 	 * moveViruses(): moves viruses from left to right and vice versa
 	 */
 	public void moveViruses() {
 		Virus firstVirus = virusCloud.getVirus(0);
 		Virus lastVirus = virusCloud.getVirus(virusCloud.getSize()-1);
-		
+
 		if(isgoingleft) {
-			if(firstVirus.getImageVirus().getX() > 0) {
+			if(firstVirus.getPosX() > 0) {
 				goLeft();
 			}else {
 				isgoingleft = false;
 				goRight();
 			}
 		}else{
-			if(lastVirus.getImageVirus().getX()+lastVirus.getImageVirus().prefWidth(0) > widthWindow ) {
+			if(lastVirus.getPosX()+lastVirus.getImageVirus().getFitWidth() > widthWindow ) {
 				isgoingleft = true;
 				goLeft();
 			}else {
@@ -105,8 +104,8 @@ public class TimerTaskGame extends TimerTask{
 			for(int j = 0; j < virusCloud.getSize(); j++) {
 				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
-					System.out.println("intersect!");
 					controllerGame.removeVirus(virusCloud.getVirus(j), j);
+					controllerGame.setScore();
 				}
 			}
 		}

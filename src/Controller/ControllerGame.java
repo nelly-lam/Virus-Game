@@ -4,7 +4,6 @@ package Controller;
 import java.util.ArrayList;
 
 import Model.Jet;
-import Model.ListJet;
 import Model.Player;
 import Model.VirusCloud;
 import javafx.fxml.FXML;
@@ -12,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 public class ControllerGame {
     @FXML
@@ -80,42 +80,52 @@ public class ControllerGame {
 	            
 	            p.getListJet().addJet(jet);
 	            p.setAvailableJet(p.getAvailableJet()-1);
-	            
-	            //System.out.println(listRemainingMunition.get(0));
 
 	            /* delete a munition from the bottom part */
 	            listRemainingMunition.get(p.getAvailableJet()).setVisible(false);
 	            
         	}  
-        }
-        else {
+        }else {
             if(p.getImagePlayer().equals(p.getImageG())) {
                 if (k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0) {
                     p.setImagePlayer(p.getImageD());
                     p.setPosX(p.getPosX() - 10);
+                    
+                    /* update the position of the hitbox */
+                    p.getHitbox().setX(p.getPosX());
+                    p.getHitbox().setY(p.getPosY());
                 }
                 else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514) {
                     p.setImagePlayer(p.getImageD());
                     p.setPosX(p.getPosX() + 10);
+                    
+                    /* update the position of the hitbox */
+                    p.getHitbox().setX(p.getPosX());
+                    p.getHitbox().setY(p.getPosY());
                 }
+
             }
             else {
                 if(k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0){
                     p.setImagePlayer(p.getImageG());
                     p.setPosX(p.getPosX() - 10);
+                    
+                    /* update the position of the hitbox */
+                    p.getHitbox().setX(p.getPosX());
+                    p.getHitbox().setY(p.getPosY());
                 }
                 else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514){
                     p.setImagePlayer(p.getImageG());
                     p.setPosX(p.getPosX() + 10);
+                    
+                    /* update the position of the hitbox */
+                    p.getHitbox().setX(p.getPosX());
+                    p.getHitbox().setY(p.getPosY());
                 }
             }
         }
     }
     
-    
-    protected void setVirus() {
-    	
-    }
     
     
 }

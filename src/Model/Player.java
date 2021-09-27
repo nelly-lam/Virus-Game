@@ -2,6 +2,8 @@ package Model;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,6 +18,8 @@ public class Player {
     Double posX;
     Double posY;
     
+    private Rectangle hitbox;
+    
     private ListJet listJet;
     
     /* number of jet the player has */
@@ -27,9 +31,14 @@ public class Player {
     public Player(ImageView i){
         this.i = i;
         this.imagePlayer = i.getImage();
-        this.posX = i.getLayoutX();
+
         this.imageG = i.getImage();
+        
+        this.posX = i.getLayoutX();
         this.posY = i.getLayoutY();
+        
+    	hitbox = new Rectangle(posX, posY, i.getFitWidth(), i.getFitHeight());
+    	hitbox.setOpacity(0);
         
         this.listJet = new ListJet();
         this.availableJet = 10;
@@ -100,5 +109,15 @@ public class Player {
 
 	public void setListJet(ListJet listJet) {
 		this.listJet = listJet;
+	}
+
+
+	public Rectangle getHitbox() {
+		return hitbox;
+	}
+
+
+	public void setHitbox(Rectangle hitbox) {
+		this.hitbox = hitbox;
 	}
 }

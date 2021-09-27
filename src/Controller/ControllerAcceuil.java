@@ -31,7 +31,10 @@ public class ControllerAcceuil  {
             ControllerGame c = loader.getController();
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
+            
+            
             c.p  = new Player(c.player);
+            c.road.getChildren().add(c.p.getHitbox());
             
             /*Instanciate viruses*/
             c.virusCloud = new VirusCloud();

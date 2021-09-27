@@ -1,8 +1,8 @@
 package Model;
 
-import java.awt.*;
-
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Virus {
 	
@@ -12,11 +12,8 @@ public class Virus {
     private Double posX;
     private Double posY;
     
-    /* Position of the hitbox of the virus */
-    private Point leftup;
-    private Point leftbottom;
-    private Point rightup;
-    private Point rightbottom;
+    /* hitbox of the virus */
+    private Rectangle hitbox;
     
     /* image of the virus */
     private ImageView imageVirus;
@@ -31,7 +28,11 @@ public class Virus {
     public Virus(ImageView img){
     	posX = img.getLayoutX();
     	posY = img.getLayoutY();
+    	
     	imageVirus = img;
+    	
+    	hitbox = new Rectangle(posX, posY, posX+imageVirus.prefWidth(0), posY+imageVirus.prefHeight(0));
+    	hitbox.setOpacity(1);
     	
     }
 
@@ -70,42 +71,12 @@ public class Virus {
 	}
 
 
-	public Point getLeftup() {
-		return leftup;
+	public Rectangle getHitbox() {
+		return hitbox;
 	}
 
 
-	public void setLeftup(Point leftup) {
-		this.leftup = leftup;
-	}
-
-
-	public Point getLeftbottom() {
-		return leftbottom;
-	}
-
-
-	public void setLeftbottom(Point leftbottom) {
-		this.leftbottom = leftbottom;
-	}
-
-
-	public Point getRightup() {
-		return rightup;
-	}
-
-
-	public void setRightup(Point rightup) {
-		this.rightup = rightup;
-	}
-
-
-	public Point getRightbottom() {
-		return rightbottom;
-	}
-
-
-	public void setRightbottom(Point rightbottom) {
-		this.rightbottom = rightbottom;
+	public void setHitbox(Rectangle hitboxPlayer) {
+		this.hitbox = hitboxPlayer;
 	}
 }

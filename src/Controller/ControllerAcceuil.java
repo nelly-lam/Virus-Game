@@ -54,10 +54,16 @@ public class ControllerAcceuil  {
             virus = new Virus(c.virus7);
             c.virusCloud.addVirus(virus);
             
+            /*
+            for(int i = 0; i < c.virusCloud.getSize(); i++) {
+                c.road.getChildren().add(c.virusCloud.getVirus(i).getHitbox());
+            }
+            */
             
+            /* run a timer */
             long delayTaskViruses = 0;
             long periodTaskViruses = 500;
-        	TimerTaskGame task = new TimerTaskGame(c.virusCloud, pane.getPrefWidth(), c.p);
+        	TimerTaskGame task = new TimerTaskGame(c.virusCloud, pane.getPrefWidth(), c.p, c);
         	Timer timerViruses = new Timer();
         	timerViruses.schedule(task, delayTaskViruses, periodTaskViruses);
         	

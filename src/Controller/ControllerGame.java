@@ -5,15 +5,19 @@ import java.util.ArrayList;
 
 import Model.Jet;
 import Model.Player;
+import Model.Virus;
 import Model.VirusCloud;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
+
 
 public class ControllerGame {
+	
+	///////////////////// ATTRIBUTES /////////////////////////
+
     @FXML
     ImageView player;
 
@@ -53,8 +57,7 @@ public class ControllerGame {
     private ArrayList<ImageView> listRemainingLife = new ArrayList<ImageView>();
 
     
-    /////////////////////// CONSTRUCTOR //////////////////////////
-
+    ///////////////////// METHODS ///////////////////////
 
     @FXML protected void play(KeyEvent k){
     	listRemainingMunition.add(munition1);
@@ -78,9 +81,13 @@ public class ControllerGame {
 	            Jet jet = new Jet(p.getPosX()+36, p.getPosY()-36);
 	            road.getChildren().add(jet.getImageJet());
 	            
+	            road.getChildren().add(jet.getHitbox()); //DON'T WORK !!!!!!!!!!
+	            
 	            p.getListJet().addJet(jet);
+	            
+	            /* remove one munition from the available ones of the player */
 	            p.setAvailableJet(p.getAvailableJet()-1);
-
+	            
 	            /* delete a munition from the bottom part */
 	            listRemainingMunition.get(p.getAvailableJet()).setVisible(false);
 	            
@@ -90,18 +97,10 @@ public class ControllerGame {
                 if (k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0) {
                     p.setImagePlayer(p.getImageD());
                     p.setPosX(p.getPosX() - 10);
-                    
-                    /* update the position of the hitbox */
-                    p.getHitbox().setX(p.getPosX());
-                    p.getHitbox().setY(p.getPosY());
                 }
                 else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514) {
                     p.setImagePlayer(p.getImageD());
                     p.setPosX(p.getPosX() + 10);
-                    
-                    /* update the position of the hitbox */
-                    p.getHitbox().setX(p.getPosX());
-                    p.getHitbox().setY(p.getPosY());
                 }
 
             }
@@ -109,21 +108,19 @@ public class ControllerGame {
                 if(k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0){
                     p.setImagePlayer(p.getImageG());
                     p.setPosX(p.getPosX() - 10);
-                    
-                    /* update the position of the hitbox */
-                    p.getHitbox().setX(p.getPosX());
-                    p.getHitbox().setY(p.getPosY());
                 }
                 else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514){
                     p.setImagePlayer(p.getImageG());
                     p.setPosX(p.getPosX() + 10);
-                    
-                    /* update the position of the hitbox */
-                    p.getHitbox().setX(p.getPosX());
-                    p.getHitbox().setY(p.getPosY());
                 }
             }
         }
+    }
+    
+   
+	public void removeVirus(Virus virus, int i) {
+		virusCloud.removeVirus(i);
+		road.getChildren().remove(virus.getImageVirus());
     }
     
     

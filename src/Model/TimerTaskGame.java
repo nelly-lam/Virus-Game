@@ -2,9 +2,8 @@ package Model;
 
 import java.util.TimerTask;
 
-/**
- * action à effectuer par le timer, ici on veut decrementer la position en y de chaque shoot du player
- */
+import Controller.ControllerGame;
+
 public class TimerTaskGame extends TimerTask{
 	
 	/////////////////////// ATTRIBUTES /////////////////////////
@@ -12,32 +11,40 @@ public class TimerTaskGame extends TimerTask{
 	private VirusCloud virusCloud;
 	private Double widthWindow;
 	private boolean isgoingleft;
-	
+	private ControllerGame controllerGame;
 	
 	/////////////////////// CONSTRUCTOR ///////////////////////////
-	public TimerTaskGame(VirusCloud vc, Double w, Player p) {
+	public TimerTaskGame(VirusCloud vc, Double w, Player p, ControllerGame cg) {
 		virusCloud = vc;
 		widthWindow = w;
 		isgoingleft = false;
 		player = p;
+		setControllerGame(cg);
 	}
 	
-	
+    ///////////////////// METHODS ///////////////////////
+
 	/**
-	 * run() : 
+	 * run(): 
 	 */
 	public void run() {
 		moveViruses();
 		moveJet();
+		checkCollisionVirusJet();
 	}
 	
 	
 	/**
-	 * moveJet(): moves jets that are launch by the player
+	 * moveJet(): moves jets that are launched by the player
 	 */
 	public void moveJet() {
 		for(int i = 0; i < player.getListJet().getSize(); i++) {
 			player.getListJet().getJet(i).setPosY(player.getListJet().getJet(i).getPosY()-45);
+			
+			/* remove if jet crosses the window */
+			if(player.getListJet().getJet(i).getPosY() < -45) {
+				player.getListJet().removeJet(i);
+			}
 		}
 	}
 	
@@ -50,14 +57,14 @@ public class TimerTaskGame extends TimerTask{
 		Virus lastVirus = virusCloud.getVirus(virusCloud.getSize()-1);
 		
 		if(isgoingleft) {
-			if(firstVirus.getPosX() > 0) {
+			if(firstVirus.getImageVirus().getX() > 0) {
 				goLeft();
 			}else {
 				isgoingleft = false;
 				goRight();
 			}
 		}else{
-			if(lastVirus.getPosX()+lastVirus.getImageVirus().prefWidth(0) > widthWindow ) {
+			if(lastVirus.getImageVirus().getX()+lastVirus.getImageVirus().prefWidth(0) > widthWindow ) {
 				isgoingleft = true;
 				goLeft();
 			}else {
@@ -67,7 +74,7 @@ public class TimerTaskGame extends TimerTask{
 	}
 	
 	/**
-	 * goLeft(): moves viruses to the left
+	 * goLeft(): move viruses to the left
 	 */
 	public void goLeft() {
 		Virus virus;
@@ -78,7 +85,7 @@ public class TimerTaskGame extends TimerTask{
 	}
 	
 	/**
-	 * goRight(): moves viruses to the right
+	 * goRight(): move viruses to the right
 	 */
 	public void goRight() {
 		Virus virus;
@@ -88,15 +95,31 @@ public class TimerTaskGame extends TimerTask{
 		}
 	}
 
-
-	public Player getPlayer() {
-		return player;
+	/**
+	 * checkCollisionVirusJet(): check if a jet touches a virus,
+	 * if true then erase this virus
+	 * if false then nothing
+	 */
+	public void checkCollisionVirusJet() {
+		for(int i = 0; i < player.getListJet().getSize(); i++) {
+			for(int j = 0; j < virusCloud.getSize(); j++) {
+				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
+						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
+					System.out.println("intersect!");
+					controllerGame.removeVirus(virusCloud.getVirus(j), j);
+				}
+			}
+		}
 	}
 
-
-	public void setPlayer(Player player) {
-		this.player = player;
+	public ControllerGame getControllerGame() {
+		return controllerGame;
 	}
+
+	public void setControllerGame(ControllerGame controllerGame) {
+		this.controllerGame = controllerGame;
+	}
+	
 
 		
 	

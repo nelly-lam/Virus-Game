@@ -64,6 +64,7 @@ public class ControllerGame {
     ///////////////////// METHODS ///////////////////////
 
     @FXML protected void play(KeyEvent k){
+
     	listRemainingMunition.add(munition1);
     	listRemainingMunition.add(munition2);
     	listRemainingMunition.add(munition3);
@@ -74,6 +75,10 @@ public class ControllerGame {
     	listRemainingMunition.add(munition8);
     	listRemainingMunition.add(munition9);
     	listRemainingMunition.add(munition10);
+
+    	listRemainingLife.add(life1);
+    	listRemainingLife.add(life2);
+    	listRemainingLife.add(life3);
     	
         if(k.getCode().equals(KeyCode.SPACE)){
         	if(p.getAvailableJet() > 0) {
@@ -121,16 +126,25 @@ public class ControllerGame {
         }
     }
 
+    public void removeLife(){
+        listRemainingLife.get(p.getLife()).setVisible(false);
+        listRemainingLife.remove(p.getLife());
+        p.setLife(p.getLife() -1);
+    }
+
+
    
 	public void removeVirus(Virus virus, int i) {
 		virusCloud.removeVirus(i);
 		virus.getImageVirus().setVisible(false);
 		//road.getChildren().remove(virus.getImageVirus());
     }
+
+
     
 
-    public void setScore(){
-        int t = Integer.parseInt(score.getText()) + 20;
+    public void setScore(Virus virus){
+        int t = Integer.parseInt(score.getText()) + virus.getPoint() ;
         score.setText(String.valueOf(t));
     }
     

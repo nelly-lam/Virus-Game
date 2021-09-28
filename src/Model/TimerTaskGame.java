@@ -105,12 +105,24 @@ public class TimerTaskGame extends TimerTask{
 				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
 					controllerGame.removeVirus(virusCloud.getVirus(j), j);
-					controllerGame.setScore();
+					controllerGame.setScore(virusCloud.getVirus(j));
+
 				}
 			}
 		}
 	}
 
+	/*
+	public void checkCollisionVirusPlayer(){
+		for(int i = 0; i < virusCloud.getListJet().getSize(); i++){
+			if(player.getImage().getBoundsInParent().intersects(virusCloud.getListJet().getImage().getBoundsInParent())){
+				if(player.getLife == 0){
+					System.out.println("game lost);
+				else(
+					controllerGame.removeLife();
+
+	}
+*/
 	public ControllerGame getControllerGame() {
 		return controllerGame;
 	}

@@ -34,31 +34,27 @@ public class ControllerAcceuil  {
             
             
             c.p  = new Player(c.player);
-            c.road.getChildren().add(c.p.getHitbox());
+
             
             /*Instanciate viruses*/
             c.virusCloud = new VirusCloud();
             
-        	Virus virus = new Virus(c.virus1);
+        	Virus virus = new Virus(c.virus1,20);
             c.virusCloud.addVirus(virus);
-            virus = new Virus(c.virus2);
+            virus = new Virus(c.virus2,20);
             c.virusCloud.addVirus(virus);
-            virus = new Virus(c.virus3);
+            virus = new Virus(c.virus3,20);
             c.virusCloud.addVirus(virus);
-            virus = new Virus(c.virus4);
+            virus = new Virus(c.virus4,20);
             c.virusCloud.addVirus(virus);
-            virus = new Virus(c.virus5);
+            virus = new Virus(c.virus5,20);
             c.virusCloud.addVirus(virus);
-            virus = new Virus(c.virus6);
+            virus = new Virus(c.virus6,20);
             c.virusCloud.addVirus(virus);
-            virus = new Virus(c.virus7);
+            virus = new Virus(c.virus7,20);
             c.virusCloud.addVirus(virus);
             
-            /*
-            for(int i = 0; i < c.virusCloud.getSize(); i++) {
-                c.road.getChildren().add(c.virusCloud.getVirus(i).getHitbox());
-            }
-            */
+
             
             /* run a timer */
             long delayTaskViruses = 0;

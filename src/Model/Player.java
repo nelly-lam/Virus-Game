@@ -14,9 +14,7 @@ public class Player {
 	 * that defines the position of the virus */
     private Double posX;
     private Double posY;
-    
-    /* hitbox of the player */
-    private Rectangle hitbox;
+
     
 	/* images of the virus */
     Image imagePlayer;
@@ -29,7 +27,9 @@ public class Player {
     private ListJet listJet;
     /* number of jet the player has */
     private int availableJet;
-    
+
+    private int life;
+
     
     ///////////////////// CONSTRUCTOR ///////////////////////
     public Player(ImageView i){
@@ -46,10 +46,9 @@ public class Player {
         this.imageD = new Image(imageDurl.toExternalForm());
         URL imageShooturl = getClass().getResource("../Images/playerShooting.png");
         this.imageShoot = new Image(imageShooturl.toExternalForm());
-        
-    	hitbox = new Rectangle(posX, posY, i.getFitWidth(), i.getFitHeight());
-    	hitbox.setOpacity(0);
-    	
+
+    	this.life = 3;
+
         this.listJet = new ListJet();
         this.availableJet = 10;
         
@@ -65,13 +64,16 @@ public class Player {
         this.posX = posX;
         this.i.setLayoutX(posX);
 
-        /* update the position of the hitbox */
-        this.hitbox.setX(this.posX);
     }
-    
-	public Rectangle getHitbox() { return hitbox; }
-	public void setHitbox(Rectangle hitbox) { this.hitbox = hitbox; }
-	
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     public Image getImageD() { return imageD; }
     public Image getImageG() { return imageG; }
     public Image getImageShoot() { return imageShoot; }

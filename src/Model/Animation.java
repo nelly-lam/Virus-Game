@@ -1,35 +1,48 @@
 package Model;
 
-import java.util.TimerTask;
-
 import Controller.ControllerGame;
+import javafx.animation.AnimationTimer;
+import javafx.scene.layout.Pane;
 
-public class TimerTaskGame extends TimerTask{
+public class Animation extends AnimationTimer{
 	
-	/////////////////////// ATTRIBUTES /////////////////////////
 	private Player player;
 	private VirusCloud virusCloud;
 	private Double widthWindow;
 	private boolean isgoingleft;
 	private ControllerGame controllerGame;
+	private Pane road;
 	
+	private long lastUpdate;
+	
+
 	/////////////////////// CONSTRUCTOR ///////////////////////////
-	public TimerTaskGame(VirusCloud vc, Double w, Player p, ControllerGame cg) {
+	public Animation(VirusCloud vc, Double w, Player p, ControllerGame cg, Pane r) {
 		virusCloud = vc;
 		widthWindow = w;
 		isgoingleft = false;
 		player = p;
-		setControllerGame(cg);
+		controllerGame = cg;
+		road = r;
+		
+		lastUpdate = 0;
 	}
 	
-    ///////////////////// METHODS ///////////////////////
 
-	/**
-	 * run(): 
-	 */
-	public void run() {
-		moveViruses();
+	@Override
+	public void handle(long arg0) {
+		if(arg0 - lastUpdate >= 95000000) {
+			update();
+			lastUpdate = arg0;
+		}
+		
+	}
+	
+	public void update() {
+		
+		
 		moveJet();
+		moveViruses();
 		checkCollisionVirusJet();
 	}
 	
@@ -105,6 +118,8 @@ public class TimerTaskGame extends TimerTask{
 				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
 					//controllerGame.removeVirus(virusCloud.getVirus(j), j);
+					road.getChildren().remove(virusCloud.getVirus(j).getImageVirus());
+					virusCloud.removeVirus(j);
 					controllerGame.setScore(virusCloud.getVirus(j));
 
 				}
@@ -121,17 +136,9 @@ public class TimerTaskGame extends TimerTask{
 				else(
 					controllerGame.removeLife();
 
-	}
-*/
-	public ControllerGame getControllerGame() {
-		return controllerGame;
-	}
-
-	public void setControllerGame(ControllerGame controllerGame) {
-		this.controllerGame = controllerGame;
-	}
+	} */
+	
 	
 
-		
-	
 }
+

@@ -1,10 +1,12 @@
 package Controller;
 
 
+import Model.Animation;
 import Model.Player;
 import Model.TimerTaskGame;
 import Model.Virus;
 import Model.VirusCloud;
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,6 +31,7 @@ public class ControllerAcceuil  {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../game.fxml"));
             Pane myPane = loader.load();
             ControllerGame c = loader.getController();
+            c.setStage(primaryStage);
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
             
@@ -57,11 +60,16 @@ public class ControllerAcceuil  {
 
             
             /* run a timer */
+            /*
             long delayTaskViruses = 0;
             long periodTaskViruses = 500;
         	TimerTaskGame task = new TimerTaskGame(c.virusCloud, pane.getPrefWidth(), c.p, c);
         	Timer timerViruses = new Timer();
         	timerViruses.schedule(task, delayTaskViruses, periodTaskViruses);
+        	*/
+            
+            Animation animation = new Animation(c.virusCloud, pane.getPrefWidth(), c.p, c, myPane);
+            animation.start();
         	
             
             primaryStage.setScene(myScene);

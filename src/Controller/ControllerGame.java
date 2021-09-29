@@ -13,12 +13,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 
 public class ControllerGame {
 	
 	///////////////////// ATTRIBUTES /////////////////////////
 
+	private Stage stage;
+	
     @FXML
     ImageView player;
 
@@ -101,7 +104,10 @@ public class ControllerGame {
 	            listRemainingMunition.get(p.getAvailableJet()).setVisible(false);
 
         	}  
-        }else {
+        }else if(k.getCode().equals(KeyCode.Q)) {
+        	stage.close();
+        }
+        else {
             if(p.getImagePlayer().equals(p.getImageG())) {
                 if (k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0) {
                     p.setImagePlayer(p.getImageD());
@@ -133,19 +139,19 @@ public class ControllerGame {
     }
 
 
-   
-	public void removeVirus(Virus virus, int i) {
-		virusCloud.removeVirus(i);
-		virus.getImageVirus().setVisible(false);
-		//road.getChildren().remove(virus.getImageVirus());
-    }
-
-
     
 
     public void setScore(Virus virus){
         int t = Integer.parseInt(score.getText()) + virus.getPoint() ;
         score.setText(String.valueOf(t));
     }
+
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
     
 }

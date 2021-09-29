@@ -29,6 +29,8 @@ public class Player {
     private int availableJet;
 
     private int life;
+    
+    private int score;
 
     
     ///////////////////// CONSTRUCTOR ///////////////////////
@@ -89,4 +91,14 @@ public class Player {
 
 	public int getAvailableJet() { return availableJet; }
 	public void setAvailableJet(int jetOnHand) { this.availableJet = jetOnHand; }
+
+
+	public int getScore() {
+		return score;
+	}
+
+
+	public void setScore(int score) {
+		this.score = score;
+	}
 }

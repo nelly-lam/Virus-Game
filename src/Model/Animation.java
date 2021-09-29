@@ -1,11 +1,26 @@
 package Model;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+
 import Controller.ControllerGame;
 import javafx.animation.AnimationTimer;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class Animation extends AnimationTimer{
 	
+	//////////////////////////// CONSTANTS /////////////////////////////
+	public final static double minRange = 50.0;
+	public final static double maxRange = 600.0;
+	public final static long maxTimerSendMunition = 50;
+
+	public final static int speedSendMunition_lv1 = 20;
+
+	
+	//////////////////////////// ATTRIBUTES /////////////////////////////
 	private Player player;
 	private VirusCloud virusCloud;
 	private Double widthWindow;
@@ -15,6 +30,10 @@ public class Animation extends AnimationTimer{
 	
 	private long lastUpdate;
 	
+	private URL imageRechargeMunition;
+	private ArrayList<ImageView> listSendMunition;
+	private long timerSendMunition;
+
 
 	/////////////////////// CONSTRUCTOR ///////////////////////////
 	public Animation(VirusCloud vc, Double w, Player p, ControllerGame cg, Pane r) {
@@ -26,8 +45,12 @@ public class Animation extends AnimationTimer{
 		road = r;
 		
 		lastUpdate = 0;
+		imageRechargeMunition = getClass().getResource("../Images/rechargeMunition.png");
+		listSendMunition = new ArrayList<ImageView>();
+		timerSendMunition = maxTimerSendMunition;
 	}
 	
+	//////////////////////////// METHODS /////////////////////////////
 
 	@Override
 	public void handle(long arg0) {
@@ -35,14 +58,13 @@ public class Animation extends AnimationTimer{
 			update();
 			lastUpdate = arg0;
 		}
-		
 	}
 	
 	public void update() {
-		
-		
 		moveJet();
 		moveViruses();
+		sendMunition();
+		moveSendMunition();
 		checkCollisionVirusJet();
 	}
 	
@@ -65,22 +87,24 @@ public class Animation extends AnimationTimer{
 	 * moveViruses(): moves viruses from left to right and vice versa
 	 */
 	public void moveViruses() {
-		Virus firstVirus = virusCloud.getVirus(0);
-		Virus lastVirus = virusCloud.getVirus(virusCloud.getSize()-1);
-
-		if(isgoingleft) {
-			if(firstVirus.getPosX() > 0) {
-				goLeft();
-			}else {
-				isgoingleft = false;
-				goRight();
-			}
-		}else{
-			if(lastVirus.getPosX()+lastVirus.getImageVirus().getFitWidth() > widthWindow ) {
-				isgoingleft = true;
-				goLeft();
-			}else {
-				goRight();
+		if(virusCloud.getSize() > 0) {
+			Virus firstVirus = virusCloud.getVirus(0);
+			Virus lastVirus = virusCloud.getVirus(virusCloud.getSize()-1);
+	
+			if(isgoingleft) {
+				if(firstVirus.getPosX() > 0) {
+					goLeft();
+				}else {
+					isgoingleft = false;
+					goRight();
+				}
+			}else{
+				if(lastVirus.getPosX()+lastVirus.getImageVirus().getFitWidth() > widthWindow ) {
+					isgoingleft = true;
+					goLeft();
+				}else {
+					goRight();
+				}
 			}
 		}
 	}
@@ -117,10 +141,10 @@ public class Animation extends AnimationTimer{
 			for(int j = 0; j < virusCloud.getSize(); j++) {
 				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
-					//controllerGame.removeVirus(virusCloud.getVirus(j), j);
+					
+					controllerGame.setScore(virusCloud.getVirus(j));
 					road.getChildren().remove(virusCloud.getVirus(j).getImageVirus());
 					virusCloud.removeVirus(j);
-					controllerGame.setScore(virusCloud.getVirus(j));
 
 				}
 			}
@@ -138,6 +162,32 @@ public class Animation extends AnimationTimer{
 
 	} */
 	
+	
+	public void sendMunition() {
+		if(player.getAvailableJet() < 4) {
+			if(timerSendMunition == maxTimerSendMunition) {
+				timerSendMunition = 0;
+				
+				ImageView newMunition = new ImageView(new Image(imageRechargeMunition.toExternalForm()));
+
+				double randomX = new Random().nextDouble() * (maxRange - minRange) + minRange;
+				newMunition.setLayoutX(randomX);
+				newMunition.setLayoutY(0);
+				this.listSendMunition.add(newMunition);
+				
+				road.getChildren().add(newMunition);
+			}else {
+				timerSendMunition++;
+			}
+		}
+	}
+	
+	
+	public void moveSendMunition() {
+		for(int i = 0; i < this.listSendMunition.size(); i++) {
+			this.listSendMunition.get(i).setLayoutY(this.listSendMunition.get(i).getLayoutY()+speedSendMunition_lv1);
+		}
+	}
 	
 
 }

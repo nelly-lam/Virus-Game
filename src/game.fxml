@@ -19,7 +19,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <ImageView fx:id="virus1" fitHeight="43.0" fitWidth="46.0" layoutX="51.0" layoutY="60.0">
+      <ImageView fx:id="virus1" fitHeight="43.0" fitWidth="46.0" layoutX="50.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
          </image>
@@ -29,27 +29,27 @@
             <Image url="@Images/virus_lv1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="virus3" fitHeight="43.0" fitWidth="46.0" layoutX="204.0" layoutY="60.0">
+      <ImageView fx:id="virus3" fitHeight="43.0" fitWidth="46.0" layoutX="200.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="virus4" fitHeight="43.0" fitWidth="46.0" layoutX="270.0" layoutY="60.0">
+      <ImageView fx:id="virus4" fitHeight="43.0" fitWidth="46.0" layoutX="275.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="virus5" fitHeight="43.0" fitWidth="46.0" layoutX="348.0" layoutY="60.0">
+      <ImageView fx:id="virus5" fitHeight="43.0" fitWidth="46.0" layoutX="350.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="virus6" fitHeight="43.0" fitWidth="46.0" layoutX="421.0" layoutY="60.0">
+      <ImageView fx:id="virus6" fitHeight="43.0" fitWidth="46.0" layoutX="425.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="virus7" fitHeight="43.0" fitWidth="46.0" layoutX="488.0" layoutY="60.0">
+      <ImageView fx:id="virus7" fitHeight="43.0" fitWidth="46.0" layoutX="500.0" layoutY="60.0">
          <image>
             <Image url="@Images/virus_lv1.png" />
          </image>

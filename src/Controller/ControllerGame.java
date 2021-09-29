@@ -50,6 +50,7 @@ public class ControllerGame {
     @FXML ImageView munition8;
     @FXML ImageView munition9;
     @FXML ImageView munition10;
+    
 
     @FXML
     Text score;
@@ -92,9 +93,7 @@ public class ControllerGame {
 	            /* launch a jet */
 	            Jet jet = new Jet(p.getPosX()+36, p.getPosY()-36);
 	            road.getChildren().add(jet.getImageJet());
-	            
-	            road.getChildren().add(jet.getHitbox()); //DON'T WORK !!!!!!!!!!
-	            
+	            	            
 	            p.getListJet().addJet(jet);
 	            
 	            /* remove one munition from the available ones of the player */
@@ -109,22 +108,22 @@ public class ControllerGame {
         }
         else {
             if(p.getImagePlayer().equals(p.getImageG())) {
-                if (k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0) {
+                if (k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= 0) {
                     p.setImagePlayer(p.getImageD());
                     p.setPosX(p.getPosX() - 10);
                 }
-                else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514) {
+                else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 590) {
                     p.setImagePlayer(p.getImageD());
                     p.setPosX(p.getPosX() + 10);
                 }
 
             }
             else {
-                if(k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= -53.0){
+                if(k.getCode().equals(KeyCode.LEFT) && p.getPosX()-10 >= 0){
                     p.setImagePlayer(p.getImageG());
                     p.setPosX(p.getPosX() - 10);
                 }
-                else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 514){
+                else if (k.getCode().equals(KeyCode.RIGHT) && p.getPosX()+10 < 590){
                     p.setImagePlayer(p.getImageG());
                     p.setPosX(p.getPosX() + 10);
                 }
@@ -132,26 +131,30 @@ public class ControllerGame {
         }
     }
 
+    
     public void removeLife(){
         listRemainingLife.get(p.getLife()).setVisible(false);
         listRemainingLife.remove(p.getLife());
         p.setLife(p.getLife() -1);
     }
 
-
     
 
     public void setScore(Virus virus){
         int t = Integer.parseInt(score.getText()) + virus.getPoint() ;
         score.setText(String.valueOf(t));
+        p.setScore(t);
     }
 
-	public Stage getStage() {
-		return stage;
-	}
-
-	public void setStage(Stage stage) {
-		this.stage = stage;
+	public Stage getStage() { return stage; }
+	public void setStage(Stage stage) { this.stage = stage; }
+	
+	public ArrayList<ImageView> getListRemainingMunition() { return listRemainingMunition; }
+	public void setListRemainingMunition(ArrayList<ImageView> list) { listRemainingMunition = list; }
+	
+	public void addMunitionToList() {
+		this.listRemainingMunition.get(p.getAvailableJet()).setVisible(true);
+		p.setAvailableJet(p.getAvailableJet()+1);
 	}
     
 }

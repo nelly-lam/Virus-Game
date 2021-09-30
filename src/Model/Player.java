@@ -60,6 +60,12 @@ public class Player {
     ///////////////////// METHODS ///////////////////////
 
     public Double getPosY() {  return posY; }
+    public void setPosY(Double posY) {
+        this.posY = posY;
+        this.i.setLayoutY(posY);
+
+    }
+
 
     public Double getPosX() { return posX; }
     public void setPosX(Double posX) {
@@ -84,6 +90,10 @@ public class Player {
     public void setImagePlayer(Image imagePlayer) {
         this.i.setImage(imagePlayer);
         this.imagePlayer = imagePlayer;
+    }
+
+    public ImageView getImageViewPlayer(){
+        return this.i;
     }
 
 	public ListJet getListJet() { return listJet; }

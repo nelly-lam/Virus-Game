@@ -3,10 +3,8 @@ package Controller;
 
 import Model.Animation;
 import Model.Player;
-import Model.TimerTaskGame;
 import Model.Virus;
 import Model.VirusCloud;
-import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,7 +14,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Timer;
 
 public class ControllerAcceuil  {
 

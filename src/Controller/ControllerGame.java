@@ -140,8 +140,8 @@ public class ControllerGame {
 
     
 
-    public void setScore(Virus virus){
-        int t = Integer.parseInt(score.getText()) + virus.getPoint() ;
+    public void setScore(int point){
+        int t = Integer.parseInt(score.getText()) + point ;
         score.setText(String.valueOf(t));
         p.setScore(t);
     }

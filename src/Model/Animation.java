@@ -15,10 +15,17 @@ public class Animation extends AnimationTimer{
 	//////////////////////////// CONSTANTS /////////////////////////////
 	public final static double minRange = 50.0;
 	public final static double maxRange = 600.0;
-	public final static long maxTimerSendMunition = 50;
+	public final static double maxHeight = 540.0;
+	public final static double maxWidth = 632.0;
+	public final static long maxTimerSendMunition = 30;
+	public final static long maxTimerAntiVaxAttack = 50;
 
-	public final static int speedSendMunition_lv1 = 20;
 
+	public final static int speedSendMunition_lv1 = 25;
+	public final static int speedAntiVaxAttackX = 10;
+	public final static int speedAntiVaxAttackY = 7;
+
+	public final static int numberOfAntiVax_lv1 = 6;
 	
 	//////////////////////////// ATTRIBUTES /////////////////////////////
 	private Player player;
@@ -35,6 +42,11 @@ public class Animation extends AnimationTimer{
 	private long timerSendMunition;
 
 
+	private ArrayList<AntiVax> listAntiVax;
+	private long timerAntiVaxAttack;
+	private int numberOfAntiVax;
+
+
 	/////////////////////// CONSTRUCTOR ///////////////////////////
 	public Animation(VirusCloud vc, Double w, Player p, ControllerGame cg, Pane r) {
 		virusCloud = vc;
@@ -43,11 +55,15 @@ public class Animation extends AnimationTimer{
 		player = p;
 		controllerGame = cg;
 		road = r;
-		
+
 		lastUpdate = 0;
 		imageRechargeMunition = getClass().getResource("../Images/rechargeMunition.png");
 		listSendMunition = new ArrayList<ImageView>();
 		timerSendMunition = maxTimerSendMunition;
+
+		listAntiVax = new ArrayList<>();
+		timerAntiVaxAttack = maxTimerAntiVaxAttack;
+		numberOfAntiVax = numberOfAntiVax_lv1;
 	}
 	
 	//////////////////////////// METHODS /////////////////////////////
@@ -66,6 +82,11 @@ public class Animation extends AnimationTimer{
 		sendMunition();
 		moveSendMunition();
 		checkCollisionVirusJet();
+		getMunition();
+		antiVaxAttack();
+		moveAntiVax();
+		checkCollisionAntiVaxPlayer();
+		playerWinLevel1();
 	}
 	
 	
@@ -142,7 +163,7 @@ public class Animation extends AnimationTimer{
 				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
 					
-					controllerGame.setScore(virusCloud.getVirus(j));
+					controllerGame.setScore(virusCloud.getVirus(j).getPoint());
 					road.getChildren().remove(virusCloud.getVirus(j).getImageVirus());
 					virusCloud.removeVirus(j);
 
@@ -164,7 +185,7 @@ public class Animation extends AnimationTimer{
 	
 	
 	public void sendMunition() {
-		if(player.getAvailableJet() < 4) {
+		if(player.getAvailableJet() < 9) {
 			if(timerSendMunition == maxTimerSendMunition) {
 				timerSendMunition = 0;
 				
@@ -184,11 +205,83 @@ public class Animation extends AnimationTimer{
 	
 	
 	public void moveSendMunition() {
-		for(int i = 0; i < this.listSendMunition.size(); i++) {
-			this.listSendMunition.get(i).setLayoutY(this.listSendMunition.get(i).getLayoutY()+speedSendMunition_lv1);
+		for (ImageView imageView : this.listSendMunition) {
+			imageView.setLayoutY(imageView.getLayoutY() + speedSendMunition_lv1);
 		}
 	}
-	
 
+	public void getMunition(){
+		for(int i = 0; i < this.listSendMunition.size(); i++) {
+			if (player.getImageViewPlayer().getBoundsInParent().intersects(this.listSendMunition.get(i).getBoundsInParent())) {
+				road.getChildren().remove(this.listSendMunition.get(i));
+				this.listSendMunition.remove(this.listSendMunition.get(i));
+				controllerGame.addMunitionToList();
+
+			}
+		}
+	}
+
+
+	public void antiVaxAttack(){
+		if(virusCloud.getSize() < 5 && numberOfAntiVax > listAntiVax.size()){
+			if(timerAntiVaxAttack == maxTimerAntiVaxAttack) {
+				timerAntiVaxAttack = 0;
+				AntiVax antiVax = new AntiVax(20);
+				double randomX =  Math.random();
+				if(randomX < 0.5){
+					antiVax.setPosX(0);
+				}
+				else{
+					antiVax.setPosX(maxRange);
+					antiVax.setInLeft(false);
+				}
+				antiVax.setPosY(maxHeight/4);
+				this.listAntiVax.add(antiVax);
+				road.getChildren().add(antiVax.getImage());
+			}else {
+			timerAntiVaxAttack++;
+			}
+		}
+	}
+
+	public void moveAntiVax() {
+		for (AntiVax antiVax : this.listAntiVax) {
+			if(antiVax.getPosX() > maxHeight){
+				this.listAntiVax.remove(antiVax);
+				road.getChildren().remove(antiVax.getImage());
+			}
+			else if(antiVax.isInLeft()) {
+				antiVax.setPosY(antiVax.getPosY() + speedAntiVaxAttackY);
+				antiVax.setPosX(antiVax.getPosX() + speedAntiVaxAttackX);
+
+			}
+			else if (!antiVax.isInLeft()){
+				antiVax.setPosY(antiVax.getPosY() + speedAntiVaxAttackY);
+				antiVax.setPosX(antiVax.getPosX() - speedAntiVaxAttackX);
+			}
+		}
+	}
+
+	public void checkCollisionAntiVaxPlayer() {
+		for(int i = 0; i < this.listAntiVax.size(); i++) {
+				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
+						.intersects(this.listAntiVax.get(i).getImage().getBoundsInParent())) {
+					controllerGame.setScore(this.listAntiVax.get(i).getPoint());
+					road.getChildren().remove(this.listAntiVax.get(i).getImage());
+					this.listAntiVax.remove(this.listAntiVax.get(i));
+					numberOfAntiVax -= 1;
+					System.out.println(numberOfAntiVax);
+				}
+				else if(this.listAntiVax.get(i).getImage().getBoundsInParent().intersects(player.i.getBoundsInParent())){
+					System.out.println("you lost a life");
+				}
+		}
+	}
+
+	public void playerWinLevel1(){
+		if(numberOfAntiVax == 0 && virusCloud.getSize() == 0 && player.getPosY() < maxHeight){
+			player.setPosY(player.getPosY()+20);
+		}
+	}
 }
 

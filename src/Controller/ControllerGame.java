@@ -134,7 +134,6 @@ public class ControllerGame {
     
     public void removeLife(){
         listRemainingLife.get(p.getLife()).setVisible(false);
-        listRemainingLife.remove(p.getLife());
         p.setLife(p.getLife() -1);
     }
 

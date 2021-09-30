@@ -23,7 +23,7 @@ public class Animation extends AnimationTimer{
 
 	public final static int speedSendMunition_lv1 = 25;
 	public final static int speedAntiVaxAttackX = 10;
-	public final static int speedAntiVaxAttackY = 7;
+	public final static int speedAntiVaxAttackY = 10;
 
 	public final static int numberOfAntiVax_lv1 = 6;
 	
@@ -61,7 +61,7 @@ public class Animation extends AnimationTimer{
 		listSendMunition = new ArrayList<ImageView>();
 		timerSendMunition = maxTimerSendMunition;
 
-		listAntiVax = new ArrayList<>();
+		listAntiVax = new ArrayList<AntiVax>();
 		timerAntiVaxAttack = maxTimerAntiVaxAttack;
 		numberOfAntiVax = numberOfAntiVax_lv1;
 	}
@@ -86,7 +86,7 @@ public class Animation extends AnimationTimer{
 		antiVaxAttack();
 		moveAntiVax();
 		checkCollisionAntiVaxPlayer();
-		playerWinLevel1();
+		//playerWinLevel1();
 	}
 	
 	
@@ -245,26 +245,27 @@ public class Animation extends AnimationTimer{
 	}
 
 	public void moveAntiVax() {
-		for (AntiVax antiVax : this.listAntiVax) {
-			if(antiVax.getPosX() > maxHeight){
-				this.listAntiVax.remove(antiVax);
-				road.getChildren().remove(antiVax.getImage());
+		for(int i = 0; i < this.listAntiVax.size(); i++) {
+			if(listAntiVax.get(i).getPosY() > maxHeight){
+				road.getChildren().remove(listAntiVax.get(i).getImage());
+				this.listAntiVax.remove(listAntiVax.get(i));
 			}
-			else if(antiVax.isInLeft()) {
-				antiVax.setPosY(antiVax.getPosY() + speedAntiVaxAttackY);
-				antiVax.setPosX(antiVax.getPosX() + speedAntiVaxAttackX);
+			else if(listAntiVax.get(i).isInLeft()) {
+				listAntiVax.get(i).setPosY(listAntiVax.get(i).getPosY() + speedAntiVaxAttackY);
+				listAntiVax.get(i).setPosX(listAntiVax.get(i).getPosX() + speedAntiVaxAttackX);
 
 			}
-			else if (!antiVax.isInLeft()){
-				antiVax.setPosY(antiVax.getPosY() + speedAntiVaxAttackY);
-				antiVax.setPosX(antiVax.getPosX() - speedAntiVaxAttackX);
+			else if (!listAntiVax.get(i).isInLeft()){
+				listAntiVax.get(i).setPosY(listAntiVax.get(i).getPosY() + speedAntiVaxAttackY);
+				listAntiVax.get(i).setPosX(listAntiVax.get(i).getPosX() - speedAntiVaxAttackX);
 			}
 		}
 	}
 
 	public void checkCollisionAntiVaxPlayer() {
 		for(int i = 0; i < this.listAntiVax.size(); i++) {
-				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
+			for(int j = 0; j < player.getListJet().getSize(); j++) {
+				if (player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(this.listAntiVax.get(i).getImage().getBoundsInParent())) {
 					controllerGame.setScore(this.listAntiVax.get(i).getPoint());
 					road.getChildren().remove(this.listAntiVax.get(i).getImage());
@@ -272,9 +273,14 @@ public class Animation extends AnimationTimer{
 					numberOfAntiVax -= 1;
 					System.out.println(numberOfAntiVax);
 				}
-				else if(this.listAntiVax.get(i).getImage().getBoundsInParent().intersects(player.i.getBoundsInParent())){
-					System.out.println("you lost a life");
-				}
+			}
+			if (this.listAntiVax.get(i).getImage().getBoundsInParent().intersects(player.i.getBoundsInParent())) {
+				controllerGame.removeLife();
+				road.getChildren().remove(this.listAntiVax.get(i).getImage());
+				this.listAntiVax.remove(this.listAntiVax.get(i));
+				numberOfAntiVax -= 1;
+			}
+
 		}
 	}
 

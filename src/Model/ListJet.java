@@ -20,7 +20,8 @@ public class ListJet {
 	public int getSize() { return listJet.size(); }
 	
 	public void addJet(Jet jet) { listJet.add(jet); }
-	public void removeJet(int i) { listJet.remove(i); }
+	public void removeJet(int i) {
+		listJet.remove(i); }
 	
 	public Jet getJet(int i) { return listJet.get(i); }
 

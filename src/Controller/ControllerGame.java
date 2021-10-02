@@ -1,12 +1,10 @@
 package Controller;
 
 
+import java.net.URL;
 import java.util.ArrayList;
 
-import Model.Jet;
-import Model.Player;
-import Model.Virus;
-import Model.VirusCloud;
+import Model.*;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -25,15 +23,18 @@ public class ControllerGame {
     @FXML
     ImageView player;
 
+
+
     @FXML
     Pane road;
 
     Player p;
     
-    VirusCloud virusCloud;
-    
-	@FXML ImageView virus1;
-    @FXML ImageView virus2;
+    Level1 level1;
+
+
+    @FXML  ImageView virus1;
+    @FXML  ImageView virus2;
     @FXML ImageView virus3;
     @FXML ImageView virus4;
     @FXML ImageView virus5;
@@ -91,7 +92,7 @@ public class ControllerGame {
 	            p.setImagePlayer(p.getImageShoot());
 	            
 	            /* launch a jet */
-	            Jet jet = new Jet(p.getPosX()+36, p.getPosY()-36);
+	            Jet jet = new Jet(p.getPosX()+36, p.getPosY()-36,getClass().getResource("../Images/jet.png"));
 	            road.getChildren().add(jet.getImageJet());
 	            	            
 	            p.getListJet().addJet(jet);
@@ -155,5 +156,36 @@ public class ControllerGame {
 		this.listRemainingMunition.get(p.getAvailableJet()).setVisible(true);
 		p.setAvailableJet(p.getAvailableJet()+1);
 	}
-    
+
+    public ImageView getVirus1() {
+        return virus1;
+    }
+
+    public ImageView getVirus2() {
+        return virus2;
+    }
+
+    public ImageView getVirus3() {
+        return virus3;
+    }
+
+    public ImageView getVirus4() {
+        return virus4;
+    }
+
+    public ImageView getVirus5() {
+        return virus5;
+    }
+
+    public ImageView getVirus6() {
+        return virus6;
+    }
+
+    public ImageView getVirus7() {
+        return virus7;
+    }
+
+    public Pane getRoad() {
+        return road;
+    }
 }

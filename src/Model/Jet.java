@@ -22,11 +22,10 @@ public class Jet {
 	
 	
     ///////////////////// CONSTRUCTOR ///////////////////////
-	public Jet(Double x, Double y) {
+	public Jet(Double x, Double y, URL imageJeturl) {
 		posX = x;
 		posY = y;
-		
-        URL imageJeturl = getClass().getResource("../Images/jet.png");
+
         imageJet = new ImageView(new Image(imageJeturl.toExternalForm()));
         imageJet.setLayoutX(x);
         imageJet.setLayoutY(y);

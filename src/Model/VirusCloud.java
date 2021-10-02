@@ -6,10 +6,13 @@ public class VirusCloud {
 
 	///////////////////// ATTRIBUTES /////////////////////////
     ArrayList<Virus> virusCloud;
+	/* jets that are displayed on the window */
+	private ListJet listJet;
 
     ///////////////////// CONSTRUCTOR ///////////////////////
 	public VirusCloud() {
 		virusCloud = new ArrayList<Virus>();
+		listJet = new ListJet();
 	}
 	
 	
@@ -22,4 +25,5 @@ public class VirusCloud {
 	
 	public Virus getVirus(int i) { return virusCloud.get(i); }
 
+	public ListJet getListJet() { return listJet; }
 }

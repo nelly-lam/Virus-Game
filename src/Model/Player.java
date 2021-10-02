@@ -97,6 +97,7 @@ public class Player {
     }
 
 	public ListJet getListJet() { return listJet; }
+
 	public void setListJet(ListJet listJet) { this.listJet = listJet; }
 
 	public int getAvailableJet() { return availableJet; }

@@ -31,7 +31,7 @@ public class ControllerAcceuil  {
 
 
             c.p  = new Player(c.player);
-
+            c.setListRemainingLife();
 
 
 

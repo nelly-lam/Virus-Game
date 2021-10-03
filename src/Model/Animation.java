@@ -80,27 +80,37 @@ public class Animation extends AnimationTimer{
 	@Override
 	public void handle(long arg0) {
 		if(arg0 - lastUpdate >= 95000000) {
-			update();
+			try {
+				update();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			lastUpdate = arg0;
 		}
 	}
 
-	public void update() {
-		moveJet();
-		moveViruses();
-		sendMunition();
-		moveSendMunition();
-		checkCollisionVirusJet();
-		getMunition();
-		antiVaxAttack();
-		moveAntiVax();
-		checkCollisionAntiVaxPlayer();
-		virusShoot();
-		moveVirusShoot();
-		checkCollisionVirusShootPlayer();
-		checkCollisionJetAntiVax();
-		playerWinLevel();
-		playerLostLevel();
+	public void update() throws IOException {
+		if(!level.isLost()) {
+			moveJet();
+			moveViruses();
+			sendMunition();
+			moveSendMunition();
+			checkCollisionVirusJet();
+			getMunition();
+			antiVaxAttack();
+			moveAntiVax();
+			checkCollisionAntiVaxPlayer();
+			virusShoot();
+			moveVirusShoot();
+			checkCollisionVirusShootPlayer();
+			checkCollisionJetAntiVax();
+			playerWinLevel();
+			playerLostLevel();
+		}
+		else {
+			//controllerGame.launchLoosePane();
+			System.out.println("loose");
+		}
 
 	}
 
@@ -314,13 +324,14 @@ public class Animation extends AnimationTimer{
 	public void playerWinLevel(){
 		if(level.getNumberOfAntiVax() == 0 && virusCloud.getSize() == 0 && player.getPosY() < maxHeight){
 			player.setPosY(player.getPosY()-20);
+			player.setPosX(widthWindow/2);
 			level.setWon(true);
 		}
 	}
 
 	public void playerLostLevel(){
 		if(player.getLife() == 0){
-			System.out.println("you lose");
+			level.setLost(true);
 		}
 	}
 }

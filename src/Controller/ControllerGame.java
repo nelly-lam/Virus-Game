@@ -1,11 +1,14 @@
 package Controller;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
 import Model.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -81,10 +84,6 @@ public class ControllerGame {
     	listRemainingMunition.add(munition9);
     	listRemainingMunition.add(munition10);
 
-    	listRemainingLife.add(life1);
-    	listRemainingLife.add(life2);
-    	listRemainingLife.add(life3);
-    	
         if(k.getCode().equals(KeyCode.SPACE)){
         	if(p.getAvailableJet() > 0) {
         		
@@ -134,7 +133,7 @@ public class ControllerGame {
 
     
     public void removeLife(){
-        listRemainingLife.get(p.getLife()).setVisible(false);
+        listRemainingLife.get(p.getLife()-1).setVisible(false);
         p.setLife(p.getLife() -1);
     }
 
@@ -188,4 +187,30 @@ public class ControllerGame {
     public Pane getRoad() {
         return road;
     }
+
+    public void setListRemainingLife(){
+        listRemainingLife.add(life1);
+        listRemainingLife.add(life2);
+        listRemainingLife.add(life3);
+
+    }
+
+    public ArrayList<ImageView> getListRemainingLife() {
+        return listRemainingLife;
+    }
+
+
+    public void launchLoosePane() throws IOException {
+        Stage primaryStage = (Stage) road.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../lose.fxml"));
+        Pane myPane = loader.load();
+        //ControllerGame c = loader.getController();
+       // c.setStage(primaryStage);
+        Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+        myScene.getRoot().requestFocus();
+        primaryStage.setScene(myScene);
+        primaryStage.show();
+    }
+
+
 }

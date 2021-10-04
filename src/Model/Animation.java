@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import Controller.ControllerGame;
+import Controller.ControllerLost;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Animation extends AnimationTimer{
@@ -90,7 +92,6 @@ public class Animation extends AnimationTimer{
 	}
 
 	public void update() throws IOException {
-		if(!level.isLost()) {
 			moveJet();
 			moveViruses();
 			sendMunition();
@@ -106,12 +107,6 @@ public class Animation extends AnimationTimer{
 			checkCollisionJetAntiVax();
 			playerWinLevel();
 			playerLostLevel();
-		}
-		else {
-			//controllerGame.launchLoosePane();
-			System.out.println("loose");
-		}
-
 	}
 
 
@@ -329,10 +324,26 @@ public class Animation extends AnimationTimer{
 		}
 	}
 
-	public void playerLostLevel(){
+	public void playerLostLevel() throws IOException {
 		if(player.getLife() == 0){
 			level.setLost(true);
+			launchLoosePane();
 		}
+	}
+
+	public void launchLoosePane() throws IOException {
+		Stage primaryStage = (Stage) road.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../lost.fxml"));
+		Pane myPane = loader.load();
+		ControllerLost c = loader.getController();
+		c.setLevel("You lost level " + level.getNbLevel());
+		c.setPoint("with " + String.valueOf(level.getPoint()) + " points");
+		c.setStage(primaryStage);
+		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+		myScene.getRoot().requestFocus();
+		primaryStage.setScene(myScene);
+		primaryStage.show();
+		stop();
 	}
 }
 

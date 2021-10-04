@@ -33,7 +33,7 @@ public class ControllerGame {
 
     Player p;
     
-    Level1 level1;
+    int level = 1;
 
 
     @FXML  ImageView virus1;
@@ -200,17 +200,7 @@ public class ControllerGame {
     }
 
 
-    public void launchLoosePane() throws IOException {
-        Stage primaryStage = (Stage) road.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../lose.fxml"));
-        Pane myPane = loader.load();
-        //ControllerGame c = loader.getController();
-       // c.setStage(primaryStage);
-        Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-        myScene.getRoot().requestFocus();
-        primaryStage.setScene(myScene);
-        primaryStage.show();
+    public String getLevel() {
+        return String.valueOf(level);
     }
-
-
 }

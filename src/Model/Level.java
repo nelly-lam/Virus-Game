@@ -12,6 +12,7 @@ public class Level {
     private ControllerGame controllerGame;
     private int point;
     private ArrayList<AntiVax> listAntiVax;
+    private int nbLevel;
 
 
     public Level(ControllerGame c, int point, int numberOfAntiVax){
@@ -22,6 +23,7 @@ public class Level {
         this.listAntiVax = new ArrayList<AntiVax>();
         this.point = point;
         this.numberOfAntiVax = numberOfAntiVax;
+        this.nbLevel = 1;
 
     }
 
@@ -93,4 +95,7 @@ public class Level {
         this.listAntiVax.remove(a);
     }
 
+    public int getNbLevel() {
+        return nbLevel;
+    }
 }

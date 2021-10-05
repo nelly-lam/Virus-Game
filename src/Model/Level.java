@@ -8,6 +8,7 @@ public class Level {
     private int numberOfAntiVax;
     private boolean won;
     private boolean lost;
+    private int score;
     private  VirusCloud virusCloud;
     private ControllerGame controllerGame;
     private int point;
@@ -18,12 +19,14 @@ public class Level {
     public Level(ControllerGame c, int point, int numberOfAntiVax){
         this.won = false;
         this.lost = false;
+        this.score = 0;
         this.virusCloud = new VirusCloud();
         this.controllerGame = c;
         this.listAntiVax = new ArrayList<AntiVax>();
         this.point = point;
         this.numberOfAntiVax = numberOfAntiVax;
         this.nbLevel = 1;
+
 
     }
 
@@ -97,5 +100,13 @@ public class Level {
 
     public int getNbLevel() {
         return nbLevel;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return score;
     }
 }

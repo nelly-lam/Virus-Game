@@ -183,6 +183,7 @@ public class Animation extends AnimationTimer{
 				if(player.getListJet().getJet(i).getImageJet().getBoundsInParent()
 						.intersects(virusCloud.getVirus(j).getImageVirus().getBoundsInParent())) {
 					controllerGame.setScore(virusCloud.getVirus(j).getPoint());
+					level.setScore(level.getScore() + level.getPoint());
 					road.getChildren().remove(virusCloud.getVirus(j).getImageVirus());
 					virusCloud.removeVirus(j);
 				}
@@ -297,6 +298,7 @@ public class Animation extends AnimationTimer{
 				if (player.getListJet().getJet(j).getImageJet().getBoundsInParent()
 						.intersects(level.getListAntiVax().get(i).getImage().getBoundsInParent())) {
 					controllerGame.setScore(level.getListAntiVax().get(i).getPoint());
+					level.setScore(level.getScore() + level.getPoint());
 					road.getChildren().remove(player.getListJet().getJet(j).getImageJet());
 					player.getListJet().removeJet(j);
 					level.removeAntiVax(level.getListAntiVax().get(i));
@@ -337,7 +339,7 @@ public class Animation extends AnimationTimer{
 		Pane myPane = loader.load();
 		ControllerLost c = loader.getController();
 		c.setLevel("You lost level " + level.getNbLevel());
-		c.setPoint("with " + String.valueOf(level.getPoint()) + " points");
+		c.setPoint("with " + String.valueOf(level.getScore()) + " points");
 		c.setStage(primaryStage);
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
 		myScene.getRoot().requestFocus();

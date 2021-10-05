@@ -48,7 +48,6 @@ public class ControllerLost {
             Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
             welcome.getRoot().requestFocus();
             primaryStage.setResizable(false);
-            primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setTitle("Virus Game");
             primaryStage.setScene(welcome);
             primaryStage.show();

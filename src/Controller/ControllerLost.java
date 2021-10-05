@@ -34,7 +34,7 @@ public class ControllerLost {
     }
 
     public void setStage(Stage primaryStage) {
-        this.stage = stage;
+        this.stage = primaryStage;
     }
 
 

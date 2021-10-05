@@ -7,6 +7,7 @@ import java.util.Random;
 
 import Controller.ControllerGame;
 import Controller.ControllerLost;
+import Controller.ControllerWin;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -72,7 +73,7 @@ public class Animation extends AnimationTimer{
 
 		timerAntiVaxAttack = maxTimerAntiVaxAttack;
 
-		timerVirusShoot = maxTimerVirusShoot;
+		timerVirusShoot = maxTimerVirusShoot - 5 ;
 		imageJetViruslv1 = getClass().getResource("../Images/jet_lv1.png");
 
 	}
@@ -318,11 +319,12 @@ public class Animation extends AnimationTimer{
 		}
 	}
 
-	public void playerWinLevel(){
+	public void playerWinLevel() throws IOException {
 		if(level.getNumberOfAntiVax() == 0 && virusCloud.getSize() == 0 && player.getPosY() < maxHeight){
 			player.setPosY(player.getPosY()-20);
 			player.setPosX(widthWindow/2);
 			level.setWon(true);
+			launchWonPane();
 		}
 	}
 
@@ -340,6 +342,22 @@ public class Animation extends AnimationTimer{
 		ControllerLost c = loader.getController();
 		c.setLevel("You lost level " + level.getNbLevel());
 		c.setPoint("with " + String.valueOf(level.getScore()) + " points");
+		c.setStage(primaryStage);
+		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+		myScene.getRoot().requestFocus();
+		primaryStage.setScene(myScene);
+		primaryStage.show();
+		stop();
+	}
+
+	public void launchWonPane() throws IOException {
+		Stage primaryStage = (Stage) road.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../win.fxml"));
+		Pane myPane = loader.load();
+		ControllerWin c = loader.getController();
+		c.setWon("You lost level " + level.getNbLevel());
+		c.setPoint("with " + level.getScore() + " points");
+		c.setLevel("loading level" + (level.getNbLevel()+1));
 		c.setStage(primaryStage);
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
 		myScene.getRoot().requestFocus();

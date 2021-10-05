@@ -355,7 +355,7 @@ public class Animation extends AnimationTimer{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../win.fxml"));
 		Pane myPane = loader.load();
 		ControllerWin c = loader.getController();
-		c.setWon("You lost level " + level.getNbLevel());
+		c.setWon("You won level " + level.getNbLevel());
 		c.setPoint("with " + level.getScore() + " points");
 		c.setLevel("loading level" + (level.getNbLevel()+1));
 		c.setStage(primaryStage);

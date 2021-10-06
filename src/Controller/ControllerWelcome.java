@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerAcceuil  {
+public class ControllerWelcome  {
 
     @FXML Pane pane;
 
@@ -28,15 +28,16 @@ public class ControllerAcceuil  {
         else if (k.getCode().equals(KeyCode.S)){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
             Pane myPane = loader.load();
-            ControllerGame c = loader.getController();
-            c.setStage(primaryStage);
+            ControllerLevel1 controllerLevel1 = loader.getController();
+            
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
 
-            c.p  = new Player(c.player);
-            c.setListRemainingLife();
+            controllerLevel1.player  = new Player(controllerLevel1.imagePlayer);
+            controllerLevel1.setListRemainingLife();
+            controllerLevel1.setListRemainingMunition();
 
-            Animation animation = new Animation(pane.getPrefWidth(), c.p, c, myPane);
+            Animation animation = new Animation(pane.getPrefWidth(), controllerLevel1.player, controllerLevel1, myPane);
             animation.start();
 
             primaryStage.setScene(myScene);

@@ -8,6 +8,10 @@ import java.net.URL;
 
 public class Player {
     
+	///////////////////// CONSTANTS /////////////////////////
+	public static final int totalLife = 3;
+	public static final int totalMunition = 10;
+
 	///////////////////// ATTRIBUTES /////////////////////////
 
 	/* position of the left up corner 
@@ -25,11 +29,14 @@ public class Player {
     
     /* jets that are displayed on the window */
     private ListJet listJet;
+    
     /* number of jet the player has */
     private int availableJet;
 
+    /* number of life the player has */
     private int life;
     
+    /* score of the player */
     private int score;
 
     
@@ -40,7 +47,6 @@ public class Player {
         
         this.i = i;
         
-        /* imagePlayer = imageG ? */
         this.imagePlayer = i.getImage();
         this.imageG = i.getImage();
         
@@ -49,23 +55,21 @@ public class Player {
         URL imageShooturl = getClass().getResource("../Images/playerShooting.png");
         this.imageShoot = new Image(imageShooturl.toExternalForm());
 
-    	this.life = 3;
+    	this.life = totalLife;
 
         this.listJet = new ListJet();
-        this.availableJet = 10;
+        this.availableJet = totalMunition;
         
     }
 
 
     ///////////////////// METHODS ///////////////////////
-
     public Double getPosY() {  return posY; }
     public void setPosY(Double posY) {
         this.posY = posY;
         this.i.setLayoutY(posY);
 
     }
-
 
     public Double getPosX() { return posX; }
     public void setPosX(Double posX) {
@@ -74,13 +78,8 @@ public class Player {
 
     }
 
-    public int getLife() {
-        return life;
-    }
-
-    public void setLife(int life) {
-        this.life = life;
-    }
+    public int getLife() { return life; }
+    public void setLife(int life) { this.life = life; }
 
     public Image getImageD() { return imageD; }
     public Image getImageG() { return imageG; }
@@ -92,24 +91,16 @@ public class Player {
         this.imagePlayer = imagePlayer;
     }
 
-    public ImageView getImageViewPlayer(){
-        return this.i;
-    }
+    public ImageView getImageViewPlayer(){ return this.i; }
 
 	public ListJet getListJet() { return listJet; }
-
 	public void setListJet(ListJet listJet) { this.listJet = listJet; }
 
 	public int getAvailableJet() { return availableJet; }
 	public void setAvailableJet(int jetOnHand) { this.availableJet = jetOnHand; }
 
-
-	public int getScore() {
-		return score;
-	}
-
-
-	public void setScore(int score) {
-		this.score = score;
-	}
+	public int getScore() { return score; }
+	public void setScore(int score) { this.score = score; }
+	
+	
 }

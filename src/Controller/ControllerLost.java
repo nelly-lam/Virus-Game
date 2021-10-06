@@ -16,22 +16,29 @@ public class ControllerLost {
 
     @FXML Text level;
 
-    @FXML Text point;
+    @FXML Text score;
 
     @FXML
     Pane pane;
 
     private Stage stage;
 
-
-    public void setPoint(String point) {
-        this.point.setText(this.point.getText() + point);
+    /**
+     * setPoint(): display the score of the player
+     * @param score String, the final score of the player
+     */
+    public void setScore(String score) {
+        this.score.setText(this.score.getText() + score);
     }
 
-
+    /**
+     * setLevel(): display the level of the player
+     * @param level String, the final level of the player
+     */
     public void setLevel(String level) {
         this.level.setText(this.level.getText() + level);
     }
+
 
     public void setStage(Stage primaryStage) {
         this.stage = primaryStage;
@@ -43,7 +50,7 @@ public class ControllerLost {
             stage.close();
         }
         else if(k.getCode().equals(KeyCode.S)){
-            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../acceuil.fxml"));
+            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../welcome.fxml"));
             Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
             welcome.getRoot().requestFocus();
             stage.setResizable(false);

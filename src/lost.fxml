@@ -21,7 +21,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fx:id="point" fill="YELLOW" layoutX="315.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with">
+      <Text fx:id="score" fill="YELLOW" layoutX="315.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with a score of ">
          <font>
             <Font size="31.0" />
          </font>

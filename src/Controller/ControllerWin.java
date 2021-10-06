@@ -19,45 +19,62 @@ public class ControllerWin {
     @FXML Text level;
     @FXML
     Pane pane;
+    Stage stage;
 
-    public void setPoint(String point) {
-        this.point.setText(this.point.getText() + point);
+    /**
+     * setPoint(): display the score of the player
+     * @param score String, the final score of the player
+     */
+    public void setScore(String score) {
+        this.point.setText(this.point.getText() + score);
     }
 
-    public void setWon(String won) {
-        this.won.setText(this.won.getText() + won);
+
+    /**
+     * setNextLevel(): display the next level
+     * @param level 
+     */
+    public void setNextLevel(String level) {
+        this.level.setText(this.level.getText() + level);
+    }
+    
+    /**
+     * setWon() : display the level of the player
+     * @param level String, the final level of the player
+     */
+    public void setLevel(String level) {
+        this.won.setText(this.won.getText() + level);
     }
 
     public Pane getPane() {
         return pane;
     }
 
-    public void setLevel(String level) {
-        this.level.setText(this.level.getText() + level);
-    }
 
     public void setStage(Stage primaryStage) {
+    	this.stage = primaryStage;
     }
 
     @FXML
     public void start(KeyEvent k) throws IOException{
-        Stage primaryStage = (Stage) pane.getScene().getWindow();
+    	//TODO: get the level the player is currently at to charge the good fxml file
         if(k.getCode() == KeyCode.R){
+        	//TODO; change to level2.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
             Pane myPane = loader.load();
-            ControllerGame c = loader.getController();
-            c.setStage(primaryStage);
+            ControllerLevel1 controllerLevel1 = loader.getController();
+            
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
 
-            c.p  = new Player(c.player);
-            c.setListRemainingLife();
+            controllerLevel1.player  = new Player(controllerLevel1.imagePlayer);
+            controllerLevel1.setListRemainingLife();
 
-            Animation animation = new Animation(pane.getPrefWidth(), c.p, c, myPane);
+            Animation animation = new Animation(pane.getPrefWidth(), controllerLevel1.player, controllerLevel1, myPane);
             animation.start();
 
-            primaryStage.setScene(myScene);
-            primaryStage.show();
+            this.stage.setScene(myScene);
+            this.stage.show();
         }
 
     }

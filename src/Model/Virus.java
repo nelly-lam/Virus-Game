@@ -20,20 +20,21 @@ public class Virus {
      * (if it is shown or not) */
     private boolean isAlive;
 
-    private int point;
+    /* point of the virus */
+    private int pointVirus;
+    
     
     ///////////////////// CONSTRUCTOR ///////////////////////
     public Virus(ImageView img, int point){
     	posX = img.getLayoutX();
     	posY = img.getLayoutY();
-    	this.point = point;
+    	this.pointVirus = point;
     	imageVirus = img;
 
     }
 
 
     /////////////////////// METHODS ///////////////////////////
-
 	public Double getPosX() { return posX; }
 
 	public void setPosX(Double posX) {
@@ -48,9 +49,7 @@ public class Virus {
 		imageVirus.setLayoutY(posY);
 	}
 
-	public int getPoint() {
-		return point;
-	}
+	public int getPointVirus() { return pointVirus; }
 
 	public ImageView getImageVirus() { return imageVirus; }
     

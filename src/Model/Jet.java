@@ -34,13 +34,6 @@ public class Jet {
 
 	
     ///////////////////// METHODS ///////////////////////
-
-	public Double getPosX() { return posX; }
-	public void setPosX(Double posX) {
-		this.posX = posX;
-        imageJet.setLayoutX(this.posX);
-	}
-
 	public Double getPosY() { return posY; }
 	public void setPosY(Double posY) {
 		this.posY = posY;

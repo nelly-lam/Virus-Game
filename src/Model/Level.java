@@ -1,94 +1,72 @@
 package Model;
 
-import Controller.ControllerGame;
+import Controller.ControllerLevel1;
 
 import java.util.ArrayList;
 
 public class Level {
+	
+	///////////////////// ATTRIBUTES /////////////////////////
     private int numberOfAntiVax;
+    private ArrayList<AntiVax> listAntiVax;
+    private int pointOfAntiVax;
+
     private boolean won;
     private boolean lost;
-    private int score;
+    
+    private int totalScore;
+    
     private  VirusCloud virusCloud;
-    private ControllerGame controllerGame;
-    private int point;
-    private ArrayList<AntiVax> listAntiVax;
-    private int nbLevel;
+    private int numberOfLevel;
+    
+    private ControllerLevel1 controllerGame;
 
 
-    public Level(ControllerGame c, int point, int numberOfAntiVax){
+	///////////////////// CONSTRUCTOR /////////////////////////
+    public Level(ControllerLevel1 c, int point, int numberOfAntiVax){
+        this.numberOfAntiVax = numberOfAntiVax;
+        this.listAntiVax = new ArrayList<AntiVax>();
+        this.pointOfAntiVax = point;
+        
         this.won = false;
         this.lost = false;
-        this.score = 0;
+        
+        this.totalScore = 0;
+        
         this.virusCloud = new VirusCloud();
+        this.numberOfLevel = 1;
+        
         this.controllerGame = c;
-        this.listAntiVax = new ArrayList<AntiVax>();
-        this.point = point;
-        this.numberOfAntiVax = numberOfAntiVax;
-        this.nbLevel = 1;
 
 
     }
 
-    public ControllerGame getControllerGame() {
-        return controllerGame;
-    }
+	///////////////////// METHODS /////////////////////////
+    public ControllerLevel1 getControllerGame() { return controllerGame; }
 
-    public int getPoint() {
-        return point;
-    }
+    public int getPoint() { return pointOfAntiVax; }
 
-    public VirusCloud getVirusCloud() {
-        return virusCloud;
-    }
+    public VirusCloud getVirusCloud() { return virusCloud; }
+    public void setVirusCloud(VirusCloud virusCloud) { this.virusCloud = virusCloud; }
 
-    public void setVirusCloud(VirusCloud virusCloud) {
-        this.virusCloud = virusCloud;
-    }
+    public int getNumberOfAntiVax() { return numberOfAntiVax; }
+    public void setNumberOfAntiVax(int numberOfAntiVax) { this.numberOfAntiVax = numberOfAntiVax; }
 
-    public int getNumberOfAntiVax() {
-        return numberOfAntiVax;
-    }
+    public boolean isLost() { return lost; }
+    public void setLost(boolean lost) { this.lost = lost; }
 
-    public void setNumberOfAntiVax(int numberOfAntiVax) {
-        this.numberOfAntiVax = numberOfAntiVax;
-    }
+    public boolean getWon(){ return this.won; }
+    public void setWon(boolean won) { this.won = won; }
 
+    public ArrayList<AntiVax> getListAntiVax() { return listAntiVax; }
+    public void setListAntiVax(ArrayList<AntiVax> listAntiVax) { this.listAntiVax = listAntiVax; }
 
-    public boolean isLost() {
-        return lost;
-    }
+    public void addVirusToVirusCloud(Virus virus){ virusCloud.addVirus(virus); }
 
-    public void setLost(boolean lost) {
-        this.lost = lost;
-    }
-
-    public void setWon(boolean won) {
-        this.won = won;
-    }
-
-    public boolean getWon(){
-        return this.won;
-    }
-
-    public ArrayList<AntiVax> getListAntiVax() {
-        return listAntiVax;
-    }
-
-    public void setListAntiVax(ArrayList<AntiVax> listAntiVax) {
-        this.listAntiVax = listAntiVax;
-    }
-
-    public void addVirusToVirusCloud(Virus virus){
-        virusCloud.addVirus(virus);
-    }
-
-    public AntiVax createAnAntiVax(){
-        return new AntiVax(point);
-    }
+    public AntiVax createAntiVax(){ return new AntiVax(pointOfAntiVax); }
 
     public void addAntiVax(){
-        AntiVax a = createAnAntiVax();
+        AntiVax a = createAntiVax();
         listAntiVax.add(a);
         controllerGame.getRoad().getChildren().add(a.getImage());
 
@@ -98,15 +76,9 @@ public class Level {
         this.listAntiVax.remove(a);
     }
 
-    public int getNbLevel() {
-        return nbLevel;
-    }
+    public int getNumberOfLevel() { return numberOfLevel; }
+    
+    public int getTotalScore() { return totalScore; }
+    public void setTotalScore(int score) { this.totalScore = score; }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getScore() {
-        return score;
-    }
 }

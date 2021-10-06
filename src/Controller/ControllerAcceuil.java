@@ -21,7 +21,11 @@ public class ControllerAcceuil  {
         if(k.getCode().equals(KeyCode.Q)){
             primaryStage.close();
         }
-        else if (k.getCode().equals(KeyCode.SPACE)){
+        else if (k.getCode().equals(KeyCode.R)){
+            System.out.println("rules");
+            //faire un fxml rules
+        }
+        else if (k.getCode().equals(KeyCode.S)){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
             Pane myPane = loader.load();
             ControllerGame c = loader.getController();
@@ -29,16 +33,11 @@ public class ControllerAcceuil  {
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
 
-
             c.p  = new Player(c.player);
             c.setListRemainingLife();
 
-
-
-
             Animation animation = new Animation(pane.getPrefWidth(), c.p, c, myPane);
             animation.start();
-
 
             primaryStage.setScene(myScene);
             primaryStage.show();

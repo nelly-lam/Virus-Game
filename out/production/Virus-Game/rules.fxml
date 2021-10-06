@@ -6,22 +6,17 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#start" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerAcceuil">
    <children>
-      <Text fill="YELLOW" layoutX="174.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virus Game">
+      <Text fill="YELLOW" layoutX="187.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Virus Game">
          <font>
-            <Font size="62.0" />
+            <Font size="51.0" />
          </font>
       </Text>
-      <Text fill="YELLOW" layoutX="247.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press s to Start">
+      <Text fill="YELLOW" layoutX="255.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to play ">
          <font>
-            <Font size="19.0" />
+            <Font size="22.0" />
          </font>
       </Text>
-      <Text fill="YELLOW" layoutX="254.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press q to Quit">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Text>
-      <Text fill="YELLOW" layoutX="215.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Press r to learn the rules">
+      <Text fill="YELLOW" layoutX="74.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="19.0" />
          </font>

@@ -25,12 +25,12 @@ public class ControllerLost {
 
 
     public void setPoint(String point) {
-        this.point.setText(point);
+        this.point.setText(this.point.getText() + point);
     }
 
 
     public void setLevel(String level) {
-        this.level.setText(level);
+        this.level.setText(this.level.getText() + level);
     }
 
     public void setStage(Stage primaryStage) {
@@ -39,18 +39,17 @@ public class ControllerLost {
 
 
     @FXML public void start(KeyEvent k) throws IOException {
-        Stage primaryStage = (Stage) pane.getScene().getWindow();
         if (k.getCode().equals(KeyCode.Q)) {
-            primaryStage.close();
+            stage.close();
         }
         else if(k.getCode().equals(KeyCode.S)){
             Pane start = (Pane) FXMLLoader.load(getClass().getResource("../acceuil.fxml"));
             Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
             welcome.getRoot().requestFocus();
-            primaryStage.setResizable(false);
-            primaryStage.setTitle("Virus Game");
-            primaryStage.setScene(welcome);
-            primaryStage.show();
+            stage.setResizable(false);
+            stage.setTitle("Virus Game");
+            stage.setScene(welcome);
+            stage.show();
         }
     }
 }

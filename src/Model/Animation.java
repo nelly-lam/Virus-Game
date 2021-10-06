@@ -340,8 +340,8 @@ public class Animation extends AnimationTimer{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../lost.fxml"));
 		Pane myPane = loader.load();
 		ControllerLost c = loader.getController();
-		c.setLevel("You lost level " + level.getNbLevel());
-		c.setPoint("with " + String.valueOf(level.getScore()) + " points");
+		c.setLevel(" " + level.getNbLevel());
+		c.setPoint(" " + level.getScore() + " points");
 		c.setStage(primaryStage);
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
 		myScene.getRoot().requestFocus();
@@ -355,10 +355,10 @@ public class Animation extends AnimationTimer{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../win.fxml"));
 		Pane myPane = loader.load();
 		ControllerWin c = loader.getController();
-		c.setWon("You won level " + level.getNbLevel());
-		c.setPoint("with " + level.getScore() + " points");
-		c.setLevel("loading level" + (level.getNbLevel()+1));
-		c.setStage(primaryStage);
+		c.setWon(Integer.toString(level.getNbLevel()));
+		c.setPoint(level.getScore() + " points");
+		c.setLevel(Integer.toString(level.getNbLevel()+1));
+		//c.setStage(primaryStage);
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
 		myScene.getRoot().requestFocus();
 		primaryStage.setScene(myScene);

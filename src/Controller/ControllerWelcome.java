@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class ControllerWelcome  {
             //System.out.println("rules");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../rules.fxml"));
             Pane myPane = loader.load();
-            
+
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
 
@@ -39,7 +40,7 @@ public class ControllerWelcome  {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
             Pane myPane = loader.load();
             ControllerLevel1 controllerLevel1 = loader.getController();
-            
+
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
 
@@ -56,20 +57,19 @@ public class ControllerWelcome  {
         }
 
     }
-    
-    @FXML public void goBack(KeyEvent k) throws IOException {
+
+    @FXML public void goBack(KeyEvent k) throws IOException{
         Stage primaryStage = (Stage) pane.getScene().getWindow();
+        if(k.getCode() == KeyCode.R){
+            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../welcome.fxml"));
+            Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
+            welcome.getRoot().requestFocus();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../welcome.fxml"));
-        Pane myPane = loader.load();
-        
-        Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-        myScene.getRoot().requestFocus();
-
-        primaryStage.setScene(myScene);
-        primaryStage.show();
-    
+            primaryStage.setResizable(false);
+          //  primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.setTitle("Virus Game");
+            primaryStage.setScene(welcome);
+            primaryStage.show();
+        }
     }
-    
-    
 }

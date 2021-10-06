@@ -14,14 +14,14 @@ import java.io.IOException;
 
 public class ControllerLost {
 
+	//////////////////////////// ATTRIBUTES /////////////////////////////
     @FXML Text level;
-
     @FXML Text score;
-
-    @FXML
-    Pane pane;
-
+    @FXML Pane pane;
     private Stage stage;
+    
+	//////////////////////////// METHODS /////////////////////////////
+    public void setStage(Stage primaryStage) { this.stage = primaryStage; }
 
     /**
      * setPoint(): display the score of the player
@@ -37,11 +37,6 @@ public class ControllerLost {
      */
     public void setLevel(String level) {
         this.level.setText(this.level.getText() + level);
-    }
-
-
-    public void setStage(Stage primaryStage) {
-        this.stage = primaryStage;
     }
 
 

@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pane" onKeyPressed="#start" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"  prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerWin">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#start" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerWin">
    <children>
-      <Text fx:id="won" fill="YELLOW" layoutX="119.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won level ...">
+      <Text fx:id="won" fill="YELLOW" layoutX="103.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won level">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fx:id="point" fill="YELLOW" layoutX="316.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with ">
+      <Text fx:id="point" fill="YELLOW" layoutX="287.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with a score of">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fx:id="level" fill="YELLOW" layoutX="93.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="when you're ready press r to start level " wrappingWidth="466.1251220703125">
+      <Text fx:id="level" fill="YELLOW" layoutX="83.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="when you're ready press r to start level " wrappingWidth="466.1251220703125">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
+      <ImageView fitHeight="156.0" fitWidth="153.0" layoutX="229.0" layoutY="344.0">
+         <image>
+            <Image url="@Images/load.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

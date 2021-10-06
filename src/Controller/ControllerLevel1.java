@@ -1,14 +1,9 @@
 package Controller;
 
-
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import Model.*;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -61,6 +56,17 @@ public class ControllerLevel1 {
 
     
     ///////////////////// METHODS ///////////////////////
+    public Pane getRoad() { return road; }
+    public void setStage(Stage stage) { this.stage = stage; }
+
+    
+    public ImageView getVirus1() { return virus1; }
+    public ImageView getVirus2() { return virus2; }
+    public ImageView getVirus3() { return virus3; }
+    public ImageView getVirus4() { return virus4; }
+    public ImageView getVirus5() { return virus5; }
+    public ImageView getVirus6() { return virus6; }
+    public ImageView getVirus7() { return virus7; }
 
     @FXML protected void play(KeyEvent k){
 
@@ -143,24 +149,6 @@ public class ControllerLevel1 {
 		player.setAvailableJet(player.getAvailableJet()+1);
 	}
 
-    public ImageView getVirus1() {
-        return virus1;
-    }
-
-    public ImageView getVirus2() {
-        return virus2;
-    }
-
-    public ImageView getVirus3() {
-        return virus3;
-    }
-
-    public ImageView getVirus4() { return virus4; }
-    public ImageView getVirus5() { return virus5; }
-    public ImageView getVirus6() { return virus6; }
-    public ImageView getVirus7() { return virus7; }
-
-    public Pane getRoad() { return road; }
 
     /**
      * setListRemainingLife(): recharge all three life to the player
@@ -186,5 +174,6 @@ public class ControllerLevel1 {
     	listRemainingMunition.add(munition9);
     	listRemainingMunition.add(munition10);
     }
+    
 
 }

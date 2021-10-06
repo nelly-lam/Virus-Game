@@ -14,7 +14,10 @@ import java.io.IOException;
 
 public class ControllerWelcome  {
 
+	//////////////////////////// ATTRIBUTES /////////////////////////////
     @FXML Pane pane;
+
+	//////////////////////////// METHODS /////////////////////////////
 
     @FXML public void start(KeyEvent k) throws IOException {
         Stage primaryStage = (Stage) pane.getScene().getWindow();
@@ -22,8 +25,15 @@ public class ControllerWelcome  {
             primaryStage.close();
         }
         else if (k.getCode().equals(KeyCode.R)){
-            System.out.println("rules");
-            //faire un fxml rules
+            //System.out.println("rules");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../rules.fxml"));
+            Pane myPane = loader.load();
+            
+            Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+            myScene.getRoot().requestFocus();
+
+            primaryStage.setScene(myScene);
+            primaryStage.show();
         }
         else if (k.getCode().equals(KeyCode.S)){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
@@ -36,6 +46,7 @@ public class ControllerWelcome  {
             controllerLevel1.player  = new Player(controllerLevel1.imagePlayer);
             controllerLevel1.setListRemainingLife();
             controllerLevel1.setListRemainingMunition();
+            controllerLevel1.setStage(primaryStage);
 
             Animation animation = new Animation(pane.getPrefWidth(), controllerLevel1.player, controllerLevel1, myPane);
             animation.start();
@@ -45,4 +56,20 @@ public class ControllerWelcome  {
         }
 
     }
+    
+    @FXML public void goBack(KeyEvent k) throws IOException {
+        Stage primaryStage = (Stage) pane.getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../welcome.fxml"));
+        Pane myPane = loader.load();
+        
+        Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+        myScene.getRoot().requestFocus();
+
+        primaryStage.setScene(myScene);
+        primaryStage.show();
+    
+    }
+    
+    
 }

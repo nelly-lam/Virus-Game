@@ -14,13 +14,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ControllerWin {
+	
+	//////////////////////////// ATTRIBUTES /////////////////////////////
     @FXML Text won;
     @FXML Text point;
     @FXML Text level;
-    @FXML
-    Pane pane;
+    @FXML Pane pane;
     Stage stage;
 
+	//////////////////////////// METHODS /////////////////////////////
+    public Pane getPane() { return pane; }
+    public void setStage(Stage primaryStage) { this.stage = primaryStage; }
+    
     /**
      * setPoint(): display the score of the player
      * @param score String, the final score of the player
@@ -46,14 +51,6 @@ public class ControllerWin {
         this.won.setText(this.won.getText() + level);
     }
 
-    public Pane getPane() {
-        return pane;
-    }
-
-
-    public void setStage(Stage primaryStage) {
-    	this.stage = primaryStage;
-    }
 
     @FXML
     public void start(KeyEvent k) throws IOException{
@@ -69,6 +66,7 @@ public class ControllerWin {
 
             controllerLevel1.player  = new Player(controllerLevel1.imagePlayer);
             controllerLevel1.setListRemainingLife();
+            controllerLevel1.setListRemainingMunition();
 
             Animation animation = new Animation(pane.getPrefWidth(), controllerLevel1.player, controllerLevel1, myPane);
             animation.start();

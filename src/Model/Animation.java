@@ -14,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Animation extends AnimationTimer{
@@ -24,15 +23,36 @@ public class Animation extends AnimationTimer{
 	public final static double maxRange = 600.0;
 	public final static double maxHeight = 540.0;
 	public final static double maxWidth = 632.0;
-	public final static long maxTimerSendMunition = 30;
-	public final static long maxTimerAntiVaxAttack = 50;
-	public final static long maxTimerVirusShoot = 25;
 
-	public final static int speedSendMunition_lv1 = 25;
+	public final static int speedSendMunition = 25;
+
 	public final static int speedAntiVaxAttackX = 10;
 	public final static int speedAntiVaxAttackY = 10;
+	
+	public final static long maxTimerSendMunition_lv1 = 30;
+	public final static long maxTimerSendMunition_lv2 = 30;
+	public final static long maxTimerSendMunition_lv3 = 25;
+	public final static long maxTimerSendMunition_lv4 = 25;
+	public final static long maxTimerSendMunition_lv5 = 20;
 
-	public final static int numberOfAntiVax_lv1 = 6;
+	public final static long maxTimerAntiVaxAttack_lv1 = 50;
+	public final static long maxTimerAntiVaxAttack_lv2 = 50;
+	public final static long maxTimerAntiVaxAttack_lv3 = 40;
+	public final static long maxTimerAntiVaxAttack_lv4 = 40;
+	public final static long maxTimerAntiVaxAttack_lv5 = 40;
+
+	public final static long maxTimerVirusShoot_lv1 = 25;
+	public final static long maxTimerVirusShoot_lv2 = 20;
+	public final static long maxTimerVirusShoot_lv3 = 20;
+	public final static long maxTimerVirusShoot_lv4 = 20;
+	public final static long maxTimerVirusShoot_lv5 = 15;
+
+	public final static int numberOfAntiVax_lv1 = 3;
+	public final static int numberOfAntiVax_lv2 = 5;
+	public final static int numberOfAntiVax_lv3 = 5;
+	public final static int numberOfAntiVax_lv4 = 7;
+	public final static int numberOfAntiVax_lv5 = 10;
+	
 
 	//////////////////////////// ATTRIBUTES /////////////////////////////
 	private Player player;
@@ -68,13 +88,14 @@ public class Animation extends AnimationTimer{
 		road = r;
 
 		lastUpdate = 0;
+
 		imageRechargeMunition = getClass().getResource("../Images/rechargeMunition.png");
 		listSendMunition = new ArrayList<ImageView>();
-		timerSendMunition = maxTimerSendMunition;
+		timerSendMunition = maxTimerSendMunition_lv1;
 
-		timerAntiVaxAttack = maxTimerAntiVaxAttack;
+		timerAntiVaxAttack = maxTimerAntiVaxAttack_lv1;
 
-		timerVirusShoot = maxTimerVirusShoot - 5 ;
+		timerVirusShoot = maxTimerVirusShoot_lv1 - 5 ;
 		imageJetViruslv1 = getClass().getResource("../Images/jet_lv1.png");
 
 	}
@@ -198,7 +219,7 @@ public class Animation extends AnimationTimer{
 	 * virusShoot(): shoot a virus' jet if this is time and if there is viruses in the cloud
 	 */
 	public void virusShoot(){
-		if(timerVirusShoot == maxTimerVirusShoot && virusCloud.getSize() > 0) {
+		if(timerVirusShoot == maxTimerVirusShoot_lv1 && virusCloud.getSize() > 0) {
 			timerVirusShoot = 0;
 			int i = (int) (Math.random() * (virusCloud.getSize()));
 			Jet j = new Jet(virusCloud.getVirus(i).getPosX() + 17,virusCloud.getVirus(i).getPosY() + 15, imageJetViruslv1);
@@ -216,7 +237,7 @@ public class Animation extends AnimationTimer{
 	 */
 	public void moveVirusShoot(){
 		for(int i = 0; i < virusCloud.getListJet().getSize(); i++){
-			virusCloud.getListJet().getJet(i).setPosY(virusCloud.getListJet().getJet(i).getPosY() + speedSendMunition_lv1);
+			virusCloud.getListJet().getJet(i).setPosY(virusCloud.getListJet().getJet(i).getPosY() + speedSendMunition);
 		}
 	}
 	
@@ -241,7 +262,7 @@ public class Animation extends AnimationTimer{
 	 */
 	public void sendMunition() {
 		if(player.getAvailableJet() < 9) {
-			if(timerSendMunition == maxTimerSendMunition) {
+			if(timerSendMunition == maxTimerSendMunition_lv1) {
 				timerSendMunition = 0;
 				ImageView newMunition = new ImageView(new Image(imageRechargeMunition.toExternalForm()));
 				double randomX = new Random().nextDouble() * (maxRange - minRange) + minRange;
@@ -262,7 +283,7 @@ public class Animation extends AnimationTimer{
 	 */
 	public void moveSendMunition() {
 		for (ImageView imageView : this.listSendMunition) {
-			imageView.setLayoutY(imageView.getLayoutY() + speedSendMunition_lv1);
+			imageView.setLayoutY(imageView.getLayoutY() + speedSendMunition);
 		}
 	}
 
@@ -287,7 +308,7 @@ public class Animation extends AnimationTimer{
 	 */
 	public void antiVaxAttack(){
 		if(virusCloud.getSize() < 5 && level.getNumberOfAntiVax() > level.getListAntiVax().size()){
-			if(timerAntiVaxAttack == maxTimerAntiVaxAttack) {
+			if(timerAntiVaxAttack == maxTimerAntiVaxAttack_lv1) {
 				timerAntiVaxAttack = 0;
 				level.addAntiVax();
 			}else {
@@ -393,49 +414,45 @@ public class Animation extends AnimationTimer{
 	}
 
 
-	/**
-	 * launchWonPane(): launch the win pane
-	 * @throws IOException
-	 */
-	public void launchWonPane() throws IOException {
-		Stage primaryStage = (Stage) road.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../win.fxml"));
-		Pane myPane = loader.load();
-		ControllerWin controllerWin = loader.getController();
-		
-		controllerWin.setLevel(Integer.toString(level.getNumberOfLevel()));
-		controllerWin.setScore(level.getTotalScore() + " points");
-		controllerWin.setNextLevel(Integer.toString(level.getNumberOfLevel()+1));
-		controllerWin.setStage(primaryStage);
-		
-		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-		myScene.getRoot().requestFocus();
-		primaryStage.setScene(myScene);
-		primaryStage.show();
-		
-		stop();
-	}
-	
-	/**
-	 * launchLoosePane(): launch the lose pane
-	 * @throws IOException
-	 */
-	public void launchLoosePane() throws IOException {
-		Stage primaryStage = (Stage) road.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../lost.fxml"));
-		Pane myPane = loader.load();
-		ControllerLost controllerLost = loader.getController();
-		
-		controllerLost.setLevel(" " + level.getNumberOfLevel());
-		controllerLost.setScore(" " + level.getTotalScore() + " points");
-		controllerLost.setStage(primaryStage);
-		
-		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-		myScene.getRoot().requestFocus();
-		primaryStage.setScene(myScene);
-		primaryStage.show();
-		
-		stop();
-	}
+    public void launchWonPane() throws IOException {
+        Stage primaryStage = (Stage) road.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../win.fxml"));
+        Pane myPane = loader.load();
+        ControllerWin controllerWin = loader.getController();
+        
+        controllerWin.setLevel(" " +level.getNumberOfLevel());
+        controllerWin.setScore(" " + level.getTotalScore() + " points");
+        controllerWin.setNextLevel(Integer.toString(level.getNumberOfLevel()+1));
+        controllerWin.setStage(primaryStage);
+        
+        Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+        myScene.getRoot().requestFocus();
+        primaryStage.setScene(myScene);
+        primaryStage.show();
+        
+        stop();
+    }
+    
+    /**
+     * launchLoosePane(): launch the lose pane
+     * @throws IOException
+     */
+    public void launchLoosePane() throws IOException {
+        Stage primaryStage = (Stage) road.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../lost.fxml"));
+        Pane myPane = loader.load();
+        ControllerLost controllerLost = loader.getController();
+        
+        controllerLost.setLevel(" " + level.getNumberOfLevel());
+        controllerLost.setScore(" " + level.getTotalScore() + " points");
+        controllerLost.setStage(primaryStage);
+        
+        Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+        myScene.getRoot().requestFocus();
+        primaryStage.setScene(myScene);
+        primaryStage.show();
+        
+        stop();
+    } 
 }
 

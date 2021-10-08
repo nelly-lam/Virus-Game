@@ -1,8 +1,7 @@
 package Controller;
 
-import java.util.ArrayList;
-
-import Model.*;
+import Model.Jet;
+import Model.Player;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -11,17 +10,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 
-public class ControllerLevel1 {
-
-    ///////////////////// ATTRIBUTES /////////////////////////
-    private Stage stage;
+public class ControllerLevel2 {
 
     @FXML ImageView imagePlayer;
 
     @FXML Pane road;
-
-    Player player;
 
     @FXML ImageView virus1;
     @FXML ImageView virus2;
@@ -30,6 +25,9 @@ public class ControllerLevel1 {
     @FXML ImageView virus5;
     @FXML ImageView virus6;
     @FXML ImageView virus7;
+    @FXML ImageView virus8;
+    @FXML ImageView virus9;
+    @FXML ImageView virus10;
 
     @FXML ImageView munition1;
     @FXML ImageView munition2;
@@ -42,31 +40,20 @@ public class ControllerLevel1 {
     @FXML ImageView munition9;
     @FXML ImageView munition10;
 
-
     @FXML Text score;
-
-    private ArrayList<ImageView> listRemainingMunition = new ArrayList<ImageView>();
-
 
     @FXML ImageView life1;
     @FXML ImageView life2;
     @FXML ImageView life3;
 
-    private ArrayList<ImageView> listRemainingLife = new ArrayList<ImageView>();
+    Player player;
+    ArrayList<ImageView> listRemainingMunition = new ArrayList<ImageView>();
+    ArrayList<ImageView> listRemainingLife = new ArrayList<ImageView>();
+    Stage stage;
 
 
-    ///////////////////// METHODS ///////////////////////
     public Pane getRoad() { return road; }
     public void setStage(Stage stage) { this.stage = stage; }
-
-
-    public ImageView getVirus1() { return virus1; }
-    public ImageView getVirus2() { return virus2; }
-    public ImageView getVirus3() { return virus3; }
-    public ImageView getVirus4() { return virus4; }
-    public ImageView getVirus5() { return virus5; }
-    public ImageView getVirus6() { return virus6; }
-    public ImageView getVirus7() { return virus7; }
 
     @FXML protected void play(KeyEvent k){
 
@@ -123,34 +110,6 @@ public class ControllerLevel1 {
     }
 
     /**
-     * removeLife(): remove one life to the player
-     */
-    public void removeLife(){
-        listRemainingLife.get(player.getLife()-1).setVisible(false);
-        player.setLife(player.getLife() -1);
-    }
-
-
-    /**
-     * setScore(): set the new score of the player
-     * @param point int, the score that is added to the current score of the player
-     */
-    public void setScore(int point){
-        int t = Integer.parseInt(score.getText()) + point ;
-        score.setText(String.valueOf(t));
-        player.setScore(t);
-    }
-
-    /**
-     * addMunitionToList(): add one munition to the player's list of munition
-     */
-    public void addMunitionToList() {
-        this.listRemainingMunition.get(player.getAvailableJet()).setVisible(true);
-        player.setAvailableJet(player.getAvailableJet()+1);
-    }
-
-
-    /**
      * setListRemainingLife(): recharge all three life to the player
      */
     public void setListRemainingLife(){
@@ -174,6 +133,4 @@ public class ControllerLevel1 {
         listRemainingMunition.add(munition9);
         listRemainingMunition.add(munition10);
     }
-
-
 }

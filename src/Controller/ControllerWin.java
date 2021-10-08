@@ -14,18 +14,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ControllerWin {
-	
-	//////////////////////////// ATTRIBUTES /////////////////////////////
+
+    //////////////////////////// ATTRIBUTES /////////////////////////////
     @FXML Text won;
     @FXML Text point;
     @FXML Text level;
     @FXML Pane pane;
     Stage stage;
 
-	//////////////////////////// METHODS /////////////////////////////
+    //////////////////////////// METHODS /////////////////////////////
     public Pane getPane() { return pane; }
     public void setStage(Stage primaryStage) { this.stage = primaryStage; }
-    
+
     /**
      * setPoint(): display the score of the player
      * @param score String, the final score of the player
@@ -37,12 +37,12 @@ public class ControllerWin {
 
     /**
      * setNextLevel(): display the next level
-     * @param level 
+     * @param level
      */
     public void setNextLevel(String level) {
         this.level.setText(this.level.getText() + level);
     }
-    
+
     /**
      * setWon() : display the level of the player
      * @param level String, the final level of the player
@@ -54,13 +54,13 @@ public class ControllerWin {
 
     @FXML
     public void start(KeyEvent k) throws IOException{
-    	//TODO: get the level the player is currently at to charge the good fxml file
+        //TODO: get the level the player is currently at to charge the good fxml file
         if(k.getCode() == KeyCode.R){
-        	//TODO; change to level2.fxml
+            //TODO; change to level2.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
             Pane myPane = loader.load();
             ControllerLevel1 controllerLevel1 = loader.getController();
-            
+
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
             myScene.getRoot().requestFocus();
 

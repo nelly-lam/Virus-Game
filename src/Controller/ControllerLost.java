@@ -8,7 +8,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -45,7 +44,7 @@ public class ControllerLost {
             stage.close();
         }
         else if(k.getCode().equals(KeyCode.S)){
-            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../welcome.fxml"));
+            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../FXML/welcome.fxml"));
             Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
             welcome.getRoot().requestFocus();
             stage.setResizable(false);

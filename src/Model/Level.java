@@ -5,43 +5,43 @@ import Controller.ControllerLevel1;
 import java.util.ArrayList;
 
 public class Level {
-	
-	///////////////////// ATTRIBUTES /////////////////////////
+
+    ///////////////////// ATTRIBUTES /////////////////////////
     private int numberOfAntiVax;
     private ArrayList<AntiVax> listAntiVax;
     private int pointOfAntiVax;
 
     private boolean won;
     private boolean lost;
-    
+
     private int totalScore;
-    
+
     private  VirusCloud virusCloud;
     private int numberOfLevel;
-    
+
     private ControllerLevel1 controllerGame;
 
 
-	///////////////////// CONSTRUCTOR /////////////////////////
+    ///////////////////// CONSTRUCTOR /////////////////////////
     public Level(ControllerLevel1 c, int point, int numberOfAntiVax){
         this.numberOfAntiVax = numberOfAntiVax;
         this.listAntiVax = new ArrayList<AntiVax>();
         this.pointOfAntiVax = point;
-        
+
         this.won = false;
         this.lost = false;
-        
+
         this.totalScore = 0;
-        
+
         this.virusCloud = new VirusCloud();
         this.numberOfLevel = 1;
-        
+
         this.controllerGame = c;
 
 
     }
 
-	///////////////////// METHODS /////////////////////////
+    ///////////////////// METHODS /////////////////////////
     public ControllerLevel1 getControllerGame() { return controllerGame; }
 
     public int getPoint() { return pointOfAntiVax; }
@@ -77,7 +77,7 @@ public class Level {
     }
 
     public int getNumberOfLevel() { return numberOfLevel; }
-    
+
     public int getTotalScore() { return totalScore; }
     public void setTotalScore(int score) { this.totalScore = score; }
 

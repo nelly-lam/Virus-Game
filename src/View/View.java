@@ -11,7 +11,7 @@ public class View extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Pane start = (Pane) FXMLLoader.load(getClass().getResource("../welcome.fxml"));
+        Pane start = (Pane) FXMLLoader.load(getClass().getResource("../FXML/welcome.fxml"));
         Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
         welcome.getRoot().requestFocus();
         

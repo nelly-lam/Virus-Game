@@ -15,10 +15,10 @@ import java.io.IOException;
 
 public class ControllerWelcome  {
 
-	//////////////////////////// ATTRIBUTES /////////////////////////////
+    //////////////////////////// ATTRIBUTES /////////////////////////////
     @FXML Pane pane;
 
-	//////////////////////////// METHODS /////////////////////////////
+    //////////////////////////// METHODS /////////////////////////////
 
     @FXML public void start(KeyEvent k) throws IOException {
         Stage primaryStage = (Stage) pane.getScene().getWindow();
@@ -66,7 +66,7 @@ public class ControllerWelcome  {
             welcome.getRoot().requestFocus();
 
             primaryStage.setResizable(false);
-          //  primaryStage.initStyle(StageStyle.UNDECORATED);
+            //  primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setTitle("Virus Game");
             primaryStage.setScene(welcome);
             primaryStage.show();

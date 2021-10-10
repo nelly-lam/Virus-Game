@@ -91,7 +91,7 @@ public class Animation extends AnimationTimer{
 		heightWindow = h;
 		road = r;
 		controllerLevel = cg;
-		this.level = new Level1((ControllerLevel) cg, 20, numberOfAntiVax_lv1);
+		this.level = new Level((ControllerLevel) cg, 20, numberOfAntiVax_lv1);
 
 		player = cg.getPlayer();
 		virusCloud = this.level.getVirusCloud();

@@ -58,10 +58,8 @@ public class ControllerWin {
 
     @FXML
     public void start(KeyEvent k) throws IOException{
-        //TODO: get the level the player is currently at to charge the good fxml file
         if(k.getCode() == KeyCode.R){
-            //TODO: change to level2.fxml
-
+            System.out.println(this.nextLevel);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/level" + this.nextLevel + ".fxml"));
             Pane myPane = loader.load();
 
@@ -73,6 +71,7 @@ public class ControllerWin {
             controllerLevel.setStage(stage);
             controllerLevel.setPane(myPane);
             controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
+            controllerLevel.getPlayer().setScore(player.getScore());
             controllerLevel.setListRemainingLife();
             controllerLevel.setListRemainingMunition();
             controllerLevel.setListViruses();

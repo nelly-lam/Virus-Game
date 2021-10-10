@@ -9,9 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.File;
 import java.io.IOException;
 
 public class ControllerWelcome  {
@@ -27,7 +25,6 @@ public class ControllerWelcome  {
             primaryStage.close();
         }
         else if (k.getCode().equals(KeyCode.R)){
-            //System.out.println("rules");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/rules.fxml"));
             Pane myPane = loader.load();
 
@@ -70,7 +67,6 @@ public class ControllerWelcome  {
             welcome.getRoot().requestFocus();
 
             primaryStage.setResizable(false);
-            //  primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setTitle("Virus Game");
             primaryStage.setScene(welcome);
             primaryStage.show();

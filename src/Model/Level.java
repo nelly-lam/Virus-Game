@@ -36,13 +36,14 @@ public class Level {
         this.totalScore = 0;
 
         this.virusCloud = new VirusCloud();
-        this.numberOfLevel = 1;
+
 
         this.controllerLevel = c;
         for(ImageView img : this.controllerLevel.getListViruses()) {
             addVirusToVirusCloud(new Virus(img, point));
         }
 
+        this.numberOfLevel = c.getLevelNb();
 
     }
 

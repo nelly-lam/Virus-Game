@@ -1,16 +1,9 @@
 package Controller;
 
-import Model.Jet;
-import Model.Player;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import java.util.ArrayList;
 
 public class ControllerLevel2 extends ControllerLevel{
 
@@ -33,6 +26,7 @@ public class ControllerLevel2 extends ControllerLevel{
     ///////////////////// CONSTRUCTOR ///////////////////////
     public ControllerLevel2() {
         super();
+        setLevelNb(2);
     }
 
     ///////////////////// METHODS ///////////////////////

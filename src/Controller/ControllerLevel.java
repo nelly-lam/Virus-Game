@@ -46,7 +46,7 @@ public class ControllerLevel {
 
     @FXML Text score;
 
-
+    int LevelNb;
 
     ///////////////////// METHODS ///////////////////////
     public void setStage(Stage stage) { this.stage = stage; }
@@ -54,6 +54,8 @@ public class ControllerLevel {
     public void setPane(Pane pane) { this.road = pane; }
     public Player getPlayer() { return this.player; }
     public void setPlayer(Player p) {  this.player = p; }
+    public void setLevelNb(int nb) { this.LevelNb = nb; }
+    public int getLevelNb() { return this.LevelNb;}
 
     public ArrayList<ImageView> getListViruses() { return listViruses; }
     public void setListViruses(ArrayList<ImageView> listViruses) { this.listViruses = listViruses; }

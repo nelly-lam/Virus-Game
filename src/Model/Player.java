@@ -2,7 +2,6 @@ package Model;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
 

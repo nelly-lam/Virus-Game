@@ -8,17 +8,17 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#start" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerWin">
    <children>
-      <Text fx:id="won" fill="YELLOW" layoutX="103.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won level">
+      <Text fx:id="currentLevelText" fill="YELLOW" layoutX="103.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won level">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fx:id="point" fill="YELLOW" layoutX="287.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with a score of">
+      <Text fx:id="scoreText" fill="YELLOW" layoutX="287.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with a score of">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fx:id="level" fill="YELLOW" layoutX="83.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="when you're ready press r to start level " wrappingWidth="466.1251220703125">
+      <Text fx:id="nextLevelText" fill="YELLOW" layoutX="83.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="when you're ready press r to start level " wrappingWidth="466.1251220703125">
          <font>
             <Font size="25.0" />
          </font>

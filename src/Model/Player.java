@@ -7,59 +7,55 @@ import javafx.scene.shape.Rectangle;
 import java.net.URL;
 
 public class Player {
-    
-	///////////////////// CONSTANTS /////////////////////////
-	public static final int totalLife = 3;
-	public static final int totalMunition = 10;
 
-	///////////////////// ATTRIBUTES /////////////////////////
+    ///////////////////// CONSTANTS /////////////////////////
+    public static final int totalLife = 3;
+    public static final int totalMunition = 10;
 
-	/* position of the left up corner 
-	 * that defines the position of the virus */
+    ///////////////////// ATTRIBUTES /////////////////////////
+
+    /* position of the left up corner
+     * that defines the position of the virus */
     private Double posX;
     private Double posY;
 
-    
-	/* images of the virus */
+    /* images of the player */
+    ImageView imageView;
     Image imagePlayer;
     Image imageG;
     Image imageD;
     Image imageShoot;
-    ImageView i;
-    
+
     /* jets that are displayed on the window */
     private ListJet listJet;
-    
+
     /* number of jet the player has */
     private int availableJet;
 
     /* number of life the player has */
     private int life;
-    
+
     /* score of the player */
     private int score;
 
-    
+
     ///////////////////// CONSTRUCTOR ///////////////////////
     public Player(ImageView i){
         this.posX = i.getLayoutX();
         this.posY = i.getLayoutY();
-        
-        this.i = i;
-        
+
+        this.imageView = i;
         this.imagePlayer = i.getImage();
         this.imageG = i.getImage();
-        
         URL imageDurl = getClass().getResource("../Images/playerD.png");
         this.imageD = new Image(imageDurl.toExternalForm());
         URL imageShooturl = getClass().getResource("../Images/playerShooting.png");
         this.imageShoot = new Image(imageShooturl.toExternalForm());
 
-    	this.life = totalLife;
-
         this.listJet = new ListJet();
         this.availableJet = totalMunition;
-        
+        this.life = totalLife;
+        this.score = 0;
     }
 
 
@@ -67,15 +63,13 @@ public class Player {
     public Double getPosY() {  return posY; }
     public void setPosY(Double posY) {
         this.posY = posY;
-        this.i.setLayoutY(posY);
-
+        this.imageView.setLayoutY(posY);
     }
 
     public Double getPosX() { return posX; }
     public void setPosX(Double posX) {
         this.posX = posX;
-        this.i.setLayoutX(posX);
-
+        this.imageView.setLayoutX(posX);
     }
 
     public int getLife() { return life; }
@@ -87,20 +81,20 @@ public class Player {
 
     public Image getImagePlayer() { return imagePlayer; }
     public void setImagePlayer(Image imagePlayer) {
-        this.i.setImage(imagePlayer);
+        this.imageView.setImage(imagePlayer);
         this.imagePlayer = imagePlayer;
     }
 
-    public ImageView getImageViewPlayer(){ return this.i; }
+    public ImageView getImageViewPlayer(){ return this.imageView; }
 
-	public ListJet getListJet() { return listJet; }
-	public void setListJet(ListJet listJet) { this.listJet = listJet; }
+    public ListJet getListJet() { return listJet; }
+    public void setListJet(ListJet listJet) { this.listJet = listJet; }
 
-	public int getAvailableJet() { return availableJet; }
-	public void setAvailableJet(int jetOnHand) { this.availableJet = jetOnHand; }
+    public int getAvailableJet() { return availableJet; }
+    public void setAvailableJet(int jetOnHand) { this.availableJet = jetOnHand; }
 
-	public int getScore() { return score; }
-	public void setScore(int score) { this.score = score; }
-	
-	
+    public int getScore() { return score; }
+    public void setScore(int score) { this.score = score; }
+
+
 }

@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
 
 public class ControllerWelcome  {
@@ -27,7 +28,7 @@ public class ControllerWelcome  {
         }
         else if (k.getCode().equals(KeyCode.R)){
             //System.out.println("rules");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../rules.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/rules.fxml"));
             Pane myPane = loader.load();
 
             Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
@@ -37,19 +38,22 @@ public class ControllerWelcome  {
             primaryStage.show();
         }
         else if (k.getCode().equals(KeyCode.S)){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../level1.fxml"));
-            Pane myPane = loader.load();
-            ControllerLevel1 controllerLevel1 = loader.getController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/level1.fxml"));
+            Pane paneLevel1 = loader.load();
+            ControllerLevel controllerLevel = loader.getController();
 
-            Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+            Scene myScene = new Scene(paneLevel1, paneLevel1.getPrefWidth(), paneLevel1.getPrefHeight());
             myScene.getRoot().requestFocus();
 
-            controllerLevel1.player  = new Player(controllerLevel1.imagePlayer);
-            controllerLevel1.setListRemainingLife();
-            controllerLevel1.setListRemainingMunition();
-            controllerLevel1.setStage(primaryStage);
+            controllerLevel.setStage(primaryStage);
+            controllerLevel.setPane(paneLevel1);
+            controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
+            controllerLevel.setListRemainingLife();
+            controllerLevel.setListRemainingMunition();
+            controllerLevel.setListViruses();
 
-            Animation animation = new Animation(pane.getPrefWidth(), controllerLevel1.player, controllerLevel1, myPane);
+            Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
+                    controllerLevel, paneLevel1,"../Images/jet_lv1.png");
             animation.start();
 
             primaryStage.setScene(myScene);
@@ -61,7 +65,7 @@ public class ControllerWelcome  {
     @FXML public void goBack(KeyEvent k) throws IOException{
         Stage primaryStage = (Stage) pane.getScene().getWindow();
         if(k.getCode() == KeyCode.R){
-            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../welcome.fxml"));
+            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../FXML/welcome.fxml"));
             Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
             welcome.getRoot().requestFocus();
 

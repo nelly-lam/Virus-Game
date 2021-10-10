@@ -5,12 +5,12 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="road" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerLevel1">
+<Pane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerLevel2">
    <children>
       <Line endX="48.985870361328125" endY="-31.49999237060547" layoutX="200.0" layoutY="114.0" startX="-199.70709228515625" startY="353.2928771972656" stroke="YELLOW" />
       <Line endX="388.99993896484375" endY="356.2928771972656" layoutX="243.0" layoutY="111.0" startX="138.78585815429688" startY="-28.49999237060547" stroke="YELLOW" />
       <ImageView fx:id="imagePlayer" fitHeight="130.0" fitWidth="46.0" layoutX="293.0" layoutY="338.0">
-            <Image url="@../Images/player.png" />
+         <Image url="@../Images/player.png" />
       </ImageView>
       <Text fx:id="score" fill="YELLOW" layoutX="558.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="100.0">
          <font>

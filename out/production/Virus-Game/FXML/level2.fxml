@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="road" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerLevel1">
+<Pane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerLevel2">
    <children>
       <Line endX="48.985870361328125" endY="-31.49999237060547" layoutX="200.0" layoutY="114.0" startX="-199.70709228515625" startY="353.2928771972656" stroke="YELLOW" />
       <Line endX="388.99993896484375" endY="356.2928771972656" layoutX="243.0" layoutY="111.0" startX="138.78585815429688" startY="-28.49999237060547" stroke="YELLOW" />
       <ImageView fx:id="imagePlayer" fitHeight="130.0" fitWidth="46.0" layoutX="293.0" layoutY="338.0">
-            <Image url="@../Images/player.png" />
+         <Image url="@../Images/player.png" />
       </ImageView>
       <Text fx:id="score" fill="YELLOW" layoutX="558.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="100.0">
          <font>
@@ -84,52 +82,52 @@
             <Image url="@../Images/vie_vertical.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="32.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus1" fitHeight="56.0" fitWidth="46.0" layoutX="32.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="89.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus2" fitHeight="56.0" fitWidth="46.0" layoutX="89.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="147.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus3" fitHeight="56.0" fitWidth="46.0" layoutX="147.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="204.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus4" fitHeight="56.0" fitWidth="46.0" layoutX="204.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="263.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus5" fitHeight="56.0" fitWidth="46.0" layoutX="263.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="323.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus6" fitHeight="56.0" fitWidth="46.0" layoutX="323.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="381.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus7" fitHeight="56.0" fitWidth="46.0" layoutX="381.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="436.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus8" fitHeight="56.0" fitWidth="46.0" layoutX="436.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="495.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus9" fitHeight="56.0" fitWidth="46.0" layoutX="495.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="549.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="virus10" fitHeight="56.0" fitWidth="46.0" layoutX="549.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/virus_lv2.png" />
          </image>

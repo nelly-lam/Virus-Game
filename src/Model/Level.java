@@ -1,6 +1,8 @@
 package Model;
 
+import Controller.ControllerLevel;
 import Controller.ControllerLevel1;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -19,11 +21,11 @@ public class Level {
     private  VirusCloud virusCloud;
     private int numberOfLevel;
 
-    private ControllerLevel1 controllerGame;
+    private ControllerLevel controllerLevel;
 
 
     ///////////////////// CONSTRUCTOR /////////////////////////
-    public Level(ControllerLevel1 c, int point, int numberOfAntiVax){
+    public Level(ControllerLevel c, int point, int numberOfAntiVax){
         this.numberOfAntiVax = numberOfAntiVax;
         this.listAntiVax = new ArrayList<AntiVax>();
         this.pointOfAntiVax = point;
@@ -36,13 +38,16 @@ public class Level {
         this.virusCloud = new VirusCloud();
         this.numberOfLevel = 1;
 
-        this.controllerGame = c;
+        this.controllerLevel = c;
+        for(ImageView img : this.controllerLevel.getListViruses()) {
+            addVirusToVirusCloud(new Virus(img, point));
+        }
 
 
     }
 
     ///////////////////// METHODS /////////////////////////
-    public ControllerLevel1 getControllerGame() { return controllerGame; }
+    public ControllerLevel getControllerGame() { return controllerLevel; }
 
     public int getPoint() { return pointOfAntiVax; }
 
@@ -68,11 +73,11 @@ public class Level {
     public void addAntiVax(){
         AntiVax a = createAntiVax();
         listAntiVax.add(a);
-        controllerGame.getRoad().getChildren().add(a.getImage());
+        controllerLevel.getRoad().getChildren().add(a.getImage());
 
     }
     public void removeAntiVax(AntiVax a){
-        controllerGame.getRoad().getChildren().remove(a.getImage());
+        controllerLevel.getRoad().getChildren().remove(a.getImage());
         this.listAntiVax.remove(a);
     }
 

@@ -34,27 +34,36 @@ public class ControllerLevel5 extends ControllerLevel{
 
 
     ///////////////////// METHODS ///////////////////////
-
-
-
     /**
      * setListViruses(): add all viruses to the list of viruses displayed in the game
      */
     public void setListViruses() {
+        setListVirusesFirstRow();
+        setListVirusesSecondRow();
+        setListVirusesThirdRow();
+    }
+
+    public void setListVirusesFirstRow() {
         listViruses.add(virus1);
         listViruses.add(virus2);
         listViruses.add(virus3);
         listViruses.add(virus4);
-        listViruses.add(virus5);
-        listViruses.add(virus6);
-        listViruses.add(virus7);
-        listViruses.add(virus8);
-        listViruses.add(virus9);
-        listViruses.add(virus10);
-        listViruses.add(virus11);
-        listViruses.add(virus12);
-        listViruses.add(virus13);
-        listViruses.add(virus14);
+    }
+
+    public void setListVirusesSecondRow() {
+        listVirusesSecondRow.add(virus5);
+        listVirusesSecondRow.add(virus6);
+        listVirusesSecondRow.add(virus7);
+        listVirusesSecondRow.add(virus8);
+        listVirusesSecondRow.add(virus9);
+        listVirusesSecondRow.add(virus10);
+        listVirusesSecondRow.add(virus11);
+        listVirusesSecondRow.add(virus12);
+    }
+
+    public void setListVirusesThirdRow() {
+        listVirusesSecondRow.add(virus13);
+        listVirusesSecondRow.add(virus14);
     }
 
 

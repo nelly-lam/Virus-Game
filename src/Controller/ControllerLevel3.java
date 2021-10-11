@@ -1,6 +1,7 @@
 package Controller;
 
 
+
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
@@ -29,23 +30,28 @@ public class ControllerLevel3 extends ControllerLevel{
 
 
     ///////////////////// METHODS ///////////////////////
-
-
-
     /**
      * setListViruses(): add all viruses to the list of viruses displayed in the game
      */
     public void setListViruses() {
+        setListVirusesFirstRow();
+        setListVirusesSecondRow();
+    }
+
+    public void setListVirusesFirstRow() {
         listViruses.add(virus1);
         listViruses.add(virus2);
         listViruses.add(virus3);
         listViruses.add(virus4);
         listViruses.add(virus5);
         listViruses.add(virus6);
-        listViruses.add(virus7);
-        listViruses.add(virus8);
-        listViruses.add(virus9);
-        listViruses.add(virus10);
+    }
+
+    public void setListVirusesSecondRow() {
+        listVirusesSecondRow.add(virus7);
+        listVirusesSecondRow.add(virus8);
+        listVirusesSecondRow.add(virus9);
+        listVirusesSecondRow.add(virus10);
     }
 
 

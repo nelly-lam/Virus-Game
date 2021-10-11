@@ -14,7 +14,7 @@ public class View extends Application {
         Pane start = (Pane) FXMLLoader.load(getClass().getResource("../FXML/welcome.fxml"));
         Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
         welcome.getRoot().requestFocus();
-        
+
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Virus Game");

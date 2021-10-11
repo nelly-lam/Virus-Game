@@ -18,7 +18,10 @@ public class Level {
 
     private int totalScore;
 
-    private  VirusCloud virusCloud;
+    private VirusCloud virusCloud;
+    private VirusCloud virusCloudSecondRow;
+    private VirusCloud virusCloudThirdRow;
+
     private int numberOfLevel;
 
     private ControllerLevel controllerLevel;
@@ -32,18 +35,30 @@ public class Level {
 
         this.won = false;
         this.lost = false;
-
         this.totalScore = 0;
 
         this.virusCloud = new VirusCloud();
-
+        this.virusCloudSecondRow = new VirusCloud();
+        this.virusCloudThirdRow = new VirusCloud();
 
         this.controllerLevel = c;
+        this.numberOfLevel = c.getLevelNb();
+
         for(ImageView img : this.controllerLevel.getListViruses()) {
             addVirusToVirusCloud(new Virus(img, point));
         }
 
-        this.numberOfLevel = c.getLevelNb();
+        if(this.controllerLevel.getLevelNb() == 3 || this.controllerLevel.getLevelNb() == 4
+                || this.controllerLevel.getLevelNb() == 5) {
+            for(ImageView img : this.controllerLevel.getListVirusesSecondRow()) {
+                addVirusToVirusCloudSecondRow(new Virus(img, point));
+            }
+        }
+        if(this.controllerLevel.getLevelNb() == 5) {
+            for(ImageView img : this.controllerLevel.getListVirusesThirdRow()) {
+                addVirusToVirusCloudThirdRow(new Virus(img, point));
+            }
+        }
 
     }
 
@@ -54,6 +69,12 @@ public class Level {
 
     public VirusCloud getVirusCloud() { return virusCloud; }
     public void setVirusCloud(VirusCloud virusCloud) { this.virusCloud = virusCloud; }
+
+    public VirusCloud getVirusCloudSecondRow() { return virusCloudSecondRow; }
+    public void setVirusCloudSecondRow(VirusCloud v) { this.virusCloudSecondRow = v; }
+
+    public VirusCloud getVirusCloudThirdRow() { return virusCloudThirdRow; }
+    public void setVirusCloudThirdRow(VirusCloud v) { this.virusCloudThirdRow = v; }
 
     public int getNumberOfAntiVax() { return numberOfAntiVax; }
     public void setNumberOfAntiVax(int numberOfAntiVax) { this.numberOfAntiVax = numberOfAntiVax; }
@@ -68,6 +89,9 @@ public class Level {
     public void setListAntiVax(ArrayList<AntiVax> listAntiVax) { this.listAntiVax = listAntiVax; }
 
     public void addVirusToVirusCloud(Virus virus){ virusCloud.addVirus(virus); }
+    public void addVirusToVirusCloudSecondRow(Virus virus){ virusCloudSecondRow.addVirus(virus); }
+    public void addVirusToVirusCloudThirdRow(Virus virus){ virusCloudThirdRow.addVirus(virus); }
+
 
     public AntiVax createAntiVax(){ return new AntiVax(pointOfAntiVax); }
 
@@ -86,5 +110,6 @@ public class Level {
 
     public int getTotalScore() { return totalScore; }
     public void setTotalScore(int score) { this.totalScore = score; }
+
 
 }

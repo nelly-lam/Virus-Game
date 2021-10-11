@@ -24,8 +24,9 @@ public class ControllerLevel {
     protected Player player;
     @FXML ImageView imagePlayer;
 
-
     protected ArrayList<ImageView> listViruses = new ArrayList<ImageView>();
+    protected ArrayList<ImageView> listVirusesSecondRow = new ArrayList<ImageView>();
+    protected ArrayList<ImageView> listVirusesThirdRow = new ArrayList<ImageView>();
 
     @FXML ImageView munition1;
     @FXML ImageView munition2;
@@ -59,6 +60,9 @@ public class ControllerLevel {
 
     public ArrayList<ImageView> getListViruses() { return listViruses; }
     public void setListViruses(ArrayList<ImageView> listViruses) { this.listViruses = listViruses; }
+
+    public ArrayList<ImageView> getListVirusesSecondRow(){ return this.listVirusesSecondRow; }
+    public ArrayList<ImageView> getListVirusesThirdRow(){ return this.listVirusesThirdRow; }
 
 
     @FXML protected void play(KeyEvent k){

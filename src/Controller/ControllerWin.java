@@ -59,7 +59,6 @@ public class ControllerWin {
     @FXML
     public void start(KeyEvent k) throws IOException{
         if(k.getCode() == KeyCode.R){
-            System.out.println(this.nextLevel);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/level" + this.nextLevel + ".fxml"));
             Pane myPane = loader.load();
 

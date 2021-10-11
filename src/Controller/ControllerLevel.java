@@ -19,6 +19,8 @@ import javafx.stage.Stage;
  */
 
 public class ControllerLevel {
+	
+    ///////////////////// ATTRIBUTES /////////////////////////
     protected Pane road;
     protected Stage stage;
     protected Player player;
@@ -29,7 +31,7 @@ public class ControllerLevel {
 	public long maxTimerVirusShoot;
 	public int numberOfAntiVax;
 
-    protected ArrayList<ImageView> listViruses = new ArrayList<ImageView>();
+    protected ArrayList<ImageView> listVirusesFirstRow = new ArrayList<ImageView>();
     protected ArrayList<ImageView> listVirusesSecondRow = new ArrayList<ImageView>();
     protected ArrayList<ImageView> listVirusesThirdRow = new ArrayList<ImageView>();
 
@@ -52,23 +54,21 @@ public class ControllerLevel {
 
     @FXML Text score;
     
-    int LevelNb;
+    protected int levelNb;
 
+    
     ///////////////////// METHODS ///////////////////////
     public void setStage(Stage stage) { this.stage = stage; }
     public Pane getRoad() { return road; }
     public void setPane(Pane pane) { this.road = pane; }
     public Player getPlayer() { return this.player; }
     public void setPlayer(Player p) {  this.player = p; }
-    public void setLevelNb(int nb) { this.LevelNb = nb; }
-    public int getLevelNb() { return this.LevelNb;}
+    public int getLevelNb() { return this.levelNb;}
+    public void setLevelNb(int nb) { this.levelNb = nb; }
 
-    public ArrayList<ImageView> getListViruses() { return listViruses; }
-    public void setListViruses(ArrayList<ImageView> listViruses) { this.listViruses = listViruses; }
-
+    public ArrayList<ImageView> getListVirusesFirstRow() { return listVirusesFirstRow; }
     public ArrayList<ImageView> getListVirusesSecondRow(){ return this.listVirusesSecondRow; }
     public ArrayList<ImageView> getListVirusesThirdRow(){ return this.listVirusesThirdRow; }
-    
     
     public long getMaxTimerSendMunition() { return this.maxTimerSendMunition; }
     public long getMaxTimerAntiVaxAttack() { return this.maxTimerAntiVaxAttack; }

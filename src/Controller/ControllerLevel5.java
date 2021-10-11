@@ -48,13 +48,19 @@ public class ControllerLevel5 extends ControllerLevel{
     	setListVirusesThirdRow();
     }
     
+    /**
+     * setListVirusesFirstRow(): add viruses on the first row
+     */
     public void setListVirusesFirstRow() {
-        listViruses.add(virus1);
-        listViruses.add(virus2);
-        listViruses.add(virus3);
-        listViruses.add(virus4);
+        listVirusesFirstRow.add(virus1);
+        listVirusesFirstRow.add(virus2);
+        listVirusesFirstRow.add(virus3);
+        listVirusesFirstRow.add(virus4);
     }
     
+    /**
+     * setListVirusesSecondRow(): add viruses on the second row
+     */
     public void setListVirusesSecondRow() {
         listVirusesSecondRow.add(virus5);
         listVirusesSecondRow.add(virus6);
@@ -66,6 +72,9 @@ public class ControllerLevel5 extends ControllerLevel{
         listVirusesSecondRow.add(virus12);
     }
     
+    /**
+     * setListVirusesThirdRow(): add viruses on the third row
+     */
     public void setListVirusesThirdRow() {
         listVirusesSecondRow.add(virus13);
         listVirusesSecondRow.add(virus14);

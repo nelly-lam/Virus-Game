@@ -1,11 +1,7 @@
 package Controller;
 
-
-import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-
 
 
 public class ControllerLevel3 extends ControllerLevel{
@@ -44,15 +40,21 @@ public class ControllerLevel3 extends ControllerLevel{
     	setListVirusesSecondRow();
     }
     
+    /**
+     * setListVirusesFirstRow(): add viruses on the first row
+     */
     public void setListVirusesFirstRow() {
-        listViruses.add(virus1);
-        listViruses.add(virus2);
-        listViruses.add(virus3);
-        listViruses.add(virus4);
-        listViruses.add(virus5);
-        listViruses.add(virus6);
+        listVirusesFirstRow.add(virus1);
+        listVirusesFirstRow.add(virus2);
+        listVirusesFirstRow.add(virus3);
+        listVirusesFirstRow.add(virus4);
+        listVirusesFirstRow.add(virus5);
+        listVirusesFirstRow.add(virus6);
     }
     
+    /**
+     * setListVirusesSecondRow(): add viruses on the second row
+     */
     public void setListVirusesSecondRow() {
         listVirusesSecondRow.add(virus7);
         listVirusesSecondRow.add(virus8);

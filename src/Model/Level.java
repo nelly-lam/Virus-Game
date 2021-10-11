@@ -16,7 +16,7 @@ public class Level {
     private boolean won;
     private boolean lost;
 
-    private VirusCloud virusCloud;
+    private VirusCloud virusCloudFirstRow;
     private VirusCloud virusCloudSecondRow;
     private VirusCloud virusCloudThirdRow;
 
@@ -34,17 +34,16 @@ public class Level {
         this.won = false;
         this.lost = false;
 
-        this.virusCloud = new VirusCloud();
+        this.virusCloudFirstRow = new VirusCloud();
         this.virusCloudSecondRow = new VirusCloud();
         this.virusCloudThirdRow = new VirusCloud();
 
         this.controllerLevel = c;
         this.numberOfLevel = c.getLevelNb();
         
-        for(ImageView img : this.controllerLevel.getListViruses()) {
+        for(ImageView img : this.controllerLevel.getListVirusesFirstRow()) {
             addVirusToVirusCloud(new Virus(img, point));
         }
-
         if(this.controllerLevel.getLevelNb() == 3 || this.controllerLevel.getLevelNb() == 4 
         		|| this.controllerLevel.getLevelNb() == 5) {
             for(ImageView img : this.controllerLevel.getListVirusesSecondRow()) {
@@ -56,7 +55,6 @@ public class Level {
                 addVirusToVirusCloudThirdRow(new Virus(img, point));
             }
         }
-
     }
 
     ///////////////////// METHODS /////////////////////////
@@ -64,8 +62,8 @@ public class Level {
 
     public int getPoint() { return pointOfAntiVax; }
 
-    public VirusCloud getVirusCloud() { return virusCloud; }
-    public void setVirusCloud(VirusCloud virusCloud) { this.virusCloud = virusCloud; }
+    public VirusCloud getVirusCloud() { return virusCloudFirstRow; }
+    public void setVirusCloud(VirusCloud virusCloud) { this.virusCloudFirstRow = virusCloud; }
     
 	public VirusCloud getVirusCloudSecondRow() { return virusCloudSecondRow; }
 	public void setVirusCloudSecondRow(VirusCloud v) { this.virusCloudSecondRow = v; }
@@ -85,10 +83,9 @@ public class Level {
     public ArrayList<AntiVax> getListAntiVax() { return listAntiVax; }
     public void setListAntiVax(ArrayList<AntiVax> listAntiVax) { this.listAntiVax = listAntiVax; }
 
-    public void addVirusToVirusCloud(Virus virus){ virusCloud.addVirus(virus); }
+    public void addVirusToVirusCloud(Virus virus){ virusCloudFirstRow.addVirus(virus); }
     public void addVirusToVirusCloudSecondRow(Virus virus){ virusCloudSecondRow.addVirus(virus); }
     public void addVirusToVirusCloudThirdRow(Virus virus){ virusCloudThirdRow.addVirus(virus); }
-
 
     public AntiVax createAntiVax(){ return new AntiVax(pointOfAntiVax); }
 

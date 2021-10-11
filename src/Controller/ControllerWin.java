@@ -77,7 +77,7 @@ public class ControllerWin {
             controllerLevel.setListViruses();
 
             Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
-                    controllerLevel, myPane, "../Images/jet_lv" + nextLevel + ".png");
+                    					controllerLevel, myPane, "../Images/jet_lv" + nextLevel + ".png");
             animation.start();
 
             this.stage.setScene(myScene);

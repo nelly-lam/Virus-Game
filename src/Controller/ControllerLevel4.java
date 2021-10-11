@@ -30,6 +30,11 @@ public class ControllerLevel4 extends ControllerLevel{
     public ControllerLevel4() {
         super();
         setLevelNb(4);
+
+        maxTimerSendMunition = 25;
+        maxTimerAntiVaxAttack = 40;
+        maxTimerVirusShoot = 20;
+        numberOfAntiVax = 7;
     }
 
 
@@ -38,10 +43,10 @@ public class ControllerLevel4 extends ControllerLevel{
      * setListViruses(): add all viruses to the list of viruses displayed in the game
      */
     public void setListViruses() {
-        setListVirusesFirstRow();
-        setListVirusesSecondRow();
+    	setListVirusesFirstRow();
+    	setListVirusesSecondRow();
     }
-
+    
     public void setListVirusesFirstRow() {
         listViruses.add(virus1);
         listViruses.add(virus2);
@@ -50,7 +55,7 @@ public class ControllerLevel4 extends ControllerLevel{
         listViruses.add(virus5);
         listViruses.add(virus6);
     }
-
+    
     public void setListVirusesSecondRow() {
         listVirusesSecondRow.add(virus7);
         listVirusesSecondRow.add(virus8);

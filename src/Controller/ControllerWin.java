@@ -71,6 +71,7 @@ public class ControllerWin {
             controllerLevel.setPane(myPane);
             controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
             controllerLevel.getPlayer().setScore(player.getScore());
+            controllerLevel.setScore(controllerLevel.getPlayer().getScore());
             controllerLevel.setListRemainingLife();
             controllerLevel.setListRemainingMunition();
             controllerLevel.setListViruses();

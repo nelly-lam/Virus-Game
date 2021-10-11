@@ -23,6 +23,11 @@ public class ControllerLevel {
     protected Stage stage;
     protected Player player;
     @FXML ImageView imagePlayer;
+    
+	public long maxTimerSendMunition;
+	public long maxTimerAntiVaxAttack;
+	public long maxTimerVirusShoot;
+	public int numberOfAntiVax;
 
     protected ArrayList<ImageView> listViruses = new ArrayList<ImageView>();
     protected ArrayList<ImageView> listVirusesSecondRow = new ArrayList<ImageView>();
@@ -46,7 +51,7 @@ public class ControllerLevel {
     protected ArrayList<ImageView> listRemainingLife = new ArrayList<ImageView>();
 
     @FXML Text score;
-
+    
     int LevelNb;
 
     ///////////////////// METHODS ///////////////////////
@@ -63,8 +68,14 @@ public class ControllerLevel {
 
     public ArrayList<ImageView> getListVirusesSecondRow(){ return this.listVirusesSecondRow; }
     public ArrayList<ImageView> getListVirusesThirdRow(){ return this.listVirusesThirdRow; }
-
-
+    
+    
+    public long getMaxTimerSendMunition() { return this.maxTimerSendMunition; }
+    public long getMaxTimerAntiVaxAttack() { return this.maxTimerAntiVaxAttack; }
+    public long getMaxTimerVirusShoot() { return this.maxTimerVirusShoot; }
+    public int getNumberOfAntiVax() { return this.numberOfAntiVax; }
+    
+    
     @FXML protected void play(KeyEvent k){
         if(k.getCode().equals(KeyCode.SPACE)){
             if(player.getAvailableJet() > 0) {

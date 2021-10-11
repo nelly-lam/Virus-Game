@@ -32,30 +32,6 @@ public class Animation extends AnimationTimer{
 
 	public final static long maxTimerSendExtraLife = 40;
 
-	public final static long maxTimerSendMunition_lv1 = 30;
-	public final static long maxTimerSendMunition_lv2 = 30;
-	public final static long maxTimerSendMunition_lv3 = 25;
-	public final static long maxTimerSendMunition_lv4 = 25;
-	public final static long maxTimerSendMunition_lv5 = 20;
-
-	public final static long maxTimerAntiVaxAttack_lv1 = 50;
-	public final static long maxTimerAntiVaxAttack_lv2 = 50;
-	public final static long maxTimerAntiVaxAttack_lv3 = 40;
-	public final static long maxTimerAntiVaxAttack_lv4 = 40;
-	public final static long maxTimerAntiVaxAttack_lv5 = 40;
-
-	public final static long maxTimerVirusShoot_lv1 = 25;
-	public final static long maxTimerVirusShoot_lv2 = 20;
-	public final static long maxTimerVirusShoot_lv3 = 20;
-	public final static long maxTimerVirusShoot_lv4 = 20;
-	public final static long maxTimerVirusShoot_lv5 = 15;
-
-	public final static int numberOfAntiVax_lv1 = 3;
-	public final static int numberOfAntiVax_lv2 = 5;
-	public final static int numberOfAntiVax_lv3 = 5;
-	public final static int numberOfAntiVax_lv4 = 7;
-	public final static int numberOfAntiVax_lv5 = 10;
-
 
 	//////////////////////////// ATTRIBUTES /////////////////////////////
 	private Double widthWindow;
@@ -69,7 +45,7 @@ public class Animation extends AnimationTimer{
 	private VirusCloud virusCloudSecondRow;
 	private VirusCloud virusCloudThirdRow;
 
-
+	
 	private boolean isVirusGoingLeftFirstRow;
 	private boolean isVirusGoingLeftSecondRow;
 	private boolean isVirusGoingLeftThirdRow;
@@ -80,15 +56,16 @@ public class Animation extends AnimationTimer{
 
 	private URL imageRechargeMunition;
 	private ArrayList<ImageView> listSendMunition;
-	private long timerSendMunition;
 
-	//ADDED
 	private URL imageExtraLife;
 	private ArrayList<ImageView> listSendExtraLife;
 	private long timerSendExtraLife;
 
+	private long timerSendMunition;
 	private long timerAntiVaxAttack;
 	private long timerVirusShoot;
+	private int numberOfAntiVax;
+	
 	private URL imageJetViruslvl;
 
 
@@ -98,13 +75,13 @@ public class Animation extends AnimationTimer{
 		heightWindow = h;
 		road = r;
 		controllerLevel = cg;
-		this.level = new Level((ControllerLevel) cg, 20, numberOfAntiVax_lv1);
+		this.level = new Level((ControllerLevel) cg, 20, cg.getNumberOfAntiVax());
 
 		player = cg.getPlayer();
 		virusCloud = this.level.getVirusCloud();
 		virusCloudSecondRow = this.level.getVirusCloudSecondRow();
 		virusCloudThirdRow = this.level.getVirusCloudThirdRow();
-
+		
 		isVirusGoingLeftFirstRow = false;
 		isVirusGoingLeftSecondRow = false;
 		isVirusGoingLeftThirdRow = false;
@@ -113,15 +90,17 @@ public class Animation extends AnimationTimer{
 
 		imageRechargeMunition = getClass().getResource("../Images/rechargeMunition.png");
 		listSendMunition = new ArrayList<ImageView>();
-		timerSendMunition = maxTimerSendMunition_lv1;
 
-		//ADDED
 		imageExtraLife = getClass().getResource("../Images/newlife.png");
 		listSendExtraLife = new ArrayList<ImageView>();
 		timerSendExtraLife = maxTimerSendExtraLife;
-
-		timerAntiVaxAttack = maxTimerAntiVaxAttack_lv1;
-		timerVirusShoot = maxTimerVirusShoot_lv1 - 5 ;
+		
+		//Setting of each levels
+		timerSendMunition = controllerLevel.getMaxTimerSendMunition();
+		timerAntiVaxAttack = controllerLevel.getMaxTimerAntiVaxAttack();
+		timerVirusShoot = controllerLevel.getMaxTimerVirusShoot() - 5;
+		numberOfAntiVax = controllerLevel.getNumberOfAntiVax();
+		
 		imageJetViruslvl = getClass().getResource(nameFileJet);
 
 	}
@@ -186,7 +165,7 @@ public class Animation extends AnimationTimer{
 			}
 		}
 	}
-
+	
 	/**
 	 * moveVirusesLevel1and2(): move viruses from level 1 to 2
 	 */
@@ -195,7 +174,7 @@ public class Animation extends AnimationTimer{
 			moveVirusesOneRow(this.virusCloud, 1);
 		}
 	}
-
+	
 	/**
 	 * moveVirusesLevel3and4(): move viruses from level 3 to 4
 	 */
@@ -207,7 +186,7 @@ public class Animation extends AnimationTimer{
 			moveVirusesOneRow(this.virusCloudSecondRow, 2);
 		}
 	}
-
+	
 	/**
 	 * moveVirusesLevel5(): move viruses from level 5
 	 */
@@ -222,7 +201,7 @@ public class Animation extends AnimationTimer{
 			moveVirusesOneRow(this.virusCloudThirdRow, 3);
 		}
 	}
-
+	
 	/**
 	 * moveViruses(): moves viruses from left to right and vice versa
 	 * @param list a VirusCloud
@@ -232,7 +211,7 @@ public class Animation extends AnimationTimer{
 		if(list.getSize() > 0) {
 			Virus firstVirus = list.getVirus(0);
 			Virus lastVirus = list.getVirus(list.getSize()-1);
-
+			
 			if(numberRow == 1) { // if the list is located on the first row
 				if(isVirusGoingLeftFirstRow) {
 					if(firstVirus.getPosX() > 0) {
@@ -284,7 +263,7 @@ public class Animation extends AnimationTimer{
 			}
 		}
 	}
-
+	
 	/**
 	 * goLeft(): move viruses to the left
 	 */
@@ -295,7 +274,7 @@ public class Animation extends AnimationTimer{
 			virus.setPosX(virus.getPosX()-10);
 		}
 	}
-
+	
 	/**
 	 * goRight(): move viruses to the right
 	 */
@@ -368,11 +347,11 @@ public class Animation extends AnimationTimer{
 						.intersects(virusCloudThirdRow.getVirus(j).getImageVirus().getBoundsInParent())) {
 
 					controllerLevel.setScore(virusCloudThirdRow.getVirus(j).getPointVirus());
-					level.setTotalScore(level.getTotalScore() + level.getPoint());
+					player.setScore(player.getScore() + level.getPoint());
 
 					road.getChildren().remove(virusCloudThirdRow.getVirus(j).getImageVirus());
 					virusCloudThirdRow.removeVirus(j);
-
+					
 					//remove the jet if this jet already touches a virus from the third row
 					road.getChildren().remove(player.getListJet().getJet(i).getImageJet());
 					player.getListJet().removeJet(i);
@@ -384,11 +363,11 @@ public class Animation extends AnimationTimer{
 						.intersects(virusCloudSecondRow.getVirus(k).getImageVirus().getBoundsInParent())) {
 
 					controllerLevel.setScore(virusCloudSecondRow.getVirus(k).getPointVirus());
-					level.setTotalScore(level.getTotalScore() + level.getPoint());
+					player.setScore(player.getScore() + level.getPoint());
 
 					road.getChildren().remove(virusCloudSecondRow.getVirus(k).getImageVirus());
 					virusCloudSecondRow.removeVirus(k);
-
+					
 					//remove the jet if this jet already touches a virus from the second row
 					road.getChildren().remove(player.getListJet().getJet(i).getImageJet());
 					player.getListJet().removeJet(i);
@@ -400,7 +379,7 @@ public class Animation extends AnimationTimer{
 						.intersects(virusCloud.getVirus(l).getImageVirus().getBoundsInParent())) {
 
 					controllerLevel.setScore(virusCloud.getVirus(l).getPointVirus());
-					level.setTotalScore(level.getTotalScore() + level.getPoint());
+					player.setScore(player.getScore() + level.getPoint());
 
 					road.getChildren().remove(virusCloud.getVirus(l).getImageVirus());
 					virusCloud.removeVirus(l);
@@ -415,7 +394,7 @@ public class Animation extends AnimationTimer{
 	 * virusShoot(): shoot a virus' jet if this is time and if there is viruses in the cloud
 	 */
 	public void virusShoot(){
-		if(timerVirusShoot == maxTimerVirusShoot_lv1 && virusCloud.getSize() > 0) {
+		if(timerVirusShoot == controllerLevel.getMaxTimerVirusShoot() && virusCloud.getSize() > 0) {
 			timerVirusShoot = 0;
 			int i = (int) (Math.random() * (virusCloud.getSize()));
 			Jet j = new Jet(virusCloud.getVirus(i).getPosX() + 17,
@@ -428,10 +407,10 @@ public class Animation extends AnimationTimer{
 		}
 		moveVirusShoot();
 	}
-
+	
 	public void virusShootSecondRow() {
-		if(timerVirusShoot == maxTimerVirusShoot_lv1+10 && virusCloudSecondRow.getSize() > 0) {
-			timerVirusShoot = maxTimerVirusShoot_lv1 + 10;
+		if(timerVirusShoot == controllerLevel.getMaxTimerVirusShoot()+10 && virusCloudSecondRow.getSize() > 0) {
+			timerVirusShoot = 0;
 			int i = (int) (Math.random() * (virusCloudSecondRow.getSize()));
 			Jet j = new Jet(virusCloudSecondRow.getVirus(i).getPosX() + 17,
 					virusCloudSecondRow.getVirus(i).getPosY() + 15, imageJetViruslvl);
@@ -443,10 +422,10 @@ public class Animation extends AnimationTimer{
 		}
 		moveVirusShootSecondRow();
 	}
-
+	
 	public void virusShootThirdRow() {
-		if(timerVirusShoot == maxTimerVirusShoot_lv1+20 && virusCloudThirdRow.getSize() > 0) {
-			timerVirusShoot = maxTimerVirusShoot_lv1 + 20;
+		if(timerVirusShoot == controllerLevel.getMaxTimerVirusShoot()+20 && virusCloudThirdRow.getSize() > 0) {
+			timerVirusShoot = 0;
 			int i = (int) (Math.random() * (virusCloudThirdRow.getSize()));
 			Jet j = new Jet(virusCloudThirdRow.getVirus(i).getPosX() + 17,
 					virusCloudThirdRow.getVirus(i).getPosY() + 15, imageJetViruslvl);
@@ -468,7 +447,7 @@ public class Animation extends AnimationTimer{
 					.setPosY(virusCloud.getListJet().getJet(i).getPosY() + speedSendMunition);
 		}
 	}
-
+	
 	/**
 	 * moveVirusShootSecondRow(): move second rowcviruses' jets down
 	 */
@@ -478,7 +457,7 @@ public class Animation extends AnimationTimer{
 					.setPosY(virusCloudSecondRow.getListJet().getJet(i).getPosY() + speedSendMunition);
 		}
 	}
-
+	
 	/**
 	 * moveVirusShootThirdRow(): move third row viruses' jets down
 	 */
@@ -583,7 +562,7 @@ public class Animation extends AnimationTimer{
 	 */
 	public void sendMunition() {
 		if(player.getAvailableJet() < 9) {
-			if(timerSendMunition == maxTimerSendMunition_lv1) {
+			if(timerSendMunition == controllerLevel.getMaxTimerSendMunition()) {
 				timerSendMunition = 0;
 				ImageView newMunition = new ImageView(new Image(imageRechargeMunition.toExternalForm()));
 				double randomX = new Random().nextDouble() * (maxRange - minRange) + minRange;
@@ -630,7 +609,7 @@ public class Animation extends AnimationTimer{
 	 */
 	public void antiVaxAttack(){
 		if(virusCloud.getSize() < 5 && level.getNumberOfAntiVax() > level.getListAntiVax().size()){
-			if(timerAntiVaxAttack == maxTimerAntiVaxAttack_lv1) {
+			if(timerAntiVaxAttack == controllerLevel.getMaxTimerAntiVaxAttack()) {
 				timerAntiVaxAttack = 0;
 				level.addAntiVax();
 			}else {
@@ -679,8 +658,7 @@ public class Animation extends AnimationTimer{
 						.intersects(level.getListAntiVax().get(i).getImage().getBoundsInParent())) {
 
 					controllerLevel.setScore(level.getListAntiVax().get(i).getPoint());
-					//TODO: remove level.score???????
-					level.setTotalScore(level.getTotalScore() + level.getPoint());
+					player.setScore(player.getScore() + level.getPoint());
 
 					//remove the jet if this jet already touches an antiVax
 					road.getChildren().remove(player.getListJet().getJet(j).getImageJet());
@@ -741,12 +719,11 @@ public class Animation extends AnimationTimer{
 		Pane myPane = loader.load();
 		ControllerWin controllerWin = loader.getController();
 
-		controllerWin.setCurrentLevelText(" " +level.getNumberOfLevel());
-		controllerWin.setScoreText(" " + level.getTotalScore() + " points");
+		controllerWin.setCurrentLevelText(" " + level.getNumberOfLevel());
+		controllerWin.setScoreText(" " + player.getScore() + " points");
 		controllerWin.setNextLevelText(Integer.toString(level.getNumberOfLevel()+1));
 		controllerWin.setNextLevel(this.level.getNumberOfLevel()+1);
 		controllerWin.setPlayer(player);
-		//System.out.println(this.level.getNumberOfLevel()+1);
 		controllerWin.setStage(primaryStage);
 
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
@@ -768,7 +745,7 @@ public class Animation extends AnimationTimer{
 		ControllerLost controllerLost = loader.getController();
 
 		controllerLost.setLevel(" " + level.getNumberOfLevel());
-		controllerLost.setScore(" " + level.getTotalScore() + " points");
+		controllerLost.setScore(" " + player.getScore() + " points");
 		controllerLost.setStage(primaryStage);
 
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());

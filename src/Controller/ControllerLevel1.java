@@ -22,10 +22,15 @@ public class ControllerLevel1 extends ControllerLevel{
     public ControllerLevel1() {
         super();
         setLevelNb(1);
+        maxTimerSendMunition = 30;
+        maxTimerAntiVaxAttack = 50;
+        maxTimerVirusShoot = 25;
+        numberOfAntiVax = 3;
     }
 
 
     ///////////////////// METHODS ///////////////////////
+    
 
     /**
      * setListViruses(): add all viruses to the list of viruses displayed in the game

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import Controller.ControllerLevel;
-import Controller.ControllerLost;
-import Controller.ControllerWin;
+import Controller.ControllerEnd;
+import Controller.ControllerWinLevel;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -635,8 +635,13 @@ public class Animation extends AnimationTimer{
 	 */
 	public void playerWinLevel() throws IOException {
 		if(level.getNumberOfAntiVax() == 0 && virusCloudFirstRow.getSize() == 0){
-			level.setWon(true);
-			launchWonPane();
+			if(level.getNumberOfLevel() == 5) {
+				launchWinGamePane();
+			}else {
+				//TODO: necessary???
+				level.setWon(true);
+				launchWinLevelPane();
+			}
 		}
 	}
 
@@ -647,26 +652,26 @@ public class Animation extends AnimationTimer{
 	 */
 	public void playerLostLevel() throws IOException {
 		if(player.getLife() == 0){
+			//TODO: necessary???
 			level.setLost(true);
-			launchLoosePane();
+			launchLoseGamePane();
 		}
 	}
 
 
 	/**
-	 * launchWonPane(): launch the won pane
+	 * launchWinLevelPane(): launch the won pane
 	 * @throws IOException
 	 */
-	public void launchWonPane() throws IOException {
+	public void launchWinLevelPane() throws IOException {
 		Stage primaryStage = (Stage) road.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/win.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/winLevel.fxml"));
 		Pane myPane = loader.load();
-		ControllerWin controllerWin = loader.getController();
+		ControllerWinLevel controllerWin = loader.getController();
 
-		controllerWin.setCurrentLevelText(" " + level.getNumberOfLevel());
-		controllerWin.setScoreText(" " + player.getScore() + " points");
-		controllerWin.setNextLevelText(Integer.toString(level.getNumberOfLevel()+1));
-		controllerWin.setNextLevel(this.level.getNumberOfLevel()+1);
+		controllerWin.setScoreNumber(Integer.toString(player.getScore()));
+		controllerWin.setLevelNumber(Integer.toString(level.getNumberOfLevel()));
+		controllerWin.setNextLevelNumber(this.level.getNumberOfLevel()+1);
 		controllerWin.setPlayer(player);
 		controllerWin.setStage(primaryStage);
 
@@ -677,22 +682,45 @@ public class Animation extends AnimationTimer{
 
 		stop();
 	}
-
+	
 	/**
-	 * launchLoosePane(): launch the lose pane
+	 * launchWinGamePane(): launch the congrats pane
 	 * @throws IOException
 	 */
-	public void launchLoosePane() throws IOException {
+	public void launchWinGamePane() throws IOException {
 		Stage primaryStage = (Stage) road.getScene().getWindow();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/lost.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/winGame.fxml"));
 		Pane myPane = loader.load();
-		ControllerLost controllerLost = loader.getController();
+		ControllerEnd controllerEnd = loader.getController();
 
-		controllerLost.setLevel(" " + level.getNumberOfLevel());
-		controllerLost.setScore(" " + player.getScore() + " points");
-		controllerLost.setStage(primaryStage);
+		controllerEnd.setScoreNumber(Integer.toString(player.getScore()));
+		controllerEnd.setLevelNumber(Integer.toString(level.getNumberOfLevel()));
+		controllerEnd.setStage(primaryStage);
 
 		Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
+		myScene.getRoot().requestFocus();
+		primaryStage.setScene(myScene);
+		primaryStage.show();
+
+		stop();
+	}
+
+	/**
+	 * launchLoseGamePane(): launch the lose pane
+	 * @throws IOException
+	 */
+	public void launchLoseGamePane() throws IOException {
+		Stage primaryStage = (Stage) road.getScene().getWindow();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/loseGame.fxml"));
+		Pane myPane = loader.load();
+		ControllerEnd controllerEnd = loader.getController();
+
+		controllerEnd.setLevelNumber(Integer.toString(level.getNumberOfLevel()));
+		controllerEnd.setScoreNumber(Integer.toString(player.getScore()));
+		controllerEnd.setPlayer(player);
+		controllerEnd.setStage(primaryStage);
+
+		Scene myScene = new Scene(myPane, myPane.getPrefWidth(), myPane.getPrefHeight());
 		myScene.getRoot().requestFocus();
 		primaryStage.setScene(myScene);
 		primaryStage.show();

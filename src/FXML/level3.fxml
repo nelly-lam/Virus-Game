@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerLevel3">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#play" prefHeight="540.0" prefWidth="632.0" style="-fx-background-color: #40494f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerLevel3">
    <children>
       <Line endX="48.985870361328125" endY="-31.49999237060547" layoutX="200.0" layoutY="114.0" startX="-199.70709228515625" startY="353.2928771972656" stroke="YELLOW" />
       <Line endX="388.99993896484375" endY="356.2928771972656" layoutX="243.0" layoutY="111.0" startX="138.78585815429688" startY="-28.49999237060547" stroke="YELLOW" />
@@ -132,5 +134,10 @@
             <Image url="@../Images/virus_lv3.png" />
          </image>
       </ImageView>
+      <Text fill="YELLOW" layoutX="36.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-style: italic;" text="Level 3" wrappingWidth="63.60003662109375">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

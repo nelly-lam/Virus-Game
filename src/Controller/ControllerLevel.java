@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Model.Jet;
 import Model.Player;
+import Model.Score;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -28,8 +29,12 @@ public class ControllerLevel {
     
 	public long maxTimerSendMunition;
 	public long maxTimerAntiVaxAttack;
-	public long maxTimerVirusShoot;
 	public int numberOfAntiVax;
+	
+	public long maxTimerVirusShootFirstRow;
+	public long maxTimerVirusShootSecondRow;
+	public long maxTimerVirusShootThirdRow;
+
 
     protected ArrayList<ImageView> listVirusesFirstRow = new ArrayList<ImageView>();
     protected ArrayList<ImageView> listVirusesSecondRow = new ArrayList<ImageView>();
@@ -52,8 +57,8 @@ public class ControllerLevel {
     @FXML ImageView life3;
     protected ArrayList<ImageView> listRemainingLife = new ArrayList<ImageView>();
 
-    @FXML Text score;
-    
+    @FXML Text scoreText;
+    private Score score;
     protected int levelNb;
 
     
@@ -63,6 +68,8 @@ public class ControllerLevel {
     public void setPane(Pane pane) { this.road = pane; }
     public Player getPlayer() { return this.player; }
     public void setPlayer(Player p) {  this.player = p; }
+	public Score getScore() { return score; }
+	public void setScore(Score score) { this.score = score; }
     public int getLevelNb() { return this.levelNb;}
     public void setLevelNb(int nb) { this.levelNb = nb; }
 
@@ -72,7 +79,9 @@ public class ControllerLevel {
     
     public long getMaxTimerSendMunition() { return this.maxTimerSendMunition; }
     public long getMaxTimerAntiVaxAttack() { return this.maxTimerAntiVaxAttack; }
-    public long getMaxTimerVirusShoot() { return this.maxTimerVirusShoot; }
+    public long getMaxTimerVirusShootFirstRow() { return this.maxTimerVirusShootFirstRow; }
+    public long getMaxTimerVirusShootSecondRow() { return this.maxTimerVirusShootSecondRow; }
+    public long getMaxTimerVirusShootThirdRow() { return this.maxTimerVirusShootThirdRow; }
     public int getNumberOfAntiVax() { return this.numberOfAntiVax; }
     
     
@@ -145,13 +154,12 @@ public class ControllerLevel {
 
 
     /**
-     * setScore(): set the new score of the player
+     * setScoreText(): set the new score of the player
      * @param point int, the score that is added to the current score of the player
      */
-    public void setScore(int point){
-        int t = Integer.parseInt(score.getText()) + point ;
-        score.setText(String.valueOf(t));
-        player.setScore(t);
+    public void setScoreText(int point){
+        int t = Integer.parseInt(scoreText.getText()) + point ;
+        scoreText.setText(String.valueOf(t));
     }
 
     /**
@@ -201,5 +209,6 @@ public class ControllerLevel {
     public void setListViruses() {
 
     }
+
 
 }

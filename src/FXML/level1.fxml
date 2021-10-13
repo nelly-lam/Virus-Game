@@ -14,7 +14,7 @@
       <ImageView fx:id="imagePlayer" fitHeight="130.0" fitWidth="46.0" layoutX="293.0" layoutY="338.0">
             <Image url="@../Images/player.png" />
       </ImageView>
-      <Text fx:id="score" fill="YELLOW" layoutX="558.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="100.0">
+      <Text fx:id="scoreText" fill="YELLOW" layoutX="558.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="100.0">
          <font>
             <Font size="20.0" />
          </font>

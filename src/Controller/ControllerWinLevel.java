@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Animation;
 import Model.Player;
+import Model.Score;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,6 +27,7 @@ public class ControllerWinLevel {
     
     private Stage stage;
     private Player player;
+    private Score score;
     private int nextLevelNumber;
 
 
@@ -34,6 +36,8 @@ public class ControllerWinLevel {
     public void setStage(Stage primaryStage) { this.stage = primaryStage; }
     public void setPlayer(Player p) { this.player = p;}
     public void setNextLevelNumber(int i) { this.nextLevelNumber = i; }
+    public Score getScore() { return score; }
+    public void setScore(Score score) { this.score = score; }
 
     /**
      * setScore(): display the score of the player
@@ -108,14 +112,15 @@ public class ControllerWinLevel {
                 controllerLevel.setStage(stage);
                 controllerLevel.setPane(myPane);
                 controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
-                controllerLevel.getPlayer().setScore(player.getScore());
-                controllerLevel.setScore(controllerLevel.getPlayer().getScore());
+                //controllerLevel.getPlayer().setScore(player.getScore());
+                controllerLevel.setScore(score);
+                controllerLevel.setScoreText(score.getCurrentScore());
                 controllerLevel.setListRemainingLife();
                 controllerLevel.setListRemainingMunition();
                 controllerLevel.setListViruses();
 
                 Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
-                        					controllerLevel, myPane, "../Images/jet_lv" + nextLevelNumber + ".png");
+                        					controllerLevel, myPane, "../Images/jet_lv" + nextLevelNumber + ".png", score);
                 animation.start();
 
                 this.stage.setScene(myScene);
@@ -126,6 +131,7 @@ public class ControllerWinLevel {
     		}
     	}
     }
+
    
    
 }

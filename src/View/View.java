@@ -1,6 +1,7 @@
 package View;
 
 import Controller.ControllerWelcome;
+import Model.Score;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,8 +18,12 @@ public class View extends Application {
         Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
         welcome.getRoot().requestFocus();
        
+        Score score = new Score();
+
         ControllerWelcome controllerWelcome = loader.getController();
-        controllerWelcome.setScoreMax(0);
+        controllerWelcome.setBestScore(Integer.toString(score.getBestScore()));
+        controllerWelcome.setScore(score);
+        
         
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);

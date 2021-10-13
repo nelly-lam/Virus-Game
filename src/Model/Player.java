@@ -35,7 +35,7 @@ public class Player {
     private int life;
 
     /* score of the player */
-    private int score;
+   //private int score;
 
 
     ///////////////////// CONSTRUCTOR ///////////////////////
@@ -54,7 +54,7 @@ public class Player {
         this.listJet = new ListJet();
         this.availableJet = totalMunition;
         this.life = totalLife;
-        this.score = 0;
+        //this.score = 0;
     }
 
 
@@ -92,8 +92,8 @@ public class Player {
     public int getAvailableJet() { return availableJet; }
     public void setAvailableJet(int jetOnHand) { this.availableJet = jetOnHand; }
 
-    public int getScore() { return score; }
-    public void setScore(int score) { this.score = score; }
+    //public int getScore() { return score; }
+    //public void setScore(int score) { this.score = score; }
 
 
 }

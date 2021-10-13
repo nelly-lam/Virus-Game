@@ -29,7 +29,9 @@ public class ControllerLevel2 extends ControllerLevel{
         setLevelNb(2);
         maxTimerSendMunition = 30;
         maxTimerAntiVaxAttack = 40;
-        maxTimerVirusShoot = 20;
+        maxTimerVirusShootFirstRow = 20;
+        maxTimerVirusShootSecondRow = 0;
+        maxTimerVirusShootThirdRow = 0;
         numberOfAntiVax = 5;
     }
 

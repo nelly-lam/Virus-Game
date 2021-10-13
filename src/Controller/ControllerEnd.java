@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import Model.Player;
+import Model.Score;
 
 public class ControllerEnd {
 
@@ -24,6 +25,7 @@ public class ControllerEnd {
     @FXML Text scoreNumber;
     
     private Player player;
+    private Score score;
     private Stage stage;
     
 	//////////////////////////// METHODS /////////////////////////////
@@ -70,11 +72,14 @@ public class ControllerEnd {
                 //TODO: save best score doesn't work, may be because call new ControllerWelcome each time ??
                 ControllerWelcome controllerWelcome = loader.getController();
                 System.out.println("best score " + Integer. parseInt(controllerWelcome.getBestScore().getText()));
-                System.out.println("player score " + player.getScore());
+                System.out.println("current score " + score.getCurrentScore());
 
-                if(Integer. parseInt(controllerWelcome.getBestScore().getText()) < player.getScore()) {
-                	controllerWelcome.setBestScore(Integer.toString(player.getScore()));
+                if(score.getBestScore() < score.getCurrentScore()) {
+                	score.setBestScore(score.getCurrentScore());
+                	score.setCurrentScore(0);
                 }
+            	controllerWelcome.setBestScore(Integer.toString(score.getBestScore()));
+                controllerWelcome.setScore(score);
                 
                 stage.setResizable(false);
                 stage.setTitle("Virus Game");
@@ -86,6 +91,12 @@ public class ControllerEnd {
     		}
     	}
     }
+	public Score getScore() {
+		return score;
+	}
+	public void setScore(Score score) {
+		this.score = score;
+	}
     
 
 }

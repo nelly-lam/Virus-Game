@@ -26,12 +26,13 @@ public class ControllerWelcome  {
 	
 	@FXML Pane pane;
     @FXML Text bestScore;
-    private int scoreMax;
+    private Score score;
+    //private int scoreMax;
     
     
     //////////////////////////// METHODS /////////////////////////////
-	public int getScoreMax() { return scoreMax; }
-	public void setScoreMax(int scoreMax) { this.scoreMax = scoreMax; }
+	public Score getScore() { return score; }
+	public void setScore(Score scoreMax) { this.score = scoreMax; }
 	public Text getBestScore() { return this.bestScore; }
 	
     /**
@@ -113,7 +114,7 @@ public class ControllerWelcome  {
                 controllerLevel.setListViruses();
 
                 Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
-                        controllerLevel, paneLevel1,"../Images/jet_lv1.png");
+                        controllerLevel, paneLevel1,"../Images/jet_lv1.png", score);
                 animation.start();
 
                 primaryStage.setScene(myScene);

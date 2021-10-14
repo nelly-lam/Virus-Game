@@ -176,19 +176,7 @@ public class ControllerWelcome  {
 
     }*/
 
-    @FXML public void goBack(KeyEvent k) throws IOException{
-        Stage primaryStage = (Stage) pane.getScene().getWindow();
-        if(k.getCode().equals(KeyCode.ENTER)){
-            Pane start = (Pane) FXMLLoader.load(getClass().getResource("../FXML/welcomeGame.fxml"));
-            Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
-            welcome.getRoot().requestFocus();
 
-            primaryStage.setResizable(false);
-            primaryStage.setTitle("Virus Game");
-            primaryStage.setScene(welcome);
-            primaryStage.show();
-        }
-    }
 
 
 }

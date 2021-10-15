@@ -4,16 +4,14 @@ import java.net.URL;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+
 
 public class Jet {
 	
 	///////////////////// ATTRIBUTES /////////////////////////
 
-	/* position of the left up corner 
+	/* position of the left up corner
 	 * that defines the position of the virus */
-	private Double posX;
 	private Double posY;
 	
     /* image of the jet */
@@ -22,11 +20,10 @@ public class Jet {
 	
 	
     ///////////////////// CONSTRUCTOR ///////////////////////
-	public Jet(Double x, Double y, URL imageJeturl) {
-		posX = x;
+	public Jet(Double x, Double y, URL imageJetUrl) {
 		posY = y;
 
-        imageJet = new ImageView(new Image(imageJeturl.toExternalForm()));
+        imageJet = new ImageView(new Image(imageJetUrl.toExternalForm()));
         imageJet.setLayoutX(x);
         imageJet.setLayoutY(y);
 
@@ -41,8 +38,5 @@ public class Jet {
 	}
 	
 	public ImageView getImageJet() { return imageJet; }
-	public void setImageJet(ImageView imageJet) { this.imageJet = imageJet; }
-
-
 
 }

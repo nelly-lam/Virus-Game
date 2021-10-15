@@ -13,11 +13,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * we will have an issue because we need to change the controller for every fxml but in the Animation Class we have a controllerGame parameter who is a
- * ControllerLevel1.
- * So we need to make a class who will handle all of the controller methods that we need to use in animation
- */
 
 public class ControllerLevel {
 	
@@ -71,7 +66,6 @@ public class ControllerLevel {
 	public Score getScore() { return score; }
 	public void setScore(Score score) { this.score = score; }
     public int getLevelNb() { return this.levelNb;}
-    public void setLevelNb(int nb) { this.levelNb = nb; }
 
     public ArrayList<ImageView> getListVirusesFirstRow() { return listVirusesFirstRow; }
     public ArrayList<ImageView> getListVirusesSecondRow(){ return this.listVirusesSecondRow; }

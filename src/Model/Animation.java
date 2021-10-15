@@ -68,7 +68,8 @@ public class Animation extends AnimationTimer{
 	private long timerVirusShootSecondRow;
     private long timerVirusShootThirdRow;
 	
-	private URL imageJetViruslvl;
+	private URL imageJetVirusLvl;
+
 
 
 	/////////////////////// CONSTRUCTOR ///////////////////////////
@@ -116,7 +117,7 @@ public class Animation extends AnimationTimer{
         timerVirusShootSecondRow = controllerLevel.getMaxTimerVirusShootSecondRow();
         timerVirusShootThirdRow = controllerLevel.getMaxTimerVirusShootThirdRow();
 		
-		imageJetViruslvl = getClass().getResource(nameFileJet);
+		imageJetVirusLvl = getClass().getResource(nameFileJet);
 
 	}
 
@@ -372,7 +373,7 @@ public class Animation extends AnimationTimer{
 			timerVirusShootFirstRow = 0;
 			int i = (int) (Math.random() * (virusCloudFirstRow.getSize()));
 			Jet j = new Jet(virusCloudFirstRow.getVirus(i).getPosX() + 17,
-					virusCloudFirstRow.getVirus(i).getPosY() + 15, imageJetViruslvl);
+					virusCloudFirstRow.getVirus(i).getPosY() + 15, imageJetVirusLvl);
 			road.getChildren().add(j.getImageJet());
 			virusCloudFirstRow.getListJet().addJet(j);
 		}
@@ -391,7 +392,7 @@ public class Animation extends AnimationTimer{
 			timerVirusShootSecondRow = 0;
 			int i = (int) (Math.random() * (virusCloudSecondRow.getSize()));
 			Jet j = new Jet(virusCloudSecondRow.getVirus(i).getPosX() + 17,
-					virusCloudSecondRow.getVirus(i).getPosY() + 15, imageJetViruslvl);
+					virusCloudSecondRow.getVirus(i).getPosY() + 15, imageJetVirusLvl);
 			road.getChildren().add(j.getImageJet());
 			virusCloudSecondRow.getListJet().addJet(j);
 		}
@@ -410,7 +411,7 @@ public class Animation extends AnimationTimer{
 			timerVirusShootThirdRow = 0;
 			int i = (int) (Math.random() * (virusCloudThirdRow.getSize()));
 			Jet j = new Jet(virusCloudThirdRow.getVirus(i).getPosX() + 17,
-					virusCloudThirdRow.getVirus(i).getPosY() + 15, imageJetViruslvl);
+					virusCloudThirdRow.getVirus(i).getPosY() + 15, imageJetVirusLvl);
 			road.getChildren().add(j.getImageJet());
 			virusCloudThirdRow.getListJet().addJet(j);
 		}
@@ -697,7 +698,6 @@ public class Animation extends AnimationTimer{
 		controllerWin.setScoreNumber(Integer.toString(score.getCurrentScore()));
 		controllerWin.setLevelNumber(Integer.toString(level.getNumberOfLevel()));
 		controllerWin.setNextLevelNumber(this.level.getNumberOfLevel()+1);
-		controllerWin.setPlayer(player);
 		controllerWin.setScore(score);
 		controllerWin.setStage(primaryStage);
 
@@ -744,7 +744,6 @@ public class Animation extends AnimationTimer{
 
 		controllerEnd.setLevelNumber(Integer.toString(level.getNumberOfLevel()));
 		controllerEnd.setScoreNumber(Integer.toString(score.getCurrentScore()));
-		controllerEnd.setPlayer(player);
 		controllerEnd.setScore(score);
 		controllerEnd.setStage(primaryStage);
 

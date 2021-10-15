@@ -22,7 +22,7 @@
             <Font size="24.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="quit" layoutX="280.0" layoutY="386.0" mnemonicParsing="false" selected="false" style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
+      <ToggleButton fx:id="quit" layoutX="280.0" layoutY="386.0" mnemonicParsing="false"  style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font size="22.0" />
          </font>

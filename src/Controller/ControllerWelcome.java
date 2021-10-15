@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -27,13 +26,12 @@ public class ControllerWelcome  {
 	@FXML Pane pane;
     @FXML Text bestScore;
     private Score score;
-    //private int scoreMax;
-    
+
     
     //////////////////////////// METHODS /////////////////////////////
 	public Score getScore() { return score; }
 	public void setScore(Score scoreMax) { this.score = scoreMax; }
-	public Text getBestScore() { return this.bestScore; }
+
 	
     /**
      * setScoreNumber(): display the score of the player
@@ -134,49 +132,4 @@ public class ControllerWelcome  {
     		}
     	}
     }
-
-    /*
-    @FXML public void start(KeyEvent k) throws IOException {
-        Stage primaryStage = (Stage) pane.getScene().getWindow();
-        if(k.getCode().equals(KeyCode.Q)){
-            primaryStage.close();
-        }
-        else if (k.getCode().equals(KeyCode.R)){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/rules.fxml"));
-            Pane myPane = loader.load();
-
-            Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-            myScene.getRoot().requestFocus();
-
-            primaryStage.setScene(myScene);
-            primaryStage.show();
-        }
-        else if (k.getCode().equals(KeyCode.S)){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/level1.fxml"));
-            Pane paneLevel1 = loader.load();
-            ControllerLevel controllerLevel = loader.getController();
-
-            Scene myScene = new Scene(paneLevel1, paneLevel1.getPrefWidth(), paneLevel1.getPrefHeight());
-            myScene.getRoot().requestFocus();
-
-            controllerLevel.setStage(primaryStage);
-            controllerLevel.setPane(paneLevel1);
-            controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
-            controllerLevel.setListRemainingLife();
-            controllerLevel.setListRemainingMunition();
-            controllerLevel.setListViruses();
-
-            Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
-                    controllerLevel, paneLevel1,"../Images/jet_lv1.png");
-            animation.start();
-
-            primaryStage.setScene(myScene);
-            primaryStage.show();
-        }
-
-    }*/
-
-
-
-
 }

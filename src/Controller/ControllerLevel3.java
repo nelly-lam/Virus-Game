@@ -22,8 +22,7 @@ public class ControllerLevel3 extends ControllerLevel{
     ///////////////////// CONSTRUCTOR ///////////////////////
     public ControllerLevel3() {
         super();
-        setLevelNb(3);
-
+        levelNb = 3;
         maxTimerSendMunition = 25;
         maxTimerAntiVaxAttack = 40;
         maxTimerVirusShootFirstRow = 20;

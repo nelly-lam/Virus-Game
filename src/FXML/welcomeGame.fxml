@@ -17,12 +17,12 @@
             <Font size="22.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="rules" layoutX="276.0" layoutY="368.0" mnemonicParsing="false" selected="false" style="-fx-background-color: transparent;" text="Rules" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
+      <ToggleButton fx:id="rules" layoutX="276.0" layoutY="368.0" mnemonicParsing="false"  style="-fx-background-color: transparent;" text="Rules" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font size="22.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="quit" layoutX="281.0" layoutY="422.0" mnemonicParsing="false" selected="false" style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
+      <ToggleButton fx:id="quit" layoutX="281.0" layoutY="422.0" mnemonicParsing="false"  style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font size="22.0" />
          </font>

@@ -11,15 +11,14 @@ public class AntiVax {
     public final static double maxRange = 600.0;
     public final static double maxHeight = 540.0;
 
-	///////////////////// ATTRIBUTES /////////////////////////
-    private URL file;
     private ImageView image;
     private int point;
     private boolean inLeft;
 
 	///////////////////// CONSTRUTOR /////////////////////////
     public AntiVax(int p){
-        file =  getClass().getResource("../Images/antivax.png");
+        ///////////////////// ATTRIBUTES /////////////////////////
+        URL file = getClass().getResource("../Images/antivax.png");
         image = new ImageView(new Image(file.toExternalForm()));
         double randomX =  Math.random();
         

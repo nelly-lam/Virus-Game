@@ -22,17 +22,17 @@
             <Font size="24.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="quit" layoutX="280.0" layoutY="386.0" mnemonicParsing="false" selected="false" style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
+      <ToggleButton fx:id="quit" layoutX="280.0" layoutY="386.0" mnemonicParsing="false"  style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER" textFill="YELLOW" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font size="22.0" />
          </font>
       </ToggleButton>
-      <Text fx:id="levelNumber" fill="YELLOW" layoutX="391.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="">
+      <Text fx:id="levelNumber" fill="YELLOW" layoutX="391.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" >
          <font>
             <Font size="28.0" />
          </font>
       </Text>
-      <Text fx:id="scoreNumber" fill="YELLOW" layoutX="357.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="" textAlignment="RIGHT">
+      <Text fx:id="scoreNumber" fill="YELLOW" layoutX="357.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>

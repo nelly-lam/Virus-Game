@@ -1,8 +1,6 @@
 package Controller;
 
 
-import java.util.ArrayList;
-
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
@@ -26,7 +24,7 @@ public class ControllerLevel2 extends ControllerLevel{
     ///////////////////// CONSTRUCTOR ///////////////////////
     public ControllerLevel2() {
         super();
-        setLevelNb(2);
+        levelNb = 2;
         maxTimerSendMunition = 30;
         maxTimerAntiVaxAttack = 40;
         maxTimerVirusShootFirstRow = 20;

@@ -1,7 +1,6 @@
 package Model;
 
 import Controller.ControllerLevel;
-import Controller.ControllerLevel1;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
@@ -58,30 +57,25 @@ public class Level {
     }
 
     ///////////////////// METHODS /////////////////////////
-    public ControllerLevel getControllerGame() { return controllerLevel; }
 
     public int getPoint() { return pointOfAntiVax; }
 
     public VirusCloud getVirusCloud() { return virusCloudFirstRow; }
-    public void setVirusCloud(VirusCloud virusCloud) { this.virusCloudFirstRow = virusCloud; }
     
 	public VirusCloud getVirusCloudSecondRow() { return virusCloudSecondRow; }
-	public void setVirusCloudSecondRow(VirusCloud v) { this.virusCloudSecondRow = v; }
 
 	public VirusCloud getVirusCloudThirdRow() { return virusCloudThirdRow; }
-	public void setVirusCloudThirdRow(VirusCloud v) { this.virusCloudThirdRow = v; }
 
     public int getNumberOfAntiVax() { return numberOfAntiVax; }
     public void setNumberOfAntiVax(int numberOfAntiVax) { this.numberOfAntiVax = numberOfAntiVax; }
 
-    public boolean isLost() { return lost; }
+
     public void setLost(boolean lost) { this.lost = lost; }
 
-    public boolean getWon(){ return this.won; }
     public void setWon(boolean won) { this.won = won; }
 
     public ArrayList<AntiVax> getListAntiVax() { return listAntiVax; }
-    public void setListAntiVax(ArrayList<AntiVax> listAntiVax) { this.listAntiVax = listAntiVax; }
+
 
     public void addVirusToVirusCloud(Virus virus){ virusCloudFirstRow.addVirus(virus); }
     public void addVirusToVirusCloudSecondRow(Virus virus){ virusCloudSecondRow.addVirus(virus); }

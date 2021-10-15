@@ -34,8 +34,6 @@ public class Player {
     /* number of life the player has */
     private int life;
 
-    /* score of the player */
-   //private int score;
 
 
     ///////////////////// CONSTRUCTOR ///////////////////////
@@ -46,24 +44,19 @@ public class Player {
         this.imageView = i;
         this.imagePlayer = i.getImage();
         this.imageG = i.getImage();
-        URL imageDurl = getClass().getResource("../Images/playerD.png");
-        this.imageD = new Image(imageDurl.toExternalForm());
-        URL imageShooturl = getClass().getResource("../Images/playerShooting.png");
-        this.imageShoot = new Image(imageShooturl.toExternalForm());
+        URL imageDUrl = getClass().getResource("../Images/playerD.png");
+        this.imageD = new Image(imageDUrl.toExternalForm());
+        URL imageShootUrl = getClass().getResource("../Images/playerShooting.png");
+        this.imageShoot = new Image(imageShootUrl.toExternalForm());
 
         this.listJet = new ListJet();
         this.availableJet = totalMunition;
         this.life = totalLife;
-        //this.score = 0;
     }
 
 
     ///////////////////// METHODS ///////////////////////
     public Double getPosY() {  return posY; }
-    public void setPosY(Double posY) {
-        this.posY = posY;
-        this.imageView.setLayoutY(posY);
-    }
 
     public Double getPosX() { return posX; }
     public void setPosX(Double posX) {
@@ -87,13 +80,9 @@ public class Player {
     public ImageView getImageViewPlayer(){ return this.imageView; }
 
     public ListJet getListJet() { return listJet; }
-    public void setListJet(ListJet listJet) { this.listJet = listJet; }
 
     public int getAvailableJet() { return availableJet; }
     public void setAvailableJet(int jetOnHand) { this.availableJet = jetOnHand; }
-
-    //public int getScore() { return score; }
-    //public void setScore(int score) { this.score = score; }
 
 
 }

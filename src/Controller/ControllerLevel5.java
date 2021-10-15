@@ -29,8 +29,7 @@ public class ControllerLevel5 extends ControllerLevel{
     ///////////////////// CONSTRUCTOR ///////////////////////
     public ControllerLevel5() {
         super();
-        setLevelNb(5);
-
+        levelNb = 5;
         maxTimerSendMunition = 20;
         maxTimerAntiVaxAttack = 40;
         maxTimerVirusShootFirstRow = 15;
@@ -78,8 +77,8 @@ public class ControllerLevel5 extends ControllerLevel{
      * setListVirusesThirdRow(): add viruses on the third row
      */
     public void setListVirusesThirdRow() {
-        listVirusesSecondRow.add(virus13);
-        listVirusesSecondRow.add(virus14);
+        listVirusesThirdRow.add(virus13);
+        listVirusesThirdRow.add(virus14);
     }
 
 

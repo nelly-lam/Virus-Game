@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import Model.Player;
+
 import Model.Score;
 
 public class ControllerEnd {
@@ -23,14 +23,12 @@ public class ControllerEnd {
 
     @FXML Text levelNumber;
     @FXML Text scoreNumber;
-    
-    private Player player;
+
     private Score score;
     private Stage stage;
     
 	//////////////////////////// METHODS /////////////////////////////
     public void setStage(Stage primaryStage) { this.stage = primaryStage; }
-    public void setPlayer(Player p) { this.player = p; }
 
     /**
      * setScoreNumber(): display the score of the player
@@ -68,11 +66,8 @@ public class ControllerEnd {
     			Pane myPane = loader.load();                
     			Scene welcome = new Scene(myPane, myPane.getPrefWidth(), myPane.getPrefHeight());
                 welcome.getRoot().requestFocus();
-                
-                //TODO: save best score doesn't work, may be because call new ControllerWelcome each time ??
+
                 ControllerWelcome controllerWelcome = loader.getController();
-                System.out.println("best score " + Integer. parseInt(controllerWelcome.getBestScore().getText()));
-                System.out.println("current score " + score.getCurrentScore());
 
                 if(score.getBestScore() < score.getCurrentScore()) {
                 	score.setBestScore(score.getCurrentScore());

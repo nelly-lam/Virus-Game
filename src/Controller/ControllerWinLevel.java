@@ -26,7 +26,6 @@ public class ControllerWinLevel {
     @FXML Pane pane;
     
     private Stage stage;
-    private Player player;
     private Score score;
     private int nextLevelNumber;
 
@@ -34,7 +33,6 @@ public class ControllerWinLevel {
     //////////////////////////// METHODS /////////////////////////////
     public Pane getPane() { return pane; }
     public void setStage(Stage primaryStage) { this.stage = primaryStage; }
-    public void setPlayer(Player p) { this.player = p;}
     public void setNextLevelNumber(int i) { this.nextLevelNumber = i; }
     public Score getScore() { return score; }
     public void setScore(Score score) { this.score = score; }
@@ -55,36 +53,6 @@ public class ControllerWinLevel {
         this.levelNumber.setText(level);
     }
 
-
-    /*
-    @FXML public void start(KeyEvent k) throws IOException{
-        if(k.getCode() == KeyCode.R){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/level" + this.nextLevelNumber + ".fxml"));
-            Pane myPane = loader.load();
-
-            ControllerLevel controllerLevel = loader.getController();
-
-            Scene myScene = new Scene(myPane, myPane.getPrefWidth(),myPane.getPrefHeight());
-            myScene.getRoot().requestFocus();
-
-            controllerLevel.setStage(stage);
-            controllerLevel.setPane(myPane);
-            controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
-            controllerLevel.getPlayer().setScore(player.getScore());
-            controllerLevel.setScore(controllerLevel.getPlayer().getScore());
-            controllerLevel.setListRemainingLife();
-            controllerLevel.setListRemainingMunition();
-            controllerLevel.setListViruses();
-
-            Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
-                    					controllerLevel, myPane, "../Images/jet_lv" + nextLevelNumber + ".png");
-            animation.start();
-
-            this.stage.setScene(myScene);
-            this.stage.show();
-        }
-
-    }*/
     
    @FXML public void startNextLevel(KeyEvent k) throws IOException {
     	if(k.getCode().equals(KeyCode.UP)) {
@@ -112,7 +80,6 @@ public class ControllerWinLevel {
                 controllerLevel.setStage(stage);
                 controllerLevel.setPane(myPane);
                 controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
-                //controllerLevel.getPlayer().setScore(player.getScore());
                 controllerLevel.setScore(score);
                 controllerLevel.setScoreText(score.getCurrentScore());
                 controllerLevel.setListRemainingLife();

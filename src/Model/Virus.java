@@ -15,10 +15,7 @@ public class Virus {
     
     /* image of the virus */
     private ImageView imageVirus;
-    
-    /* indicates if the virus is alive or not
-     * (if it is shown or not) */
-    private boolean isAlive;
+
 
     /* point of the virus */
     private int pointVirus;
@@ -44,16 +41,10 @@ public class Virus {
 	}
 
 	public Double getPosY() { return posY; }
-	public void setPosY(Double posY) {
-		this.posY = posY;
-		imageVirus.setLayoutY(posY);
-	}
+
 
 	public int getPointVirus() { return pointVirus; }
 
 	public ImageView getImageVirus() { return imageVirus; }
-    
-	public boolean getIsAlive() { return isAlive; }
-	public void setIsAlive(boolean isAlive) { this.isAlive = isAlive; }
 
 }

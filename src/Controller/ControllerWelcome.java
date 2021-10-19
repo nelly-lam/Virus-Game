@@ -1,6 +1,5 @@
 package Controller;
 
-
 import Model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller of the welcomeGame.fxml
+ **/
 public class ControllerWelcome  {
 
     //////////////////////////// ATTRIBUTES /////////////////////////////
@@ -24,7 +26,7 @@ public class ControllerWelcome  {
 	private int cursorButton = 1;
 	
 	@FXML Pane pane;
-    @FXML Text bestScore;
+    @FXML Text bestScoreText;
     private Score score;
 
     
@@ -32,13 +34,12 @@ public class ControllerWelcome  {
 	public Score getScore() { return score; }
 	public void setScore(Score scoreMax) { this.score = scoreMax; }
 
-	
     /**
-     * setScoreNumber(): display the score of the player
+     * setBestScoreText(): display the best score of the player
      * @param score String, the final score of the player
      */
-    public void setBestScore(String score) {
-        this.bestScore.setText(score);
+    public void setBestScoreText(String score) {
+        this.bestScoreText.setText(score);
     }
         
     @FXML public void start(KeyEvent k) throws IOException {
@@ -59,7 +60,7 @@ public class ControllerWelcome  {
     			quit.setSelected(false);
         		play.setStyle("-fx-background-color: transparent; -fx-border-color: orange;");
         		rules.setStyle("-fx-background-color: transparent;");
-        		quit.setStyle("-fx-background-color: transparent;");	
+        		quit.setStyle("-fx-background-color: transparent;");
     		}else if(cursorButton == 3){ //if the cursor is on the quit button
     			cursorButton = 2;
     			play.setSelected(false);
@@ -99,11 +100,11 @@ public class ControllerWelcome  {
     		if(play.isSelected()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/level1.fxml"));
                 Pane paneLevel1 = loader.load();
-                ControllerLevel controllerLevel = loader.getController();
 
-                Scene myScene = new Scene(paneLevel1, paneLevel1.getPrefWidth(), paneLevel1.getPrefHeight());
-                myScene.getRoot().requestFocus();
+                Scene sceneLevel1 = new Scene(paneLevel1, paneLevel1.getPrefWidth(), paneLevel1.getPrefHeight());
+                sceneLevel1.getRoot().requestFocus();
 
+				ControllerLevel controllerLevel = loader.getController();
                 controllerLevel.setStage(primaryStage);
                 controllerLevel.setPane(paneLevel1);
                 controllerLevel.setPlayer(new Player(controllerLevel.imagePlayer));
@@ -111,11 +112,12 @@ public class ControllerWelcome  {
                 controllerLevel.setListRemainingMunition();
                 controllerLevel.setListViruses();
 
-                Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
+				// start the animation of the game play
+				Animation animation = new Animation(pane.getPrefWidth(), pane.getPrefHeight(),
                         controllerLevel, paneLevel1,"../Images/jet_lv1.png", score);
                 animation.start();
 
-                primaryStage.setScene(myScene);
+                primaryStage.setScene(sceneLevel1);
                 primaryStage.show();
                 
     		}else if(rules.isSelected()) {

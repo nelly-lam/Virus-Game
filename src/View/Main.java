@@ -9,31 +9,32 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class View extends Application {
+public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/welcomeGame.fxml"));
-        Pane start = loader.load();
-        Scene welcome = new Scene(start,start.getPrefWidth(),start.getPrefHeight());
-        welcome.getRoot().requestFocus();
-       
+        Pane paneWelcomeGame = loader.load();
+        Scene sceneWelcomeGame = new Scene(paneWelcomeGame, paneWelcomeGame.getPrefWidth(), paneWelcomeGame.getPrefHeight());
+        sceneWelcomeGame.getRoot().requestFocus();
+
+        //score of the entire game
         Score score = new Score();
 
         ControllerWelcome controllerWelcome = loader.getController();
-        controllerWelcome.setBestScore(Integer.toString(score.getBestScore()));
+        controllerWelcome.setBestScoreText(Integer.toString(score.getBestScore()));
         controllerWelcome.setScore(score);
-        
         
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Virus Game");
-        primaryStage.setScene(welcome);
+        primaryStage.setScene(sceneWelcomeGame);
         primaryStage.show();
     }
+
+
     public static void main(String[] args){
         launch(args);
-
     }
 }
 

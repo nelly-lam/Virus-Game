@@ -28,7 +28,7 @@ public class ControllerLevel3 extends ControllerLevel{
         maxTimerVirusShootFirstRow = 20;
         maxTimerVirusShootSecondRow = 20;
         maxTimerVirusShootThirdRow = 0;
-        numberOfAntiVax = 5;
+        pointVirus = 40;
     }
 
 

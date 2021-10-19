@@ -24,12 +24,10 @@ public class ControllerLevel {
     
 	public long maxTimerSendMunition;
 	public long maxTimerAntiVaxAttack;
-	public int numberOfAntiVax;
-	
+
 	public long maxTimerVirusShootFirstRow;
 	public long maxTimerVirusShootSecondRow;
 	public long maxTimerVirusShootThirdRow;
-
 
     protected ArrayList<ImageView> listVirusesFirstRow = new ArrayList<ImageView>();
     protected ArrayList<ImageView> listVirusesSecondRow = new ArrayList<ImageView>();
@@ -55,6 +53,7 @@ public class ControllerLevel {
     @FXML Text scoreText;
     private Score score;
     protected int levelNb;
+    protected int pointVirus;
 
     
     ///////////////////// METHODS ///////////////////////
@@ -66,6 +65,7 @@ public class ControllerLevel {
 	public Score getScore() { return score; }
 	public void setScore(Score score) { this.score = score; }
     public int getLevelNb() { return this.levelNb;}
+    public int getPointVirus() {return this.pointVirus;}
 
     public ArrayList<ImageView> getListVirusesFirstRow() { return listVirusesFirstRow; }
     public ArrayList<ImageView> getListVirusesSecondRow(){ return this.listVirusesSecondRow; }
@@ -76,8 +76,7 @@ public class ControllerLevel {
     public long getMaxTimerVirusShootFirstRow() { return this.maxTimerVirusShootFirstRow; }
     public long getMaxTimerVirusShootSecondRow() { return this.maxTimerVirusShootSecondRow; }
     public long getMaxTimerVirusShootThirdRow() { return this.maxTimerVirusShootThirdRow; }
-    public int getNumberOfAntiVax() { return this.numberOfAntiVax; }
-    
+
     
     @FXML protected void play(KeyEvent k){
         if(k.getCode().equals(KeyCode.SPACE)){

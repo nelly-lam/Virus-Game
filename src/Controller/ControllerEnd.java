@@ -73,7 +73,7 @@ public class ControllerEnd {
                 	score.setBestScore(score.getCurrentScore());
                 	score.setCurrentScore(0);
                 }
-            	controllerWelcome.setBestScore(Integer.toString(score.getBestScore()));
+            	controllerWelcome.setBestScoreText(Integer.toString(score.getBestScore()));
                 controllerWelcome.setScore(score);
                 
                 stage.setResizable(false);

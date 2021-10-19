@@ -32,7 +32,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="bestScore" fill="YELLOW" layoutX="338.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT">
+      <Text fx:id="bestScoreText" fill="YELLOW" layoutX="338.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>

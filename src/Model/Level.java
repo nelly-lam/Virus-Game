@@ -8,12 +8,8 @@ import java.util.ArrayList;
 public class Level {
 
     ///////////////////// ATTRIBUTES /////////////////////////
-    private int numberOfAntiVax;
     private ArrayList<AntiVax> listAntiVax;
-    private int pointOfAntiVax;
-
-    private boolean won;
-    private boolean lost;
+    private int pointOfEnemies;
 
     private VirusCloud virusCloudFirstRow;
     private VirusCloud virusCloudSecondRow;
@@ -25,13 +21,9 @@ public class Level {
 
 
     ///////////////////// CONSTRUCTOR /////////////////////////
-    public Level(ControllerLevel c, int point, int numberOfAntiVax){
-        this.numberOfAntiVax = numberOfAntiVax;
+    public Level(ControllerLevel c, int point){
         this.listAntiVax = new ArrayList<AntiVax>();
-        this.pointOfAntiVax = point;
-
-        this.won = false;
-        this.lost = false;
+        this.pointOfEnemies = point;
 
         this.virusCloudFirstRow = new VirusCloud();
         this.virusCloudSecondRow = new VirusCloud();
@@ -58,21 +50,13 @@ public class Level {
 
     ///////////////////// METHODS /////////////////////////
 
-    public int getPoint() { return pointOfAntiVax; }
+    public int getPointOfEnemies() { return pointOfEnemies; }
 
     public VirusCloud getVirusCloud() { return virusCloudFirstRow; }
     
 	public VirusCloud getVirusCloudSecondRow() { return virusCloudSecondRow; }
 
 	public VirusCloud getVirusCloudThirdRow() { return virusCloudThirdRow; }
-
-    public int getNumberOfAntiVax() { return numberOfAntiVax; }
-    public void setNumberOfAntiVax(int numberOfAntiVax) { this.numberOfAntiVax = numberOfAntiVax; }
-
-
-    public void setLost(boolean lost) { this.lost = lost; }
-
-    public void setWon(boolean won) { this.won = won; }
 
     public ArrayList<AntiVax> getListAntiVax() { return listAntiVax; }
 
@@ -81,7 +65,7 @@ public class Level {
     public void addVirusToVirusCloudSecondRow(Virus virus){ virusCloudSecondRow.addVirus(virus); }
     public void addVirusToVirusCloudThirdRow(Virus virus){ virusCloudThirdRow.addVirus(virus); }
 
-    public AntiVax createAntiVax(){ return new AntiVax(pointOfAntiVax); }
+    public AntiVax createAntiVax(){ return new AntiVax(pointOfEnemies); }
 
     public void addAntiVax(){
         AntiVax a = createAntiVax();

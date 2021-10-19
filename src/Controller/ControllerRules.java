@@ -27,7 +27,7 @@ public class ControllerRules {
             Score score = new Score();
 
             ControllerWelcome controllerWelcome = loader.getController();
-            controllerWelcome.setBestScore(Integer.toString(score.getBestScore()));
+            controllerWelcome.setBestScoreText(Integer.toString(score.getBestScore()));
             controllerWelcome.setScore(score);
 
             primaryStage.setResizable(false);

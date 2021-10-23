@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Virus-Game:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Virus_Game_jar</output-path>
+    <root id="archive" name="Virus-Game.jar">
+      <element id="module-output" name="Virus-Game" />
+    </root>
+  </artifact>
+</component>

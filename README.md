@@ -7,4 +7,6 @@ You just need a keyboard. The button who will need are :
 
 
 How to launch the game : 
-After downloading it , open the folder on Eclipse or Intellij and press the play button. 
+After downloading it , open the folder on Eclipse or Intellij.
+Then you'll maybe need to add a java fx library. 
+After that, if everyone is ok, press the play button. 

@@ -9,6 +9,7 @@ When the player kills viruses or anti-vax, he gains points that are added to a s
 The level is completed once the virus cloud is eliminated, and each 5 levels brings new stronger
 viruses. Lucky him he has 3 hit points to survive.
 The game ends when the player loses all his hit points, or when he completes all 5 levels.
+![Alt text](https://github.com/nelly-lam/Virus-Game/blob/main/image%20level%201.png)
 
 How to play the game : 
 You just need a keyboard. The button who will need are : 
